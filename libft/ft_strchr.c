@@ -1,17 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/11/13 14:35:48 by agorski          ###   ########.fr       */
+/*   Created: 2024/03/15 08:17:41 by agorski           #+#    #+#             */
+/*   Updated: 2024/04/08 21:12:55 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(int argc, char **argv)
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
 {
-    
+	while (*s != '\0')
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		else
+			s++;
+	}
+	if (*s == (char)c)
+		return ((char *)s);
+	else
+		return (NULL);
 }
-//główna funkcja
