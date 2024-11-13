@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/11/13 17:39:05 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:00:34 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 			printf("%s\n", line); // Wyświetla wprowadzone dane
 		}
 		free(line); // Zwalnia pamięć przydzieloną przez readline
-		printf("bla bla");
 	}
 }
 // główna funkcja programu, w której wywoływana jest funkcja readline,
