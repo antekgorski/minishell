@@ -84,7 +84,7 @@ void pipe_history_input(char *line)
 void history_input(char **args, char *d)
 {	
 	FILE *history_file = fopen(get_hist_file_path(), "a+");
-	int j = 0;	
+	int j = 0;
 	fprintf(history_file, "%d. ", history_line_count());
 	while(args[j] != NULL)
 	{
