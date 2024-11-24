@@ -12,39 +12,40 @@ int	main(int argc, char *argv[])
 	int	id1;
 	int	id2;
 
-	id1 = fork();
-	id2 = fork();
-	if (id1 == 0)
-	{
-		if (id2 == 0)
+	id1 = fork(); // tworzenie procesu potomnego
+	id2 = fork();	// tworzenie procesu potomnego
+	if (id1 == 0)// jesli id1 = 0 to proces potomny
+{
+		if (id2 == 0)// jesli id2 = 0 to proces potomny
 		{
-			printf("process fork:%i\n", getpid());
-			printf("parent of this process:%i\n", getppid());
+			printf("process fork:%i\n", getpid()); // wypisuje id procesu
+			printf("parent of this process:%i\n", getppid());// wypisuje id rodzica
             printf("\n");
 		}
-		else
+		else// jesli id2 != 0 to proces rodzica
+		
 		{
-			printf("process fork:%i\n", getpid());
-			printf("parent of this process:%i\n", getppid());
+			printf("process fork:%i\n", getpid());// wypisuje id procesu
+			printf("parent of this process:%i\n", getppid());// wypisuje id rodzica
              printf("\n");
 		}
 	}
-	else
+	else// jesli id1 != 0 to proces rodzica
 	{
-		if (id2 == 0)
+		if (id2 == 0)// jesli id2 = 0 to proces potomny
 		{
-			printf("process fork:%i\n", getpid());
-			printf("parent of this process:%i\n", getppid());
+			printf("process fork:%i\n", getpid());// wypisuje id procesu
+			printf("parent of this process:%i\n", getppid());// wypisuje id rodzica
              printf("\n");
 		}
 		else
 		{
-			printf("process fork:%i\n", getpid());
-			printf("parent of this process:%i\n", getppid());
+			printf("process fork:%i\n", getpid());// wypisuje id procesu
+			printf("parent of this process:%i\n", getppid());// wypisuje id rodzica
              printf("\n");
 		}
 	}
-	while ((wait(NULL) != -1) || (errno != ECHILD))
+	while ((wait(NULL) != -1) || (errno != ECHILD))// czeka na zakonczenie procesu potomnego
 	{
 		printf("WAITED FOR CHILD FINISH\n");
 	}
