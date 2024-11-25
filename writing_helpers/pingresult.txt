@@ -1,0 +1,7 @@
+PING wp.pl (212.77.98.9) 56(84) bytes of data.
+64 bytes from www.wp.pl (212.77.98.9): icmp_seq=1 ttl=55 time=13.6 ms
+
+--- wp.pl ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 13.575/13.575/13.575/0.000 ms
+max/mdev = 13.564/13.564/13.564/0.000 ms
