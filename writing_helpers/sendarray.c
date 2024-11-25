@@ -22,9 +22,10 @@ int	main(int argc, char *agrv[])
 		while (i < 10)
 		{
 			arr[i] = rand() % 10;
-            printf("%d\n", arr[i]);
+            printf("%d ", arr[i]);
 			i++;
 		}
+        printf("\n");
 		
 		write(fd[1], arr, sizeof(int) * 10);
 		close(fd[1]);
@@ -40,7 +41,7 @@ int	main(int argc, char *agrv[])
         {
             sum += arr[i++];
         }
-        printf("sum od arr:%d", sum);
+        printf("sum od arr:%d\n", sum);
 		close(fd[0]);
 		wait(NULL);
 	}
