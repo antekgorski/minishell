@@ -1,7 +1,7 @@
 .PHONY: all clean fclean re test bonus
 CC= cc
 CFLAGS= -Wextra -Werror -Wall
-NAME= libft++.a
+NAME= libft.a
 # OBJ= $(patsubst %.c,%.o,$(SRC))
 OBJ= $(SRC:%.c=%.o)
 B_OBJ= $(SRC_BONUS:%.c=%.o)

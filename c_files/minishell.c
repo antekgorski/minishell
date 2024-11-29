@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/11/13 18:00:34 by agorski          ###   ########.fr       */
+/*   Updated: 2024/11/29 17:22:22 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 int	main(int argc, char **argv)
 {
 	char	*line;
+	t_list	*command_list;
 
 	while (1)
 	{
-		line = readline("antpaw$");
-		// Wyświetla prompt "antpaw$" i czeka na wprowadzenie danych
-		if (!line) // Sprawdza, czy użytkownik wprowadził EOF
+		line = readline(PROMPT);// Wyświetla prompt "antpaw$" i czeka na wprowadzenie danych
+		if (!line)               // Sprawdza, czy użytkownik wprowadził EOF
 			break ;
 		if (*line) // Sprawdza, czy linia nie jest pusta
 		{
-			add_history(line);    // Dodaje linię do historii
-			printf("%s\n", line); // Wyświetla wprowadzone dane
+			add_history(line); // Dodaje linię do historii
+			command_list = parse(line, command_list); // Wywołuje funkcję parse, która wypisuje na ekranie podzieloną linię
+			while(command_list)
+			{
+				printf("%s\n", command_list->command);
+				command_list = command_list->next;
+			}	
 		}
 		free(line); // Zwalnia pamięć przydzieloną przez readline
 	}
