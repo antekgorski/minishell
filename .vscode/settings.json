@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "fcntl.h": "c"
     },
     "makefile.configureOnOpen": false
 }
