@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/11/29 17:34:49 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/05 10:38:40 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_list	*list_create(char *command, t_list *command_list)
 	return (new);
 	
 }
+
+
 
 t_list	*parse(void *line, t_list *command_list)
 {

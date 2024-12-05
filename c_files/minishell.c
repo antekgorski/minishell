@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/02 10:29:20 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/05 10:58:39 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ int	main(int argc, char **argv)
 {
 	char	*line;
 	t_list	*command_list;
+//signal handler --
+// pirnt a prompt +
+// Read a line +
+// Parse --
+// 	bulid tree representation.--
+// Execute -- (repeat)..
 
 	while (1)
 	{
