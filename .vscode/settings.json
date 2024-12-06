@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "minishell.h": "c"
     },
     "makefile.configureOnOpen": false
 }

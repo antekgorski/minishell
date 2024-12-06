@@ -1,0 +1,15 @@
+# Ignore object files, shared libraries, and executables
+*.o
+*/*/*.o
+*.a
+*.so
+*.out
+*.dll
+minishell
+
+# Ignore directories created by common IDEs
+#.vscode/
+*.nfs*
+
+# Ignore Vim temporary files
+*.swp
