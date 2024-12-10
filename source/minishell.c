@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/06 20:54:12 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:34:31 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	main(int argc, char **argv)
 		if (*line)						 // Sprawdza, czy linia nie jest pusta
 		{
 			add_history(line);			 // Dodaje linię do historii
-			parse(line);				 // Wywołuje funkcję parse, która dzieli linię na komendy
-			execute();					 // Wywołuje funkcję execute, która wykonuje komendy
+			check_quote((char *)line);	 // Sprawdza, czy cudzysłów jest sparowany
+			//parse(line);				 // Wywołuje funkcję parse, która dzieli linię na komendy
+			//execute();					 // Wywołuje funkcję execute, która wykonuje komendy
 		}
 		free(line); 					// Zwalnia pamięć przydzieloną przez readline
 	}

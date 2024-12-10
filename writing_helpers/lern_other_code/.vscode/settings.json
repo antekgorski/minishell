@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "ranges": "cpp",
+        "type_traits": "cpp",
+        "functional": "cpp"
+    }
+}

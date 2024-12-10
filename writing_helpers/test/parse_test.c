@@ -1,6 +1,6 @@
-#include "../headers/minishell.h"
+#include "../../headers/minishell.h"
 
-//cc parse_test.c ../c_files/parser.c -L ../libft -lft
+//cc parse_test.c ../../source/parser.c -L ../../libft -lft
 
 //gcc main.c -L minilibx-linux -lmlx -lX11 -lXext
 //gcc main.c -L minilibx-linux -lmlx -lX11 -lXext -g -L libft++ -lft++ -lm

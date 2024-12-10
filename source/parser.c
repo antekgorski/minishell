@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/06 20:36:51 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:34:05 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ char	**parse(void *line)
 {
 	char	**tab_pipe;
 	int		i;
-
+	
+	//check_quote((char *)line);
+	
 	tab_pipe = ft_split((char *)line, '|');
 	
 	return (tab_pipe);
