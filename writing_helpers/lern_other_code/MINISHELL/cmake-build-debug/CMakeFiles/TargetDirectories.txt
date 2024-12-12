@@ -1,0 +1,3 @@
+/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/CMakeFiles/MINISHELL.dir
+/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/CMakeFiles/rebuild_cache.dir

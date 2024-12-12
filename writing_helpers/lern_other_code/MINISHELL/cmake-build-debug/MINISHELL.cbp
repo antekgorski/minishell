@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MINISHELL"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MINISHELL">
+				<Option output="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/MINISHELL" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell"/>
+					<Add directory="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/include"/>
+					<Add directory="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft"/>
+					<Add directory="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 MINISHELL"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MINISHELL/fast">
+				<Option output="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/MINISHELL" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell"/>
+					<Add directory="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/include"/>
+					<Add directory="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft"/>
+					<Add directory="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 MINISHELL/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/include/functions.h">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/include/globals.h">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/include/minishell.h">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/include/prompt.h">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/include/types.h">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_atoi.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_bzero.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_calloc.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_isalnum.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_isalpha.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_isascii.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_isdigit.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_isprint.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_itoa.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstadd_back.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstadd_front.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstclear.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstdelone.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstiter.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstlast.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstmap.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstnew.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_lstsize.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_memchr.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_memcmp.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_memcpy.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_memmove.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_memset.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_putchar_fd.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_putendl_fd.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_putnbr_fd.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_putstr_fd.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_split.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strchr.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strcmp.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strdup.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_striteri.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strjoin.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strlcat.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strlcpy.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strlen.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strmapi.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strncmp.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strnstr.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strrchr.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_strtrim.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_substr.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_tolower.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/ft_toupper.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/libft/libft.h">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/builtins/cd.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/builtins/echo.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/builtins/env.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/builtins/exit.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/builtins/export.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/builtins/pwd.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/builtins/unset.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/environment/env_handler.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/errors/error.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/execution/builtin_commands.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/execution/command_execution.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/execution/execute.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/execution/io_redir.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/execution/pipe_management.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/filesystem/file_operations.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/io/input_handler.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/main.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/command.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/command_utils.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/command_utils2.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/dollar_sign.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/dollar_sign_utils.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/parser.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/token_remove.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/token_type.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/tokenizer.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/parser/tokenizer_utils.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/signals/signal_handlers.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/utils/cleanup.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/utils/initialization.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/minishell/srcs/utils/memory_utils.c">
+			<Option target="MINISHELL"/>
+		</Unit>
+		<Unit filename="/home/agorski/42warsaw/42_core/minishell/writing_helpers/lern_other_code/MINISHELL/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

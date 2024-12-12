@@ -9,13 +9,13 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/MINISHELL/minishell/minishell",
+            "program": "${workspaceFolder}/MiniShell-42/minishell",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            //"externalConsole": false,
-            "externalConsole": true
+            "externalConsole": false,
+            //"externalConsole": true,
             "MIMode": "gdb",
             "setupCommands": [
                 {

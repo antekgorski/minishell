@@ -1,6 +1,6 @@
 NAME = minishell
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -pthread
 INCLUDES = -I inc
 LIBFT = libs/libft/libft.a
 LIBS = $(LIBFT) $(FT_PRINTF) -lreadline -lm -g

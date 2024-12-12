@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/10 18:34:31 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/12 20:56:27 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/minishell.h"
 
-int	main(int argc, char **argv)
+void	main(int argc, char **argv, char **env)
 {
 	char	*line;
+	(void)argc;
+	(void)argv;
 
 	while (1)
 	{
@@ -31,6 +33,17 @@ int	main(int argc, char **argv)
 		free(line); 					// Zwalnia pamięć przydzieloną przez readline
 	}
 }
+// #include <stdio.h>
+
+// void main(int argc, char*argv[], char **env)
+// {
+//     // Przykład przetwarzania zmiennych środowiskowych
+//     for (char **envp = env; *envp != 0; envp++) {
+//         char *thisEnv = *envp;
+//         printf("%s\n", thisEnv); // Wypisanie zmiennej środowiskowej
+//     }
+// }
+
 // główna funkcja programu, w której wywoływana jest funkcja readline,
 // która zwraca wskaźnik na bufor z wczytaną linią
 // jeżeli wczytana linia nie jest pusta, to dodajemy ją do historii
