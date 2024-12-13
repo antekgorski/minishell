@@ -3,28 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-<<<<<<< HEAD:source/minishell.c
-/*   Updated: 2024/12/12 20:56:27 by agorski          ###   ########.fr       */
-=======
-/*   Updated: 2024/12/13 17:17:32 by agorski          ###   ########.fr       */
->>>>>>> 3e6da0f (desctiption libft added, parsing started):source/main.c
+/*   Updated: 2024/12/13 20:10:21 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-<<<<<<< HEAD:source/minishell.c
-void	main(int argc, char **argv, char **env)
-=======
 int	main(void)
->>>>>>> 3e6da0f (desctiption libft added, parsing started):source/main.c
 {
 	char	*line;
-	(void)argc;
-	(void)argv;
 
 	while (1)
 	{
