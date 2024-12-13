@@ -3,14 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:55:01 by agorski           #+#    #+#             */
-/*   Updated: 2024/04/02 23:08:52 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:22:31 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+/**
+ * @brief Writes an integer to the specified file descriptor as a string.
+ *
+ * The function converts the integer `n` to its string representation 
+ * and writes it to the file descriptor `fd`. It handles special cases 
+ * for zero, negative numbers, and the minimum integer value.
+ *
+ * @param n The integer to be written.
+ * @param fd The file descriptor to which the integer will be written. 
+ *           Common values include 1 for standard output and 2 for 
+ *           standard error.
+ * 
+ * @note The function does not perform error checking on the write operations. 
+ *       If the write fails, the behavior is not defined. The function also 
+ *       correctly handles the edge case of `-2147483648`, which cannot 
+ *       be represented as a positive number due to integer overflow.
+ */
 
 static void	write_function(char c, int fd)
 {

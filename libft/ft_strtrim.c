@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:41:26 by agorski           #+#    #+#             */
-/*   Updated: 2024/03/27 23:28:01 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:37:37 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/**
+ * @brief Checks if a character is in a specified set of characters.
+ *
+ * This function iterates over the string `set` to determine if the 
+ * character `c` is present within it.
+ *
+ * @param c The character to check.
+ * @param set The string containing the set of characters.
+ *
+ * @return 1 if `c` is found in `set`, otherwise 0.
+ */
 
 static int	ft_set_in_s(const char *set, char c)
 {
@@ -19,6 +31,22 @@ static int	ft_set_in_s(const char *set, char c)
 	else
 		return (0);
 }
+
+/**
+ * @brief Trims characters from the beginning and end of a string.
+ *
+ * This function removes all leading and trailing characters from 
+ * the string `s1` that are present in the string `set`.
+ *
+ * @param s1 The string to be trimmed.
+ * @param set The set of characters to remove from the edges of `s1`.
+ *
+ * @return A newly allocated string that is the trimmed version of 
+ *         `s1`, or NULL if memory allocation fails or if either 
+ *         input is NULL.
+ *
+ * @note The resulting string will always be null-terminated.
+ */
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

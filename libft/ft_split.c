@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:07:58 by agorski           #+#    #+#             */
-/*   Updated: 2024/04/08 21:43:55 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:23:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/**
+ * @brief Counts the number of words in a string based on a delimiter.
+ *
+ * This helper function counts the number of words in the string `s`,
+ * using the character `c` as a delimiter.
+ *
+ * @param s The string in which to count words. It should be null-terminated.
+ * @param c The delimiter character used to separate words.
+ * 
+ * @return The number of words in the string.
+ */
 
 static void	ft_initvar(size_t *index, int *word_index, int *start_of_word)
 {

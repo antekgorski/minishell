@@ -6,11 +6,31 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:55 by agorski           #+#    #+#             */
-/*   Updated: 2024/11/07 13:43:46 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:39:06 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/**
+ * @brief Extracts the remaining content after the first newline character
+ * in a string.
+ *
+ * This function processes a given line to separate the content before the
+ * first newline character from the content after it. It modifies the original
+ * line to terminate at the newline character and returns a new string containing
+ * the remaining content.
+ *
+ * @param line A pointer to the input string which is expected to contain
+ * a newline character.
+ *
+ * @return A new string containing the content after the first newline character,
+ * or NULL if no newline is found or if the allocated memory fails.
+ *
+ * @note The input string will be modified to terminate at the newline character.
+ *       It is the caller's responsibility to free the memory allocated for the 
+ *       returned string.
+ */
 
 static char	*read_to_buffer(char *buffer, int fd)
 {

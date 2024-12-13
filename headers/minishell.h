@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/11 09:40:32 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:43:02 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@
 
 # define PROMPT "antpaw$"
 
+//struct define
+
 typedef enum e_token
 {
     DQUOTE,         // "
 	SQUOTE,         // '
+	DOLAR,			// $  ??
 	PIPE,           // |
 	IREDIR,         // <
 	OREDIR,         // >
@@ -37,14 +40,15 @@ typedef enum e_token
 typedef struct s_node
 {
 	t_token			token;
-	char			*command;
+	char			**command;
 	struct s_node	*prev;
 	struct s_node	*next;
 
 }					t_node;
 // parser functions
-char				**parse(void *line);
-int	check_quote(char *line);
+void	parse(char *line);
+void	check_quote(char *line);
+char **write_to_tab(char *line);
 
 // error handler
 void panic(char *message);

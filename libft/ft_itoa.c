@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 10:11:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/03/31 23:56:00 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:12:31 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+/**
+ * @brief Counts the number of digits in an integer.
+ *
+ * This function calculates the number of digits in the given integer `n`.
+ * If the integer is negative, it also counts the negative sign.
+ *
+ * @param n The integer whose digits are to be counted.
+ *
+ * @return The number of digits in `n`,
+ *	including the negative sign if applicable.
+ */
 
 static char	*ft_set_str(int len)
 {

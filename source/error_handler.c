@@ -1,6 +1,6 @@
+#include "../headers/minishell.h"
+
 void panic(char *message)
 {
-    printf("%s\n", message);
-    exit(1);
-    //free all and print error and prein new prompt.
+    printf("%s\n", message); // Wypisuje komunikat o błędzie
 }
