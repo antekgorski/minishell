@@ -6,55 +6,41 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 20:10:21 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/15 22:24:44 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/*
+main function for minishell
+it reads the line from the user and then parses it
+if the line is empty it breaks the loop
+if the line is not empty it adds it to the history and then parses it
+then it frees the line
+and the loop continues
+*/
+
 int	main(void)
 {
-	char	*line;
+	t_minishell	minishell;
 
+	minishell.lexter_tab = NULL;
 	while (1)
 	{
-		line = readline(PROMPT);		// Wyświetla prompt "antpaw$" i czeka na wprowadzenie danych
-		if (!line)          		     // Sprawdza, czy użytkownik wprowadził EOF
+		minishell.line = readline(PROMPT);
+		if (!minishell.line)
 			break ;
-		if (*line)						 // Sprawdza, czy linia nie jest pusta
+		if (minishell.line)
 		{
-			add_history(line);			 // Dodaje linię do historii
-			parse(line);				 // Wywołuje funkcję parse, która dzieli linię na komendy
-			//execute();					 // Wywołuje funkcję execute, która wykonuje komendy
+			add_history(minishell.line);
+			parse(&minishell);
+			while (*minishell.lexter_tab)
+			{
+				printf("%s\n", *minishell.lexter_tab);
+				minishell.lexter_tab++;
+			}
 		}
-		free(line); 					// Zwalnia pamięć przydzieloną przez readline
+		free(minishell.line);
 	}
 }
-// #include <stdio.h>
-
-// void main(int argc, char*argv[], char **env)
-// {
-//     // Przykład przetwarzania zmiennych środowiskowych
-//     for (char **envp = env; *envp != 0; envp++) {
-//         char *thisEnv = *envp;
-//         printf("%s\n", thisEnv); // Wypisanie zmiennej środowiskowej
-//     }
-// }
-
-// główna funkcja programu, w której wywoływana jest funkcja readline,
-// która zwraca wskaźnik na bufor z wczytaną linią
-// jeżeli wczytana linia nie jest pusta, to dodajemy ją do historii
-// i wypisujemy na ekranie
-
-//	t_list	*command_list;
-//signal handler --
-// pirnt a prompt +
-// Read a line +
-// Parse --
-// 	bulid tree representation.--
-// Execute -- (repeat)..
-			//while(command_list)
-			// {
-			// 	printf("%s\n", command_list->command);
-			// 	command_list = command_list->next;
-			// }	

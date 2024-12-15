@@ -1,6 +1,6 @@
-#include "../../headers/minishell.h"
+#include "../headers/minishell.h"
 
-//cc parse_quote_test.c ../../source/parse_quote.c -L ../../libft -lft
+//cc lexter_test.c ../source/lexter.c ../source/error_handler.c -L ../libft -lft
 
 int main()
 {

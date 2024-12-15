@@ -6,22 +6,30 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:07:58 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:23:04 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/15 21:42:17 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * @brief Counts the number of words in a string based on a delimiter.
+ * @brief Splits a string into an array of words based on a delimiter.
  *
- * This helper function counts the number of words in the string `s`,
- * using the character `c` as a delimiter.
+ * The function takes a null-terminated string `s` and splits it into 
+ * words, using the character `c` as the delimiter. The resulting 
+ * words are stored in a dynamically allocated array of strings. 
+ * The array is null-terminated.
  *
- * @param s The string in which to count words. It should be null-terminated.
- * @param c The delimiter character used to separate words.
+ * @param s The string to be split into words. It should be null-terminated.
+ * @param c The delimiter character used to separate words in the string.
  * 
- * @return The number of words in the string.
+ * @return A pointer to an array of strings (words), or NULL if memory 
+ *         allocation fails or if `s` is NULL. The last element of the 
+ *         array is NULL to indicate the end of the words.
+ *
+ * @note This function uses helper functions for counting words and 
+ *       managing memory. Memory allocated for the array and its contents 
+ *       should be freed by the caller after use.
  */
 
 static void	ft_initvar(size_t *index, int *word_index, int *start_of_word)

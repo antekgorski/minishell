@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_quote.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/15 21:43:39 by agorski           #+#    #+#             */
+/*   Updated: 2024/12/15 22:28:44 by agorski          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 static int	quote_dcheck(char *line)
@@ -57,6 +69,7 @@ void	check_quote(char *line)
 	if (quote_scheck(line) == 1)
 	{
 		printf("Unmatched single quote. Please check your input.\n");
+		
 	}
 	if (quote_dcheck(line) == 1)
 	{
@@ -64,7 +77,4 @@ void	check_quote(char *line)
 	}
 	else
 		return ;
-	// quote handler
 }
-// printf("Error: Unmatched duble quote.\n");
-// printf("Error: Unmatched single quote.\n");

@@ -5,7 +5,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/writing_helpers/code_volt/linklist/a.out",
+            "program": "${workspaceFolder}/antminishel/minishell",
             "args": ["-pthread"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:55:54 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:35:48 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/15 21:44:54 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 /**
  * @brief Locates the last occurrence of a character in a string.
  *
- * This function scans the string `s` for the last occurrence of the 
- * character `c`. The search is performed from the end of the string 
+ * This function scans the string `s` for the last occurrence of the
+ * character `c`. The search is performed from the end of the string
  * towards the beginning.
  *
  * @param s The string to be searched.
  * @param c The character to locate in the string.
  *
- * @return A pointer to the last occurrence of `c` in `s`, or NULL if 
+ * @return A pointer to the last occurrence of `c` in `s`, or NULL if
  *         the character is not found.
  *
- * @note If `c` is the null character ('\0'), the function returns a 
+ * @note If `c` is the null character ('\0'), the function returns a
  *       pointer to the null terminator of the string.
  */
 

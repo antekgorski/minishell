@@ -1,6 +1,6 @@
 .PHONY: all clean fclean re test bonus
 CC= cc
-CFLAGS= -Wextra -Werror -Wall
+CFLAGS= -Wextra -Werror -Wall -fPIC
 NAME= libft.a
 # OBJ= $(patsubst %.c,%.o,$(SRC))
 OBJ= $(SRC:%.c=%.o)
