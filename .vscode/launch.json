@@ -24,7 +24,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "Build Current C File"  // tutaj dolancz sie zaldania z tasks.json
+           // "preLaunchTask": "Build Current C File"  // tutaj dolancz sie zaldania z tasks.json
         }
     ]
 }

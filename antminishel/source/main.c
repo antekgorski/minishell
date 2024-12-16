@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 19:23:49 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 23:36:18 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(void)
 			parse(&minishell);
 		}
 		free(minishell.line);
-		if (minishell.lexter_tab)
-			lexter_free(&minishell);
 	}
 }
+// valgrind --leak-check=full --track-origins=yes ./minishell
+// valgrind --leak-check=full --track-origins=yes --suppressions=valgrind_ignore.supp ./minishell

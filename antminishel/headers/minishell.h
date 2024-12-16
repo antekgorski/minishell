@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 19:19:58 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 21:17:24 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void				syntax_error(char *message, t_minishell *minishell);
 
 // free function
 void				ft_shell_free(t_minishell *minishell);
-void				lexter_free(t_minishell *minishell);
+void				tab_free(char **lexter_tab);
 
 #endif

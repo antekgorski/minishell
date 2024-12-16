@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexter0.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/15 22:07:35 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 23:25:11 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ int	ft_comend(char *temp_line, t_minishell *minishell)
 
 int	ft_pipe(t_minishell *minishell)
 {
-	minishell->lexter_tab = ft_addline(minishell->lexter_tab, "|");
+	char	*temp_arg;
+	temp_arg = ft_strdup("|");
+	minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
 	return (1);
 }
 

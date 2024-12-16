@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agorski <agorski@student.42.fr>            +#+  +:+       +#+         #
+#    By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:45:11 by agorski           #+#    #+#              #
-#    Updated: 2024/12/16 12:09:22 by agorski          ###   ########.fr        #
+#    Updated: 2024/12/16 23:45:03 by agorski          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
-TEST_CFLAGS = -Wall -Wextra -Werror -lreadline -g -pthread
+TEST_CFLAGS = -Wall -Wextra -Werror -lreadline -g -pthread -fdiagnostics-color=always #-fsanitize=address
 INCLUDE = -I./headers
 REDLINE = -lreadline
 

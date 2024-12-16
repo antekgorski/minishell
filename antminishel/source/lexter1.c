@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexter_tool.c                                      :+:      :+:    :+:   */
+/*   lexter1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:47:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/15 21:48:39 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 23:05:49 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,24 +75,32 @@ int	ft_dolar(char *temp_line, t_minishell *minishell)
 
 int	ft_iredir(char *temp_line, t_minishell *minishell)
 {
+	char	*temp_arg;
+
 	if (*(temp_line + 1) == '<')
 	{
-		minishell->lexter_tab = ft_addline(minishell->lexter_tab, "<<");
+		temp_arg = ft_strdup("<<");
+		minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
 		return (2);
 	}
 	else
-		minishell->lexter_tab = ft_addline(minishell->lexter_tab, "<");
+		temp_arg = ft_strdup("<");
+	minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
 	return (1);
 }
 
 int	ft_oredir(char *temp_line, t_minishell *minishell)
 {
+	char	*temp_arg;
+
 	if (*(temp_line + 1) == '>')
 	{
-		minishell->lexter_tab = ft_addline(minishell->lexter_tab, ">>");
+		temp_arg = ft_strdup(">>");
+		minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
 		return (2);
 	}
 	else
-		minishell->lexter_tab = ft_addline(minishell->lexter_tab, ">");
+		temp_arg = ft_strdup(">");
+	minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
 	return (1);
 }
