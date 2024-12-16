@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handler.c                                    :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/15 21:43:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 12:38:46 by agorski          ###   ########.fr       */
+/*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
+/*   Updated: 2024/12/16 12:25:11 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/minishell.h"
+#include "minishell.h"
 
-void	ft_panic(char *message, int is_error)
+void	ft_shell_free(t_minishell *minishell)
 {
-	perror(message);
-	exit(is_error);
-}
+    int i;
 
-// reset prompt after error or syntax error
-void	syntax_error(char *message, t_minishell *minishell)
-{	
-	ft_shell_free(minishell);
-	printf("%s\n", message);
-	rl_on_new_line();
-	rl_replace_line("", 0);
-	rl_redisplay();
+    i = 0;
+    while (minishell->lexter_tab[i])
+    {
+        free(minishell->lexter_tab[i]);
+        i++;
+    }
+    free(minishell->lexter_tab);
+    free(minishell->line);
 }

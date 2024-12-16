@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/15 22:24:44 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 12:52:47 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ int	main(void)
 		{
 			add_history(minishell.line);
 			parse(&minishell);
-			while (*minishell.lexter_tab)
-			{
-				printf("%s\n", *minishell.lexter_tab);
-				minishell.lexter_tab++;
-			}
+			
 		}
-		free(minishell.line);
+		//free(minishell.line);
 	}
 }

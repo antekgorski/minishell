@@ -6,7 +6,7 @@
 #    By: agorski <agorski@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:45:11 by agorski           #+#    #+#              #
-#    Updated: 2024/12/15 18:52:53 by agorski          ###   ########.fr        #
+#    Updated: 2024/12/16 12:09:22 by agorski          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,4 +54,12 @@ clean:
 
 re: fclean all
 
-.PHONY: all clean fclean re test
+test: $(LIBFT)
+	$(CC) $(TEST_CFLAGS) $(SRCS) -o $(NAME) $(LIBFT) $(INCLUDE) $(REDLINE)
+	
+retest:
+	make fclean
+	make all -C libft
+	make test
+
+.PHONY: all clean fclean re test retest

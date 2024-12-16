@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:43:39 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/15 22:28:44 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 12:33:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,15 @@ static int	quote_scheck(char *line)
 	return (0);
 }
 
-void	check_quote(char *line)
+void	check_quote(t_minishell *minishell)
 {
-	if (quote_scheck(line) == 1)
+	if (quote_scheck(minishell->line) == 1)
 	{
-		printf("Unmatched single quote. Please check your input.\n");
-		
+		syntax_error("Unmatched single quote. Please check your input.\n", minishell);	
 	}
-	if (quote_dcheck(line) == 1)
+	if (quote_dcheck(minishell->line) == 1)
 	{
-		printf("Unmatched duble quote. Please check your input.\n");
+		syntax_error("Unmatched duble quote. Please check your input.\n", minishell);
 	}
 	else
 		return ;
