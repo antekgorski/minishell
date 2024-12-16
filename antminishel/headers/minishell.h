@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 12:38:08 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 19:19:58 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char				**ft_addline(char **argv, char *line);
 
 // parser functions
 void				parse(t_minishell *minishell);
-void				check_quote(t_minishell *minishell);
+int				check_quote(t_minishell *minishell);
 
 // error handler
 void				ft_panic(char *message, int is_error);
@@ -81,5 +81,6 @@ void				syntax_error(char *message, t_minishell *minishell);
 
 // free function
 void				ft_shell_free(t_minishell *minishell);
+void				lexter_free(t_minishell *minishell);
 
 #endif

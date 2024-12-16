@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 12:45:47 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 19:13:13 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	parse(t_minishell *minishell)
 {
 	int i;
 	i = 0;
-	check_quote(minishell);
+	if (check_quote(minishell) == 1)
+		return ;
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
 	{
@@ -25,5 +26,5 @@ void	parse(t_minishell *minishell)
 			printf("%s\n", minishell->lexter_tab[i++]);
 		}
 	}
-	ft_shell_free(minishell);
+	
 }

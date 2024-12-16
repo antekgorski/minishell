@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 12:52:47 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 19:23:49 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int	main(void)
 		{
 			add_history(minishell.line);
 			parse(&minishell);
-			
 		}
-		//free(minishell.line);
+		free(minishell.line);
+		if (minishell.lexter_tab)
+			lexter_free(&minishell);
 	}
 }

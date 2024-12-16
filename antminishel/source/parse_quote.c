@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_quote.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:43:39 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 12:33:04 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 19:08:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,18 @@ static int	quote_scheck(char *line)
 	return (0);
 }
 
-void	check_quote(t_minishell *minishell)
+int	check_quote(t_minishell *minishell)
 {
 	if (quote_scheck(minishell->line) == 1)
 	{
-		syntax_error("Unmatched single quote. Please check your input.\n", minishell);	
+		printf("Unmatched single quote. Please check your input.\n");
+		return (1);
 	}
 	if (quote_dcheck(minishell->line) == 1)
 	{
-		syntax_error("Unmatched duble quote. Please check your input.\n", minishell);
+		printf("Unmatched duble quote. Please check your input.\n");
+		return (1);
 	}
 	else
-		return ;
+		return (0);
 }
