@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 21:33:16 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/17 11:55:24 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,32 @@
 
 void	ft_shell_free(t_minishell *minishell)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (minishell->lexter_tab[i])
-    {
-        free(minishell->lexter_tab[i]);
-        i++;
-    }
-    free(minishell->lexter_tab);
-    free(minishell->line);
+	i = 0;
+	while (minishell->lexter_tab[i])
+	{
+		free(minishell->lexter_tab[i]);
+		i++;
+	}
+	free(minishell->lexter_tab);
+	free(minishell->line);
 }
 
-void  tab_free(char **lexter_tab)
+void	tab_free(char **lexter_tab)
 {
-    if(lexter_tab == NULL)
-        return ;
-    int i;
+	if (lexter_tab == NULL)
+		return ;
+	int i;
 
-    i = 0;
-    while (lexter_tab[i])
-    {
-        free(lexter_tab[i]);
-        i++;
-    }
-    free(lexter_tab);
-    lexter_tab = NULL;
+	i = 0;
+	while (lexter_tab[i] && lexter_tab[i] != NULL)
+	{
+		free(lexter_tab[i]);
+		lexter_tab[i] = NULL;
+
+		i++;
+	}
+	free(lexter_tab);
+	lexter_tab = NULL;
 }

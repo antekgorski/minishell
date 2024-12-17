@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 07:33:09 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/17 10:13:37 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,4 @@ int	main(void)
 }
 // valgrind --leak-check=full --track-origins=yes ./minishell
 // valgrind --leak-check=full --track-origins=yes --suppressions=valgrind_ignore.supp ./minishell
-//valgrind --leak-check=full --show-leak-kinds=all ./minishell
+//valgrind --leak-check=full --show-leak-kinds=all --suppressions=valgrind_ignore.supp ./minishell
