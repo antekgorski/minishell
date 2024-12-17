@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 23:25:11 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/17 07:43:31 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	**ft_addline(char **argv, char *line)
 	}
 	new_argv[i] = line;
 	new_argv[i + 1] = NULL;
+	if (argv)
+		free(argv);
 	return (new_argv);
 }
 
@@ -49,9 +51,7 @@ int	ft_comend(char *temp_line, t_minishell *minishell)
 
 int	ft_pipe(t_minishell *minishell)
 {
-	char	*temp_arg;
-	temp_arg = ft_strdup("|");
-	minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
+	minishell->lexter_tab = ft_addline(minishell->lexter_tab, "|");
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 22:16:59 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/16 21:33:16 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void  tab_free(char **lexter_tab)
     while (lexter_tab[i])
     {
         free(lexter_tab[i]);
-        lexter_tab[i] = NULL;
         i++;
     }
     free(lexter_tab);
