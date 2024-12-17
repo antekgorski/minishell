@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 21:17:24 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/17 12:26:03 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ typedef struct s_node
 	struct s_node	*next;
 
 }					t_node;
+
+//main functions
+void				main_loop(t_minishell *minishell);
 
 // lexer functions
 void				ft_lexter(t_minishell *minishell);
