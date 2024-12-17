@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 10:13:37 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/17 12:20:46 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(void)
 			break ;
 		if (minishell.line)
 		{
+			if (minishell.line[0] != '\0')
 			add_history(minishell.line);
 			parse(&minishell);
 		}
