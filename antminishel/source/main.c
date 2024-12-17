@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 12:25:28 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/17 12:33:20 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ then it frees the line
 and the loop continues
 */
 
-void main_loop(t_minishell *minishell)
+void	main_loop(t_minishell *minishell)
 {
 	while (1)
 	{
@@ -45,6 +45,3 @@ int	main(void)
 	minishell.lexter_tab = NULL;
 	main_loop(&minishell);
 }
-// valgrind --leak-check=full --track-origins=yes ./minishell
-// valgrind --leak-check=full --track-origins=yes --suppressions=valgrind_ignore.supp ./minishell
-//valgrind --leak-check=full --show-leak-kinds=all --suppressions=valgrind_ignore.supp ./minishell

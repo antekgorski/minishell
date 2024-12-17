@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 12:07:29 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/17 12:36:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	ft_comend(char *temp_line, t_minishell *minishell)
 
 int	ft_pipe(t_minishell *minishell)
 {
-	char *temp_arg;
+	char	*temp_arg;
+
 	temp_arg = ft_strdup("|");
 	minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
 	return (1);

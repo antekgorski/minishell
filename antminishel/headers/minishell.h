@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 12:26:03 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/17 12:31:42 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char				**ft_addline(char **argv, char *line);
 
 // parser functions
 void				parse(t_minishell *minishell);
-int				check_quote(t_minishell *minishell);
+int					check_quote(t_minishell *minishell);
 
 // error handler
 void				ft_panic(char *message, int is_error);
