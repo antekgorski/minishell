@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/18 12:13:23 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:22:23 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 /*
-main function for minishell
+main_loop function
 it reads the line from the user and then parses it
 if the line is empty it breaks the loop
 if the line is not empty it adds it to the history and then parses it

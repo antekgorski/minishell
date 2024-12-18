@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/18 13:36:39 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:25:06 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// Pobiera bieżące ustawienia terminala
-// Wyłącza ECHOCTL (odpowiada za wyświetlanie ^C, ^Z, itp.)
-// Wprowadza zmiany
+// Retrieves the current terminal settings
+// Disables ECHOCTL (responsible for displaying ^C, ^Z, etc.)
+// Applies the changes to the terminal
 static void	disable_signal_echo(void)
 {
 	struct termios	term;
@@ -44,6 +44,9 @@ static void	sigquit_handler(int sig)
 	rl_redisplay();
 }
 
+// Initialize signals
+// Disable ECHOCTL (responsible for displaying ^C, ^Z, etc.)
+// Handle SIGINT and SIGQUIT signals
 void	signal_initialization(void)
 {
 	disable_signal_echo();

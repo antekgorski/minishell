@@ -1,5 +1,0 @@
-This should be written to 'test_output.txt'
-This should be appended to 'test_output.txt'
-Read from redirected stdin: input data
-/////˜Read from heredoc: input data
-/////˜All tests completed.
