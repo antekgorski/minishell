@@ -6,12 +6,13 @@
 #    By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:45:11 by agorski           #+#    #+#              #
-#    Updated: 2024/12/18 21:24:11 by agorski          ###   ########.fr        #
+#    Updated: 2024/12/18 21:32:33 by agorski          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 SRCS_DIR = source
+# we must change this becouse of the norminette!!
 SRCS = $(shell find $(SRCS_DIR) -name "*.c")
 
 OBJS = $(SRCS:.c=.o)
