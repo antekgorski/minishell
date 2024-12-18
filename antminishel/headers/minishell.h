@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 12:31:42 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/18 14:37:24 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_minishell
 {
 	char			*line;
 	char			**lexter_tab;
+	t_list			m_env;
+
 }					t_minishell;
 
 // struct enum for tokens used in parser
@@ -57,7 +59,7 @@ typedef struct s_node
 
 }					t_node;
 
-//main functions
+// main functions
 void				main_loop(t_minishell *minishell);
 
 // lexer functions
@@ -85,5 +87,9 @@ void				syntax_error(char *message, t_minishell *minishell);
 // free function
 void				ft_shell_free(t_minishell *minishell);
 void				tab_free(char **lexter_tab);
+
+// env handler functions
+void				envinit(t_minishell *minishell, char **envp);
+
 
 #endif
