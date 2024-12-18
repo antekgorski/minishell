@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 12:31:42 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/18 12:44:05 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include "../libft/libft.h"
 # include <readline/history.h>
 # include <readline/readline.h>
+# include <signal.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <termios.h>
 
 # define PROMPT "antpaw$"
 # define SYMBOLS "'|''<''>''\"''\'''''$'' ''\t'"
@@ -57,7 +59,7 @@ typedef struct s_node
 
 }					t_node;
 
-//main functions
+// main functions
 void				main_loop(t_minishell *minishell);
 
 // lexer functions
@@ -85,5 +87,9 @@ void				syntax_error(char *message, t_minishell *minishell);
 // free function
 void				ft_shell_free(t_minishell *minishell);
 void				tab_free(char **lexter_tab);
+
+// Signals
+void				signal_initialization(void);
+void				handle_input(char *input);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 12:33:20 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/18 12:13:23 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ and the loop continues
 
 void	main_loop(t_minishell *minishell)
 {
+	signal_initialization();
 	while (1)
 	{
 		minishell->line = readline(PROMPT);
-		if (!minishell->line)
-			break ;
+		handle_input(minishell->line);
 		if (minishell->line)
 		{
 			if (minishell->line[0] != '\0')
