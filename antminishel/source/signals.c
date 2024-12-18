@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/18 13:19:27 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/18 13:36:39 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ static void	sigint_handler(int sig)
 
 // ctrl + '\'
 // Do nothing
-// Usuwa '^\' z terminala
 static void	sigquit_handler(int sig)
 {
 	(void)sig;
 	rl_on_new_line();
 	rl_redisplay();
-	write(STDERR_FILENO, "  \b\b", 4);
 }
 
 void	signal_initialization(void)
