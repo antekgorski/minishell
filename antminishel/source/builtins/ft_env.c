@@ -6,17 +6,19 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/19 16:01:19 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 16:17:00 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_env(t_minishell *minishell)
+int	ft_env(t_minishell *minishell)
 {
 	t_list	*current;
 	char	**env_vars;
 
+	if (minishell->m_env == NULL)
+		return (1);
 	current = minishell->m_env;
 	while (current != NULL)
 	{
@@ -24,4 +26,5 @@ void	ft_env(t_minishell *minishell)
 		printf("%s=%s\n", env_vars[0], env_vars[1]);
 		current = current->next;
 	}
+	return (0);
 }

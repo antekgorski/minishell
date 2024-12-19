@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 16:06:46 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 16:15:46 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	parse(t_minishell *minishell)
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
 	{
-		execute_command(minishell->lexter_tab, minishell);
+		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(minishell->lexter_tab);

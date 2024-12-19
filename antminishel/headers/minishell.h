@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 16:07:05 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 16:18:16 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_minishell
 	char			*line;
 	char			**lexter_tab;
 	t_list			*m_env;
+	int				f_signal;
 
 }					t_minishell;
 
@@ -106,7 +107,7 @@ void				handle_input(char *input);
 
 // Builtins
 int 				ft_strcmp(const char *s1, const char *s2);
-int 				execute_command(char **args, t_minishell *minishell);
+int 				e_bild(char **args, t_minishell *minishell);
 int 				ft_pwd(void);
 int 				ft_cd(char **args);
 int 				ft_echo(char **args);
