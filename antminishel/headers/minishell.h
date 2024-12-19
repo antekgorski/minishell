@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 16:18:16 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 16:27:57 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef enum e_token
 	TO_PARSE
 }					t_token;
 
-// struct for linked list duble or lingle?
+// struct for linked list duble or single?
 
 typedef struct s_node
 {
@@ -111,7 +111,7 @@ int 				e_bild(char **args, t_minishell *minishell);
 int 				ft_pwd(void);
 int 				ft_cd(char **args);
 int 				ft_echo(char **args);
-int 				ft_env(t_list *env);
+int 				ft_env(t_minishell *minishell);
 int    				ft_exit(void);
 
 
