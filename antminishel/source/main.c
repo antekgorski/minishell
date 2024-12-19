@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 14:11:15 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 14:27:43 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	main_loop(t_minishell *minishell)
 	}
 }
 
-//function to initialize the minishell struct
+// function to initialize the minishell struct
 
 void	minishell_init(t_minishell *minishell, char **envp)
 {
@@ -52,6 +52,8 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_minishell	minishell;
 
+	(void)argc;
+	(void)argv;
 	minishell_init(&minishell, envp);
 	main_loop(&minishell);
 }

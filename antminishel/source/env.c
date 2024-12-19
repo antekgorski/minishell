@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:52:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 13:42:53 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 14:17:05 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	**ft_split_env(char *env)
 
 	i = 0;
 	split = ft_calloc(2, sizeof(char *));
-	// if (!split)
-	// 	ft_panic("Malloc failed", 1);
+	if (!split)
+		ft_panic("Malloc failed", 1);
 	while (env[i] && env[i] != '=')
 		i++;
 	split[0] = ft_substr(env, 0, i);

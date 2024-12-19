@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 14:13:53 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 14:27:15 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,13 @@ typedef struct s_node
 }					t_node;
 
 // main functions
-// main functions
 void				main_loop(t_minishell *minishell);
 void				minishell_init(t_minishell *minishell, char **envp);
+void				env_start(t_minishell *minishell, char **envp);
+
+
 
 // lexer functions
-void				ft_lexter(t_minishell *minishell);
 int					ft_squote(char *temp_line, t_minishell *minishell);
 int					ft_dquote(char *temp_line, t_minishell *minishell);
 int					ft_dolar(char *temp_line, t_minishell *minishell);
@@ -85,6 +86,7 @@ char				**ft_addline(char **argv, char *line);
 // parser functions
 void				parse(t_minishell *minishell);
 int					check_quote(t_minishell *minishell);
+void				ft_lexter(t_minishell *minishell);
 
 // error handler
 void				ft_panic(char *message, int is_error);
@@ -94,6 +96,7 @@ void				syntax_error(char *message, t_minishell *minishell);
 // free function
 void				ft_shell_free(t_minishell *minishell);
 void				tab_free(char **lexter_tab);
+void				env_free(t_list *env);
 
 // Signals
 void				signal_initialization(void);
