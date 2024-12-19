@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 14:27:15 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 16:07:05 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ char				**ft_addline(char **argv, char *line);
 void				parse(t_minishell *minishell);
 int					check_quote(t_minishell *minishell);
 void				ft_lexter(t_minishell *minishell);
+char				*ft_get_env(t_list *head, char *key);
+t_list				*ft_find_env(t_list *head, char *key);
 
 // error handler
 void				ft_panic(char *message, int is_error);
@@ -104,11 +106,11 @@ void				handle_input(char *input);
 
 // Builtins
 int 				ft_strcmp(const char *s1, const char *s2);
-int 				execute_command(char **args);
+int 				execute_command(char **args, t_minishell *minishell);
 int 				ft_pwd(void);
 int 				ft_cd(char **args);
 int 				ft_echo(char **args);
-// int 				ft_env(t_var *env_list);
+int 				ft_env(t_list *env);
 int    				ft_exit(void);
 
 
