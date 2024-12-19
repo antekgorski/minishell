@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 13:37:55 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 13:45:09 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_shell_free(t_minishell *minishell)
 {
 	tab_free(minishell->lexter_tab);
 	free(minishell->line);
+	env_free(minishell->m_env);
 }
 
 void	tab_free(char **lexter_tab)

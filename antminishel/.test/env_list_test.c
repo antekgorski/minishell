@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-// cc env_list_test.c ../source/env.c -I../headers -L ../libft -lft -g
+//cc env_list_test.c ../source/env.c ../source/free.c -I../headers -L ../libft -lft -g
 
 void	minishell_init(t_minishell *minishell, char **envp)
 {
@@ -18,7 +18,7 @@ void	print_env(t_minishell *minishell)
     printf("%s\n%s\n", ((char **)minishell->m_env->content)[0], ((char **)minishell->m_env->content)[1]);
     
     //print all env variables
-    
+
     // t_list	*current;
 	// char	**env_vars;
 
@@ -37,6 +37,8 @@ void	print_env(t_minishell *minishell)
 	// 	}
 	// 	current = current->next;
 	// }
+
+    ft_shell_free(minishell);
 }
 
 int	main(int argc, char **argv, char **envp)
