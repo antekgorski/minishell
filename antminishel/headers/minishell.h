@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 13:34:33 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:13:53 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+// my includes
 # include "../libft/libft.h"
 # include <readline/history.h>
+
+// system includes
 # include <readline/readline.h>
 # include <signal.h>
 # include <stdio.h>
@@ -30,6 +33,8 @@ typedef struct s_minishell
 {
 	char			*line;
 	char			**lexter_tab;
+	t_list			*m_env;
+
 }					t_minishell;
 
 // struct enum for tokens used in parser
@@ -60,7 +65,9 @@ typedef struct s_node
 }					t_node;
 
 // main functions
+// main functions
 void				main_loop(t_minishell *minishell);
+void				minishell_init(t_minishell *minishell, char **envp);
 
 // lexer functions
 void				ft_lexter(t_minishell *minishell);

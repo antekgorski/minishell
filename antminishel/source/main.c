@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/18 21:22:23 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 14:11:15 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,20 @@ void	main_loop(t_minishell *minishell)
 	}
 }
 
-int	main(void)
+//function to initialize the minishell struct
+
+void	minishell_init(t_minishell *minishell, char **envp)
+{
+	minishell->line = NULL;
+	minishell->lexter_tab = NULL;
+	minishell->m_env = NULL;
+	env_start(minishell, envp);
+}
+
+int	main(int argc, char **argv, char **envp)
 {
 	t_minishell	minishell;
 
-	minishell.lexter_tab = NULL;
+	minishell_init(&minishell, envp);
 	main_loop(&minishell);
 }
