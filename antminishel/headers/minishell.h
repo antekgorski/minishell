@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 16:27:57 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 20:02:11 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,6 @@
 # define PROMPT "antpaw$"
 # define SYMBOLS "'|''<''>''\"''\'''''$'' ''\t'"
 
-// main struct for minishell
-
-typedef struct s_minishell
-{
-	char			*line;
-	char			**lexter_tab;
-	t_list			*m_env;
-	int				f_signal;
-
-}					t_minishell;
-
 // struct enum for tokens used in parser
 
 typedef enum e_token
@@ -50,9 +39,22 @@ typedef enum e_token
 	OREDIR,
 	APPEND,
 	HERDOC,
-	CMD,
-	TO_PARSE
+	CMD
 }					t_token;
+
+// main struct for minishell
+
+typedef struct s_minishell
+{
+	char			*line;
+	char			**lexter_tab;
+	t_token			*token;
+	t_list			*token_list;
+	t_list			*m_env;
+	int				f_signal;
+
+}					t_minishell;
+
 
 // struct for linked list duble or single?
 
@@ -70,8 +72,6 @@ void				main_loop(t_minishell *minishell);
 void				minishell_init(t_minishell *minishell, char **envp);
 void				env_start(t_minishell *minishell, char **envp);
 
-
-
 // lexer functions
 int					ft_squote(char *temp_line, t_minishell *minishell);
 int					ft_dquote(char *temp_line, t_minishell *minishell);
@@ -82,7 +82,7 @@ int					ft_oredir(char *temp_line, t_minishell *minishell);
 int					ft_iredir(char *temp_line, t_minishell *minishell);
 int					ft_append(char *temp_line, t_minishell *minishell);
 int					ft_heredoc(char *temp_line, t_minishell *minishell);
-char				**ft_addline(char **argv, char *line);
+char				**ft_addline(t_minishell *minishell, char *line, t_token token);
 
 // parser functions
 void				parse(t_minishell *minishell);
@@ -90,6 +90,7 @@ int					check_quote(t_minishell *minishell);
 void				ft_lexter(t_minishell *minishell);
 char				*ft_get_env(t_list *head, char *key);
 t_list				*ft_find_env(t_list *head, char *key);
+void				ft_get_token(t_token token, t_minishell *minishell);
 
 // error handler
 void				ft_panic(char *message, int is_error);
@@ -100,21 +101,19 @@ void				syntax_error(char *message, t_minishell *minishell);
 void				ft_shell_free(t_minishell *minishell);
 void				tab_free(char **lexter_tab);
 void				env_free(t_list *env);
+void				ft_token_free(t_list *token_list);
 
 // Signals
 void				signal_initialization(void);
 void				handle_input(char *input);
 
 // Builtins
-int 				ft_strcmp(const char *s1, const char *s2);
-int 				e_bild(char **args, t_minishell *minishell);
-int 				ft_pwd(void);
-int 				ft_cd(char **args);
-int 				ft_echo(char **args);
-int 				ft_env(t_minishell *minishell);
-int    				ft_exit(void);
-
-
-
+int					ft_strcmp(const char *s1, const char *s2);
+int					e_bild(char **args, t_minishell *minishell);
+int					ft_pwd(void);
+int					ft_cd(char **args);
+int					ft_echo(char **args);
+int					ft_env(t_minishell *minishell);
+int					ft_exit(t_minishell *minishell);
 
 #endif

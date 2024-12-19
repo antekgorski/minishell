@@ -6,35 +6,45 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/17 12:36:04 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 19:52:26 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	**ft_addline(char **argv, char *line)
+// add line to the lexter_tab
+// if the lexter_tab is NULL it will create a new one
+// if the lexter_tab is not NULL it will add a new line to it
+// and then it will free the old one
+// and return the new one
+
+char	**ft_addline(t_minishell *minishell, char *line, t_token token)
 {
 	char	**new_argv;
 	int		i;
 
 	i = 0;
-	while (argv && argv[i])
+	while (minishell->lexter_tab && minishell->lexter_tab[i])
 		i++;
 	new_argv = ft_calloc(sizeof(char *) * (i + 2), 1);
 	if (new_argv == NULL)
 		ft_panic("malloc", 1);
 	i = 0;
-	while (argv && argv[i])
+	while (minishell->lexter_tab && minishell->lexter_tab[i])
 	{
-		new_argv[i] = argv[i];
+		new_argv[i] = minishell->lexter_tab[i];
 		i++;
 	}
 	new_argv[i] = line;
+	ft_get_token(token, minishell);
 	new_argv[i + 1] = NULL;
-	if (argv)
-		free(argv);
+	if (minishell->lexter_tab)
+		free(minishell->lexter_tab);
 	return (new_argv);
 }
+
+// single quote
+// it will add the line to the lexter_tab
 
 int	ft_comend(char *temp_line, t_minishell *minishell)
 {
@@ -45,7 +55,7 @@ int	ft_comend(char *temp_line, t_minishell *minishell)
 	while (temp_line[i] && !ft_strchr(SYMBOLS, temp_line[i]))
 		i++;
 	temp_arg = ft_substr(temp_line, 0, i);
-	minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
+	minishell->lexter_tab = ft_addline(minishell, temp_arg, CMD);
 	return (i);
 }
 
@@ -54,7 +64,7 @@ int	ft_pipe(t_minishell *minishell)
 	char	*temp_arg;
 
 	temp_arg = ft_strdup("|");
-	minishell->lexter_tab = ft_addline(minishell->lexter_tab, temp_arg);
+	minishell->lexter_tab = ft_addline(minishell, temp_arg, PIPE);
 	return (1);
 }
 

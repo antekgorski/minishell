@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/19 16:19:03 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 19:56:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	e_bild(char **args, t_minishell *minishell)
 	else if (args[0] && ft_strcmp(args[0], "cd") == 0)
 		return (ft_cd(args));
 	else if (args[0] && ft_strcmp(args[0], "exit") == 0)
-		return (ft_exit());
+		return (ft_exit(minishell));
 	else if (args[0] && ft_strcmp(args[0], "env") == 0)
 		return (ft_env(minishell));
 	return (0);

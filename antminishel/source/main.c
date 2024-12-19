@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 14:27:43 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 20:04:33 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	minishell_init(t_minishell *minishell, char **envp)
 	minishell->line = NULL;
 	minishell->lexter_tab = NULL;
 	minishell->m_env = NULL;
+	minishell->token_list = NULL;
+	minishell->f_signal = 0;
 	env_start(minishell, envp);
 }
 
