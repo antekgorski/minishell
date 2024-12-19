@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 12:00:16 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 13:39:10 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void				syntax_error(char *message, t_minishell *minishell);
 // free function
 void				ft_shell_free(t_minishell *minishell);
 void				tab_free(char **lexter_tab);
+void				env_free(t_list *env);
 
 // env handler functions
 void				env_start(t_minishell *minishell, char **envp);
