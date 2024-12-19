@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/18 13:29:17 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/19 13:34:33 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,17 @@ void				tab_free(char **lexter_tab);
 // Signals
 void				signal_initialization(void);
 void				handle_input(char *input);
+
+// Builtins
+int 				ft_strcmp(const char *s1, const char *s2);
+int 				execute_command(char **args);
+int 				ft_pwd(void);
+int 				ft_cd(char **args);
+int 				ft_echo(char **args);
+// int 				ft_env(t_var *env_list);
+int    				ft_exit(void);
+
+
+
 
 #endif
