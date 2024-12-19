@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 14:20:02 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 15:12:12 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void	env_free(t_list *env)
 {
 	t_list	*tmp;
 	char	**env_vars;
-
+	if (env == NULL)
+		return ;
 	while (env)
 	{
 		tmp = env;
