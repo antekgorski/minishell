@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:26:03 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 16:35:09 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_shell_free(t_minishell *minishell)
 	env_free(minishell->m_env);
 	ft_token_free(&minishell->token_list);
 }
+
 /**
  * @brief 	Frees a two-dimensional array of strings.
  * 			Each string in the array is freed, then the array itself is freed.

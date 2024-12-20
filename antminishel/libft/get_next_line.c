@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:55 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:24:12 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 16:36:22 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ char	*update_buffer(char *buffer)
 	free(buffer);
 	return (str);
 }
+
 /**
  * @brief Reads the next line from a file descriptor.
  *

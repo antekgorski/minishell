@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 18:40:09 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:20:31 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 16:35:46 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static int	ft_print_sign(int imput, va_list ap)
 		i = print_hex(va_arg(ap, unsigned int), imput);
 	return (i);
 }
+
 /**
  * @brief Prints formatted data to the standard output.
  *

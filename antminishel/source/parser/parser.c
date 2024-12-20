@@ -6,24 +6,11 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:41:00 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 16:34:44 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	ft_parser_test(t_minishell *minishell)
-{
-	int	i;
-
-	i = 0;
-	while (minishell->lexter_tab[i])
-	{
-		printf("%s\t%i\n", minishell->lexter_tab[i], *(int *)minishell->token_list->content);
-		i++;
-		minishell->token_list = minishell->token_list->next;
-	}
-}
 
 // function to get token
 // it will create a new node and add it to the token_list
@@ -56,7 +43,6 @@ void	parse(t_minishell *minishell)
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
 	{
-		ft_parser_test(minishell);
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
