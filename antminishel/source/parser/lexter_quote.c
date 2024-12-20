@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:47:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 18:30:05 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 19:02:03 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,32 @@ int	ft_squote(char *temp_line, t_minishell *minishell)
 	minishell->lexter_tab = ft_addline(minishell, temp, SQUOTE);
 	return (i + 1);
 }
+int	ft_qdolar(char *q_line, t_minishell *minishell)
+{
+// like ft_dolar
+}
+
+int	ft_qtext(char *q_line, t_minishell *minishell)
+{
+// like ft_cmd
+}
 
 void	ft_d_roll(char **temp_arg, t_minishell *minishell)
 {
-	char	**temp_tab;
-	char	*r_dolar;
-	int		i;
+	char	*q_line;
 
-	i = 0;
-	temp_tab = ft_split(*temp_arg, '$');
-	while (temp_tab[i])
+	q_line = *temp_arg;
+	while (*q_line)
 	{
-		r_dolar = ft_get_env(minishell->m_env,temp_tab[i]);
-		printf("r_dolar:%s\n", r_dolar);
-		i++;
+		if (ft_strchr(SYMBOLS, *q_line))
+		{
+			if (*q_line == ' ' || *q_line == '\t')
+				q_line++;
+			if (*q_line == '$')
+				q_line += ft_qdolar(q_line, minishell);
+		}
+		else
+			q_line += ft_qtext(q_line, minishell);
 	}
 }
 
