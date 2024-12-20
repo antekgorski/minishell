@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 23:58:14 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:21:21 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 22:47:28 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
+ * @attention MALLOC
  * @brief Applies a function to each character of a string,
  *	creating a new string.
  *

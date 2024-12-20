@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:39:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:21:07 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 22:41:45 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
+ * @attention MALLOC
  * @brief Joins two strings into a new dynamically allocated string.
  *
  * The function concatenates the strings pointed to by `s1` and `s2`, 
