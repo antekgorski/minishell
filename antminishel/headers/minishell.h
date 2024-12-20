@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 10:07:16 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/20 10:32:53 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,6 @@
 # define PROMPT "antpaw$"
 # define SYMBOLS "'|''<''>''\"''\'''''$'' ''\t'"
 
-// main struct for minishell
-
-typedef struct s_minishell
-{
-	char			*line;
-	char			**lexter_tab;
-	t_list			*m_env;
-	int				f_signal;
-
-}					t_minishell;
-
 // struct enum for tokens used in parser
 
 typedef enum e_token
@@ -50,9 +39,22 @@ typedef enum e_token
 	OREDIR,
 	APPEND,
 	HERDOC,
-	CMD,
-	TO_PARSE
+	CMD
 }					t_token;
+
+// main struct for minishell
+
+typedef struct s_minishell
+{
+	char			*line;
+	char			**lexter_tab;
+	t_token			*token;
+	t_list			*token_list;
+	t_list			*m_env;
+	int				f_signal;
+
+}					t_minishell;
+
 
 // struct for linked list duble or single?
 
@@ -80,7 +82,7 @@ int					ft_oredir(char *temp_line, t_minishell *minishell);
 int					ft_iredir(char *temp_line, t_minishell *minishell);
 int					ft_append(char *temp_line, t_minishell *minishell);
 int					ft_heredoc(char *temp_line, t_minishell *minishell);
-char				**ft_addline(char **argv, char *line);
+char				**ft_addline(t_minishell *minishell, char *line, t_token token);
 
 // parser functions
 void				parse(t_minishell *minishell);
@@ -88,6 +90,7 @@ int					check_quote(t_minishell *minishell);
 void				ft_lexter(t_minishell *minishell);
 char				*ft_get_env(t_list *head, char *key);
 t_list				*ft_find_env(t_list *head, char *key);
+void				ft_get_token(t_token token, t_minishell *minishell);
 
 // error handler
 void				ft_panic(char *message, int is_error);
@@ -98,6 +101,7 @@ void				syntax_error(char *message, t_minishell *minishell);
 void				ft_shell_free(t_minishell *minishell);
 void				tab_free(char **lexter_tab);
 void				env_free(t_list *env);
+void				ft_token_free(t_list *token_list);
 
 // Signals
 void				signal_initialization(void);

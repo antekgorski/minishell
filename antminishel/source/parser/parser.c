@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 16:15:46 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 20:09:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,7 @@ void	parse(t_minishell *minishell)
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(minishell->lexter_tab);
+	if (minishell->token_list != NULL)
+		ft_token_free(minishell->token_list);
+		
 }

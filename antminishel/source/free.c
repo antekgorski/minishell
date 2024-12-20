@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 15:12:12 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/19 20:52:50 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_shell_free(t_minishell *minishell)
 	tab_free(minishell->lexter_tab);
 	free(minishell->line);
 	env_free(minishell->m_env);
+	ft_token_free(minishell->token_list);
 }
 
 void	tab_free(char **lexter_tab)
@@ -40,6 +41,7 @@ void	env_free(t_list *env)
 {
 	t_list	*tmp;
 	char	**env_vars;
+
 	if (env == NULL)
 		return ;
 	while (env)
@@ -55,4 +57,29 @@ void	env_free(t_list *env)
 		env = env->next;
 		free(tmp);
 	}
+}
+void	ft_token_free(t_list *token_list)
+{
+	t_list	*tmp;
+	t_token	*token;
+
+	if (token_list == NULL)
+		return ;
+	while (token_list)
+	{
+		tmp = token_list;
+		token = (t_token *)token_list->content;
+		if (token != NULL)
+		{
+			free(token);
+			token = NULL;
+		}
+		token_list = token_list->next;
+		if (tmp != NULL)
+		{
+			free(tmp);
+			tmp = NULL;
+		}
+	}
+	token_list = NULL;
 }
