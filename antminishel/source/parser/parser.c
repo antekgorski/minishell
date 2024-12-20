@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 20:09:04 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 11:39:02 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	parse(t_minishell *minishell)
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
-		tab_free(minishell->lexter_tab);
+		tab_free(&minishell->lexter_tab);
 	if (minishell->token_list != NULL)
-		ft_token_free(minishell->token_list);
-		
+		ft_token_free(&minishell->token_list);
 }

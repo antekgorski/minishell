@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tokeneizer.c                                       :+:      :+:    :+:   */
+/*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 18:05:29 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 20:21:16 by agorski          ###   ########.fr       */
+/*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
+/*   Updated: 2024/12/19 16:17:00 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_get_token(t_token token, t_minishell *minishell)
+int	ft_env(t_minishell *minishell)
 {
-	t_list	*new_node;
-	t_token	*new_token;
+	t_list	*current;
+	char	**env_vars;
 
-	new_token = ft_calloc(1, sizeof(t_token));
-	if (!new_token)
-		ft_panic("Malloc failed", 1);
-	*new_token = token;
-	new_node = ft_lstnew(new_token);
-	if (!new_node)
-		ft_panic("Malloc failed", 1);
-	ft_lstadd_back(&minishell->token_list, new_node);
+	if (minishell->m_env == NULL)
+		return (1);
+	current = minishell->m_env;
+	while (current != NULL)
+	{
+		env_vars = (char **)current->content;
+		printf("%s=%s\n", env_vars[0], env_vars[1]);
+		current = current->next;
+	}
+	return (0);
 }

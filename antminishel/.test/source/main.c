@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 10:33:10 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/20 10:00:22 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	main_loop(t_minishell *minishell)
 	while (1)
 	{
 		minishell->line = readline(PROMPT);
-		handle_input(minishell->line, minishell);
+		handle_input(minishell->line);
 		if (minishell->line)
 		{
 			if (minishell->line[0] != '\0')
@@ -45,8 +45,6 @@ void	minishell_init(t_minishell *minishell, char **envp)
 	minishell->line = NULL;
 	minishell->lexter_tab = NULL;
 	minishell->m_env = NULL;
-	minishell->token_list = NULL;
-	minishell->f_signal = 0;
 	env_start(minishell, envp);
 }
 

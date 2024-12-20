@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 20:02:11 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 11:30:24 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ typedef struct s_minishell
 
 }					t_minishell;
 
-
 // struct for linked list duble or single?
 
 typedef struct s_node
@@ -82,7 +81,8 @@ int					ft_oredir(char *temp_line, t_minishell *minishell);
 int					ft_iredir(char *temp_line, t_minishell *minishell);
 int					ft_append(char *temp_line, t_minishell *minishell);
 int					ft_heredoc(char *temp_line, t_minishell *minishell);
-char				**ft_addline(t_minishell *minishell, char *line, t_token token);
+char				**ft_addline(t_minishell *minishell, char *line,
+						t_token token);
 
 // parser functions
 void				parse(t_minishell *minishell);
@@ -99,13 +99,13 @@ void				syntax_error(char *message, t_minishell *minishell);
 
 // free function
 void				ft_shell_free(t_minishell *minishell);
-void				tab_free(char **lexter_tab);
+void				tab_free(char ***lexter_tab);
 void				env_free(t_list *env);
-void				ft_token_free(t_list *token_list);
+void				ft_token_free(t_list **token_list);
 
 // Signals
 void				signal_initialization(void);
-void				handle_input(char *input);
+void				handle_input(char *input, t_minishell *minishell);
 
 // Builtins
 int					ft_strcmp(const char *s1, const char *s2);
