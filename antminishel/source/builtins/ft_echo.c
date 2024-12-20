@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/20 09:54:16 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:51:19 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	ft_echo(char **args)
 {
+	//funkcja musi wypisywac do tokena << >> < > | itd
+	//jesli nie ma to wypisuje do stdout
+	//inaczej wypisuje do tokena
+	//jesli angument nastepny to dolar to ma wypisywac bez spacji!
 	int	i;
 	int	new_line;
 

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:07:58 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:20:53 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 18:11:02 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,13 @@ static int	ft_word_count(const char *str, char c)
 	}
 	return (count);
 }
-
+/**
+ * @attention MALOC
+ * @brief Splits a string into an array of words based on a delimiter.
+ * @param s The string to be split into words. It should be null-terminated.
+ * @param c The delimiter character used to separate words in the string.
+ * @return A pointer to an array of strings (words), or NULL if memory
+ */
 char	**ft_split(const char *s, char c)
 {
 	char	**result;
