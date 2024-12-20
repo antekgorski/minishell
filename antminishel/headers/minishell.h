@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 10:32:53 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:30:24 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ typedef struct s_minishell
 
 }					t_minishell;
 
-
 // struct for linked list duble or single?
 
 typedef struct s_node
@@ -82,7 +81,8 @@ int					ft_oredir(char *temp_line, t_minishell *minishell);
 int					ft_iredir(char *temp_line, t_minishell *minishell);
 int					ft_append(char *temp_line, t_minishell *minishell);
 int					ft_heredoc(char *temp_line, t_minishell *minishell);
-char				**ft_addline(t_minishell *minishell, char *line, t_token token);
+char				**ft_addline(t_minishell *minishell, char *line,
+						t_token token);
 
 // parser functions
 void				parse(t_minishell *minishell);
@@ -99,9 +99,9 @@ void				syntax_error(char *message, t_minishell *minishell);
 
 // free function
 void				ft_shell_free(t_minishell *minishell);
-void				tab_free(char **lexter_tab);
+void				tab_free(char ***lexter_tab);
 void				env_free(t_list *env);
-void				ft_token_free(t_list *token_list);
+void				ft_token_free(t_list **token_list);
 
 // Signals
 void				signal_initialization(void);
