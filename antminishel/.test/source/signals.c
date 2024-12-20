@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/20 10:07:55 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:25:06 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ void	signal_initialization(void)
 
 // ctrl + D
 // exit shell
-void	handle_input(char *input, t_minishell *minishell)
+void	handle_input(char *input)
 {
 	if (!input)
 	{
-		ft_exit(minishell);
+		write(STDOUT_FILENO, "exit\n", 5);
+		exit(0);
 	}
 }

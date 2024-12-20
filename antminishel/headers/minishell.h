@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 16:27:57 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 10:07:16 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ void				main_loop(t_minishell *minishell);
 void				minishell_init(t_minishell *minishell, char **envp);
 void				env_start(t_minishell *minishell, char **envp);
 
-
-
 // lexer functions
 int					ft_squote(char *temp_line, t_minishell *minishell);
 int					ft_dquote(char *temp_line, t_minishell *minishell);
@@ -103,18 +101,15 @@ void				env_free(t_list *env);
 
 // Signals
 void				signal_initialization(void);
-void				handle_input(char *input);
+void				handle_input(char *input, t_minishell *minishell);
 
 // Builtins
-int 				ft_strcmp(const char *s1, const char *s2);
-int 				e_bild(char **args, t_minishell *minishell);
-int 				ft_pwd(void);
-int 				ft_cd(char **args);
-int 				ft_echo(char **args);
-int 				ft_env(t_minishell *minishell);
-int    				ft_exit(void);
-
-
-
+int					ft_strcmp(const char *s1, const char *s2);
+int					e_bild(char **args, t_minishell *minishell);
+int					ft_pwd(void);
+int					ft_cd(char **args);
+int					ft_echo(char **args);
+int					ft_env(t_minishell *minishell);
+int					ft_exit(t_minishell *minishell);
 
 #endif
