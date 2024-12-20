@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:29:19 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:10:47 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:13:10 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
  * @warning Ensure that the value of `c` is within the valid range of
  *          `unsigned char` or equal to EOF to avoid undefined behavior.
  */
-
 int	ft_isalnum(int c)
 {
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57))

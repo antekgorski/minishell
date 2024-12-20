@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:00:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:33:45 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:25 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
  *
  * @note If `s1` and `s2` are both NULL, the behavior is undefined.
  */
-
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	if (n == 0)

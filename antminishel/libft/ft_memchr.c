@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 17:28:07 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:15:02 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:47 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
  * 
  * @note The function does not modify the memory block; it only reads from it.
  */
-
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	while (n-- != 0)

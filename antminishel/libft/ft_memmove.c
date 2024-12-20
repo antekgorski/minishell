@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:51:59 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:15:50 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:56 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
  *       The function handles overlapping regions correctly, ensuring data 
  *       integrity during the move operation.
  */
-
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char		*dest_temp;

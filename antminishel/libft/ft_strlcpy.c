@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:10:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:31:02 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:15 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
  * @note If `dst` is NULL or `src` is NULL, the function returns 0 without 
  *       performing any operations.
  */
-
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	int	i;

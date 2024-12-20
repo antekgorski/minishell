@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 18:32:33 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:28:51 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
  *       Ensure that `f` is not NULL before calling this function to 
  *       avoid dereferencing a NULL pointer.
  */
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	size_t	i;

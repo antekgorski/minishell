@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 08:17:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:23:22 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:20:57 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
  * @note The function does not perform any error checking on the input 
  *       string. If `s` is NULL, the behavior is undefined.
  */
-
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s != '\0')

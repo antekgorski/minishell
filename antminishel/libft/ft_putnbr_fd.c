@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:55:01 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:22:31 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:20:47 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
  *       correctly handles the edge case of `-2147483648`, which cannot 
  *       be represented as a positive number due to integer overflow.
  */
-
 static void	write_function(char c, int fd)
 {
 	write(fd, &c, 1);

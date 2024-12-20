@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 01:01:26 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:12:57 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:26 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
  *          undefined, as it does not handle the case of adding a 
  *          null element.
  */
-
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;

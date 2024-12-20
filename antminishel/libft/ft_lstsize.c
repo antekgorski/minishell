@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 00:45:00 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:14:44 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:44 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
  * @note The function does not modify the linked list;
  * it only counts its elements.
  */
-
 int	ft_lstsize(t_list *lst)
 {
 	int	count;

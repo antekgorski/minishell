@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 23:05:30 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:15:18 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:50 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
  * @note The function treats the memory areas as arrays of unsigned char, 
  *       ensuring that the comparison is performed in a byte-wise manner.
  */
-
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*exts1;

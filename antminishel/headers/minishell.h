@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 11:30:24 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:59:54 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,13 @@ typedef struct s_node
 }					t_node;
 
 // main functions
+
 void				main_loop(t_minishell *minishell);
 void				minishell_init(t_minishell *minishell, char **envp);
 void				env_start(t_minishell *minishell, char **envp);
 
 // lexer functions
+
 int					ft_squote(char *temp_line, t_minishell *minishell);
 int					ft_dquote(char *temp_line, t_minishell *minishell);
 int					ft_dolar(char *temp_line, t_minishell *minishell);
@@ -85,6 +87,7 @@ char				**ft_addline(t_minishell *minishell, char *line,
 						t_token token);
 
 // parser functions
+
 void				parse(t_minishell *minishell);
 int					check_quote(t_minishell *minishell);
 void				ft_lexter(t_minishell *minishell);
@@ -93,21 +96,25 @@ t_list				*ft_find_env(t_list *head, char *key);
 void				ft_get_token(t_token token, t_minishell *minishell);
 
 // error handler
+
 void				ft_panic(char *message, int is_error);
 void				reset_prompt(void);
 void				syntax_error(char *message, t_minishell *minishell);
 
 // free function
+
 void				ft_shell_free(t_minishell *minishell);
 void				tab_free(char ***lexter_tab);
 void				env_free(t_list *env);
 void				ft_token_free(t_list **token_list);
 
 // Signals
+
 void				signal_initialization(void);
 void				handle_input(char *input, t_minishell *minishell);
 
 // Builtins
+
 int					ft_strcmp(const char *s1, const char *s2);
 int					e_bild(char **args, t_minishell *minishell);
 int					ft_pwd(void);

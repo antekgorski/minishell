@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 01:22:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:13:41 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:32 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
  * @warning If either `lst` or `del` is `NULL`, the function does nothing 
  *          and returns immediately.
  */
-
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)

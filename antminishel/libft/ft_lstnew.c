@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:47:54 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:14:28 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:40 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
  * @note The caller is responsible for managing the memory of the `content` 
  *       provided. The function does not make a copy of the content.
  */
-
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*lstnew;

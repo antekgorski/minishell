@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:55:54 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/15 21:44:54 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:33 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
  * @note If `c` is the null character ('\0'), the function returns a
  *       pointer to the null terminator of the string.
  */
-
 char	*ft_strrchr(const char *s, int c)
 {
 	const char	*last_occurrence;

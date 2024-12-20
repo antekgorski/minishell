@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:27:42 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:12:14 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:13:28 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
  *       in the C library,
  *	which checks for the range of printable ASCII characters.
  */
-
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)

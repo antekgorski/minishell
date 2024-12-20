@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:42:08 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:22:11 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:20:45 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
  *       If the write fails, the behavior is not defined. Additionally, if
  *       `s` is `NULL`, the behavior is also not defined.
  */
-
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s)

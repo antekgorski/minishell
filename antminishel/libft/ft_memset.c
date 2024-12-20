@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 19:41:14 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:16:09 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:59 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
  * @note The function does not check for overlapping memory areas, as it is 
  *       intended to write to the specified memory area directly.
  */
-
 void	*ft_memset(void *s, int c, size_t n)
 {
 	void	*temp_s;

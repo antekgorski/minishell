@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:16:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:09:32 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:13:00 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
  * @warning The behavior is undefined if `s` is `NULL` or if `n` is greater 
  *          than the size of the allocated memory for `s`.
  */
-
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*del;

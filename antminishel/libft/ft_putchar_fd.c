@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 22:22:54 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:21:42 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:20:42 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
  * @note This function does not perform error checking on the write operation. 
  *       If the write fails, the behavior is not defined.
  */
-
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);

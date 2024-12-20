@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:22:14 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:27:34 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:01 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
  * @note The caller is responsible for freeing the memory allocated 
  *       for the duplicated string to avoid memory leaks.
  */
-
 char	*ft_strdup(const char *s)
 {
 	char	*new;

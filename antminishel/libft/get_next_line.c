@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:55 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:39:06 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:24:12 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
  *       It is the caller's responsibility to free the memory allocated for the 
  *       returned string.
  */
-
 static char	*read_to_buffer(char *buffer, int fd)
 {
 	char	*temp;
@@ -107,7 +106,13 @@ char	*update_buffer(char *buffer)
 	free(buffer);
 	return (str);
 }
-
+/**
+ * @brief Reads the next line from a file descriptor.
+ *
+ * @param fd The file descriptor to read from.
+ * 
+ * @return The next line from the file descriptor, or NULL if an error occurs.
+ */
 char	*get_next_line(int fd)
 {
 	static char	*buffer;

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:07:58 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/15 21:42:17 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:20:53 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
  *       managing memory. Memory allocated for the array and its contents 
  *       should be freed by the caller after use.
  */
-
 static void	ft_initvar(size_t *index, int *word_index, int *start_of_word)
 {
 	*index = 0;

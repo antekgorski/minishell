@@ -6,13 +6,14 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:04:22 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:38:11 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 15:00:02 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
+ * @attention MALOC
  * @brief Creates a substring from a given string.
  *
  * This function allocates memory for a new string that contains
@@ -30,7 +31,6 @@
  *
  * @note The resulting substring will always be null-terminated.
  */
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
