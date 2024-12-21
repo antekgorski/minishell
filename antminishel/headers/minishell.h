@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 15:59:54 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 18:09:14 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,13 @@ int					ft_cd(char **args);
 int					ft_echo(char **args);
 int					ft_env(t_minishell *minishell);
 int					ft_exit(t_minishell *minishell);
+int					ft_unset(t_minishell *minishell, const char *name);
+int					ft_export(t_minishell *minishell, char **args);
+
+// env
+char				**ft_split_env(char *env);
+void				env_start(t_minishell *minishell, char **envp);
+char				*ft_get_env(t_list *head, char *key);
+t_list				*ft_find_env(t_list *head, char *key);
 
 #endif

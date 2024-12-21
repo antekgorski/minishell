@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:52:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/19 14:17:05 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 18:45:35 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,17 @@ char	**ft_split_env(char *env)
 	int		i;
 
 	i = 0;
-	split = ft_calloc(2, sizeof(char *));
+	split = ft_calloc(3, sizeof(char *));
 	if (!split)
 		ft_panic("Malloc failed", 1);
 	while (env[i] && env[i] != '=')
 		i++;
 	split[0] = ft_substr(env, 0, i);
-	split[1] = ft_strdup(&env[i + 1]);
+	if (env[i] == '=')
+		split[1] = ft_strdup(&env[i + 1]);
+	else
+		split[1] = ft_strdup("");
+	split[2] = NULL;
 	return (split);
 }
 
