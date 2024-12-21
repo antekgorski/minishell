@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_list_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:42:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 15:15:59 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/21 21:38:18 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @param head A pointer to the head of the linked list.
  * @param key The key to search for in the linked list.
  * @return A pointer to the value of the environment variable if found,
- * 	   or NULL if the key is not found.
+ * 		or NULL if the key is not found.
  */
 char	*ft_get_env(t_list *head, char *key)
 {
@@ -25,6 +25,8 @@ char	*ft_get_env(t_list *head, char *key)
 	char	**env_vars;
 
 	current = head;
+	if (key[0] == '\0')
+		return ("");
 	while (current != NULL)
 	{
 		env_vars = (char **)current->content;

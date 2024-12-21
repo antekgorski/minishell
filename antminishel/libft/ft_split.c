@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:07:58 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 18:11:02 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/21 23:35:05 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 /**
  * @brief Splits a string into an array of words based on a delimiter.
  *
- * The function takes a null-terminated string `s` and splits it into 
- * words, using the character `c` as the delimiter. The resulting 
- * words are stored in a dynamically allocated array of strings. 
+ * The function takes a null-terminated string `s` and splits it into
+ * words, using the character `c` as the delimiter. The resulting
+ * words are stored in a dynamically allocated array of strings.
  * The array is null-terminated.
  *
  * @param s The string to be split into words. It should be null-terminated.
  * @param c The delimiter character used to separate words in the string.
- * 
- * @return A pointer to an array of strings (words), or NULL if memory 
- *         allocation fails or if `s` is NULL. The last element of the 
+ *
+ * @return A pointer to an array of strings (words), or NULL if memory
+ *         allocation fails or if `s` is NULL. The last element of the
  *         array is NULL to indicate the end of the words.
  *
- * @note This function uses helper functions for counting words and 
- *       managing memory. Memory allocated for the array and its contents 
+ * @note This function uses helper functions for counting words and
+ *       managing memory. Memory allocated for the array and its contents
  *       should be freed by the caller after use.
  */
 static void	ft_initvar(size_t *index, int *word_index, int *start_of_word)
@@ -88,6 +88,7 @@ static int	ft_word_count(const char *str, char c)
 	}
 	return (count);
 }
+
 /**
  * @attention MALOC
  * @brief Splits a string into an array of words based on a delimiter.
