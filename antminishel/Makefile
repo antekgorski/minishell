@@ -6,7 +6,7 @@
 #    By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:45:11 by agorski           #+#    #+#              #
-#    Updated: 2024/12/18 21:32:33 by agorski          ###   ########.fr        #
+#    Updated: 2024/12/21 09:16:14 by agorski          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
-TEST_CFLAGS = -Wall -Wextra -Werror -g -pthread -fdiagnostics-color=always #-fsanitize=address
+TEST_CFLAGS = -Wall -Wextra -Werror -g -pthread -fdiagnostics-color=always #-fsanitize=address	 
 INCLUDE = -I./headers
 REDLINE = -lreadline
 
@@ -47,12 +47,14 @@ clean:
 
 re: fclean all
 
-test: $(LIBFT)
+test_libft:
+	$(MAKE) -C $(LIBFT_DIR) CFLAGS="$(TEST_CFLAGS)"
+
+test: test_libft
 	$(CC) $(TEST_CFLAGS) $(SRCS) -o $(NAME) $(LIBFT) $(INCLUDE) $(REDLINE)
 	
 retest:
 	make fclean
-	make all -C libft
 	make test
 
-.PHONY: all clean fclean re test retest
+.PHONY: all clean fclean re test retest test_libft

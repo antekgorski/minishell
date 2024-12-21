@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 16:34:44 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/21 23:26:14 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// function to get token
-// it will create a new node and add it to the token_list
-// it will create a new token and add it to the node
-// it will take the token prom lexter to the new token
-// and add the new node to the token_list
+/**
+ *function to get token
+ *it will create a new node and add it to the token_list
+ *it will create a new token and add it to the node
+ *it will take the token prom lexter to the new token
+ *and add the new node to the token_list
+ */
 void	ft_get_token(t_token token, t_minishell *minishell)
 {
 	t_list	*new_node;

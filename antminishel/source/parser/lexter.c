@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 15:02:18 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/21 22:21:35 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_lexter(t_minishell *minishell)
 	temp_line = minishell->line;
 	while (*temp_line)
 	{
-		if (ft_strchr(SYMBOLS, *temp_line))
+		if (ft_strchr(SYMBOLS_D, *temp_line))
 		{
 			if (*temp_line == ' ' || *temp_line == '\t')
 				temp_line++;
@@ -62,8 +62,6 @@ void	ft_lexter(t_minishell *minishell)
 				temp_line += ft_squote(temp_line, minishell);
 			if (*temp_line == '\"')
 				temp_line += ft_dquote(temp_line, minishell);
-			if (*temp_line == '$')
-				temp_line += ft_dolar(temp_line, minishell);
 			if (*temp_line == '|')
 				temp_line += ft_pipe(minishell);
 			if (*temp_line == '<')

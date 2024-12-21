@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 10:33:10 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:40:16 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ if the line is not empty it adds it to the history and then parses it
 then it frees the line
 and the loop continues
 */
-
 void	main_loop(t_minishell *minishell)
 {
 	signal_initialization();
@@ -39,7 +38,6 @@ void	main_loop(t_minishell *minishell)
 }
 
 // function to initialize the minishell struct
-
 void	minishell_init(t_minishell *minishell, char **envp)
 {
 	minishell->line = NULL;

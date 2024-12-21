@@ -1,6 +1,7 @@
 .PHONY: all clean fclean re test bonus
 CC= cc
 CFLAGS= -Wextra -Werror -Wall -fPIC
+TESTFLAGS= -fsanitize=address -g			
 NAME= libft.a
 # OBJ= $(patsubst %.c,%.o,$(SRC))
 OBJ= $(SRC:%.c=%.o)
@@ -34,3 +35,6 @@ re: fclean all		# remove .o files and libft.a after compile agen
 
 test:
 	nm $(NAME)			# showing what is archive in libft.a
+
+retest: CFLAGS=$(TEST_CFLAGS)
+retest: fclean all	# compile with test flags
