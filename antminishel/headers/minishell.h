@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 18:09:14 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/21 09:23:03 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ int					ft_env(t_minishell *minishell);
 int					ft_exit(t_minishell *minishell);
 int					ft_unset(t_minishell *minishell, const char *name);
 int					ft_export(t_minishell *minishell, char **args);
+int					ft_print_env(t_minishell *minishell);
 
 // env
 char				**ft_split_env(char *env);

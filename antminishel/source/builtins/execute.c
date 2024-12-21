@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/21 07:01:34 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/21 08:57:41 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	e_bild(char **args, t_minishell *minishell)
 		return (ft_env(minishell));
 	else if (args[1] && ft_strcmp(args[0], "unset") == 0)
 		return (ft_unset(minishell, args[1]));
-	else if (!args[3] && ft_strcmp(args[0], "export") == 0)
+	else if (ft_strcmp(args[0], "export") == 0)
 		return (ft_export(minishell, args));
 	return (0);
 }
