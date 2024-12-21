@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 07:45:44 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:30:44 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:11 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
  * @note The caller must ensure that `dst` has enough space allocated to hold 
  *       the resulting string, including the null terminator.
  */
-
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;

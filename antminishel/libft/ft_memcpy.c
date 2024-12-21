@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 20:50:12 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:15:33 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:53 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
  * @note The function does not check for overlapping memory areas. If 
  *       the source and destination overlap, the behavior is undefined.
  */
-
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char		*dest_temp;

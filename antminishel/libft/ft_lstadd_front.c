@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:05:57 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:13:14 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:29 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
  * @warning If either `lst` or `new` is `NULL`, the function does nothing 
  *          and will not modify the list.
  */
-
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new->next = *lst;

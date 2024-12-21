@@ -6,23 +6,30 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 13:37:04 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 16:34:44 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_parser_test(t_minishell *minishell)
+// function to get token
+// it will create a new node and add it to the token_list
+// it will create a new token and add it to the node
+// it will take the token prom lexter to the new token
+// and add the new node to the token_list
+void	ft_get_token(t_token token, t_minishell *minishell)
 {
-	int	i;
+	t_list	*new_node;
+	t_token	*new_token;
 
-	i = 0;
-	while (minishell->lexter_tab[i])
-	{
-		printf("%s\t%i\n", minishell->lexter_tab[i], *(int *)minishell->token_list->content);
-		i++;
-		minishell->token_list = minishell->token_list->next;
-	}
+	new_token = ft_calloc(1, sizeof(t_token));
+	if (!new_token)
+		ft_panic("Malloc failed", 1);
+	*new_token = token;
+	new_node = ft_lstnew(new_token);
+	if (!new_node)
+		ft_panic("Malloc failed", 1);
+	ft_lstadd_back(&minishell->token_list, new_node);
 }
 
 // check if the quote is closed

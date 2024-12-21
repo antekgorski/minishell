@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 18:40:09 by agorski           #+#    #+#             */
-/*   Updated: 2024/11/07 13:28:17 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 16:35:46 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ static int	ft_print_sign(int imput, va_list ap)
 	return (i);
 }
 
+/**
+ * @brief Prints formatted data to the standard output.
+ *
+ * @param imput A pointer to the format string.
+ * 			This string can contain plain text and format specifiers.
+ * @param ... A variable number of arguments to be printed.
+ * 			Arguments must match the format specifiers in the format string.
+ * 			For each format specifier in the format string,
+ *			there must be a corresponding argument.
+ * 			Extra arguments are ignored.
+ * @return The number of characters printed,
+ *	or a negative value if an error occurs.
+ * 			If an error occurs, the function returns -1.
+ */
 int	ft_printf(const char *imput, ...)
 {
 	va_list			ap;

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 00:53:08 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:14:11 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:17:36 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
  * 
  * @note The function traverses the entire list to find the last element.
  */
-
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)

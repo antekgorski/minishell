@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 23:58:14 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:32:56 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:21 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
  *
  * @note The returned string must be freed by the caller to avoid memory leaks.
  */
-
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;

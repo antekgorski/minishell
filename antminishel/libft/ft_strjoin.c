@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:39:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:29:24 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:07 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
  * @note The caller is responsible for freeing the memory allocated for 
  *       the resulting string to avoid memory leaks.
  */
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*costr;

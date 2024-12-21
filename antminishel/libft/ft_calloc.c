@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 12:44:19 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:09:55 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:13:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
  *          size of an `int` (2147483647 bytes), the function returns `NULL` 
  *          to avoid overflow.
  */
-
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;

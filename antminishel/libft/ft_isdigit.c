@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:07:50 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:11:33 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:13:25 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
  * @note This function behaves similarly to the standard `isdigit` function 
  *       in the C library, checking if the value is between '0' and '9'.
  */
-
 int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)

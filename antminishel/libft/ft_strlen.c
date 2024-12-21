@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 17:30:39 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:32:07 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:18 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
  * @note This function does not count the null terminator in the returned 
  *       length.
  */
-
 size_t	ft_strlen(const char *str)
 {
 	int	i;

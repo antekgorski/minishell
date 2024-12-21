@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:42:38 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 18:11:19 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:13:21 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
  * @note This function behaves similarly to the standard `isascii` function 
  *       in the C library, checking if the value is within the 7-bit ASCII range.
  */
-
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 23:56:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/15 21:45:42 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:21:30 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
  *
  * @note If `little` is an empty string, the function returns `big`.
  */
-
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;

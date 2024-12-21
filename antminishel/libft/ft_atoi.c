@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 15:12:10 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/13 17:06:12 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/20 14:12:53 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
  *          If the input value exceeds the range of `int`, the behavior 
  *          is undefined.
  */
-
 int	ft_atoi(const char *nptr)
 {
 	int	sign;

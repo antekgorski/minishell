@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 11:38:25 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:35:09 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ void	ft_shell_free(t_minishell *minishell)
 	ft_token_free(&minishell->token_list);
 }
 
+/**
+ * @brief 	Frees a two-dimensional array of strings.
+ * 			Each string in the array is freed, then the array itself is freed.
+ * @param lextab The array of strings to be freed.
+ * @note	The array itself is also freed,
+ *			so the pointer to it will be set to NULL.
+ */
 void	tab_free(char ***lexter_tab)
 {
 	int	i;
