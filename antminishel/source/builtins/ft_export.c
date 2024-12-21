@@ -6,28 +6,12 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/21 07:13:21 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/21 09:31:56 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-static int	ft_print_env(t_minishell *minishell)
-{
-	t_list	*current;
-	char	**env_vars;
-
-	if (minishell->m_env == NULL)
-		return (1);
-	current = minishell->m_env;
-	while (current != NULL)
-	{
-		env_vars = (char **)current->content;
-		printf("declare -x %s=%s\n", env_vars[0], env_vars[1]);
-		current = current->next;
-	}
-	return (0);
-}
 static void	ft_free_split(char **split)
 {
 	int	i;
@@ -59,34 +43,25 @@ static int	is_valid_key(char *key)
 	return (1);
 }
 
-static void	add_or_update_env(t_minishell *minishell, char *arg)
+static int	handle_invalid_identifier(char *arg, char **split)
+{
+	ft_putstr_fd("export: not a valid identifier: ", 2);
+	ft_putendl_fd(arg, 2);
+	if (split)
+		ft_free_split(split);
+	return (1);
+}
+
+static int	add_or_update_env(t_minishell *minishell, char *arg)
 {
 	char	**split;
 	t_list	*existing_env;
 
-	// if (!ft_strchr(arg, '='))
-	// {
-	// 	ft_putstr_fd("export: not a valid identifier: ", 2);
-	// 	ft_putendl_fd(arg, 2);
-	// 	return ;
-	// }
+	if (!ft_strchr(arg, '='))
+		return (handle_invalid_identifier(arg, NULL));
 	split = ft_split_env(arg);
 	if (!split || !is_valid_key(split[0]))
-	{
-		ft_putstr_fd("export: not a valid identifier: ", 2);
-		ft_putendl_fd(arg, 2);
-		ft_free_split(split);
-		return ;
-	}
-	if (!ft_strchr(arg, '='))
-	{
-		existing_env = ft_find_env(minishell->m_env, split[0]);
-		if (!existing_env)
-			ft_lstadd_back(&minishell->m_env, ft_lstnew(split));
-		else
-			ft_free_split(split);
-		return ;
-	}
+		return (handle_invalid_identifier(arg, split));
 	existing_env = ft_find_env(minishell->m_env, split[0]);
 	if (existing_env)
 	{
@@ -95,12 +70,15 @@ static void	add_or_update_env(t_minishell *minishell, char *arg)
 	}
 	else
 		ft_lstadd_back(&minishell->m_env, ft_lstnew(split));
+	return (0);
 }
 
 int	ft_export(t_minishell *minishell, char **args)
 {
 	int	i;
+	int	status;
 
+	status = 0;
 	if (!args[1])
 	{
 		ft_print_env(minishell);
@@ -109,8 +87,8 @@ int	ft_export(t_minishell *minishell, char **args)
 	i = 1;
 	while (args[i])
 	{
-		add_or_update_env(minishell, args[i]);
+		status = add_or_update_env(minishell, args[i]);
 		i++;
 	}
-	return (0);
+	return (status);
 }
