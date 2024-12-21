@@ -5,7 +5,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/antminishel/source/a.out",
+            "program": "${workspaceFolder}/antminishel/.test/a.out",
             "args": ["-pthread"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
