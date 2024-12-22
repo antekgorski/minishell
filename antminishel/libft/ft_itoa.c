@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 10:11:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 03:28:02 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 09:56:18 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static int	ft_intlen(long len)
 }
 
 /**
+* @attention MALLOC 
 * @brief Converts an integer to a string.
 * 
 * @param n The integer to be converted.

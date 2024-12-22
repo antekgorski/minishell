@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 03:36:40 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 10:04:18 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ static void	ft_q(t_t *t, t_minishell *minishell)
 	if (t->result)
 		free(t->result);
 	t->result = t->temp;
+	free(t->temp_env);
+	t->temp = NULL;
+	t->temp_env = NULL;
 	t->start += 2;
 }
 
