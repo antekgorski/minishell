@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 10:11:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:17:13 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 03:28:02 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static char	*ft_set_str(int len)
 {
 	char	*temp;
 
-	temp = malloc((len + 1) * sizeof(char));
+	temp = ft_calloc((len + 1) * sizeof(char), 1);
 	if (temp == NULL)
 		return (NULL);
 	temp[len] = '\0';

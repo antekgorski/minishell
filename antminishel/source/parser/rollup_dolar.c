@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 02:38:31 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 03:16:15 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ static void	ft_q(t_t *t, t_minishell *minishell)
 	t->start += 2;
 }
 
+
+void	ft_rolling(t_t *t, t_minishell *minishell)
+{
+	t->temp_env = ft_get_env(minishell->m_env, t->var_name);
+}
+
 static void	ft_if(t_t *t, char *line, t_minishell *minishell)
 {
 	{
@@ -71,7 +77,7 @@ static void	ft_if(t_t *t, char *line, t_minishell *minishell)
 		while (line[t->end] && !ft_strchr("'$'' ''\t'", line[t->end]))
 			t->end++;
 		t->var_name = ft_substr(line, t->start, t->end - t->start);
-		t->temp_env = ft_get_env(minishell->m_env, t->var_name);
+		ft_rolling(t, minishell);
 		free(t->var_name);
 		t->var_value = ft_strdup(t->temp_env);
 		if (t->var_value)

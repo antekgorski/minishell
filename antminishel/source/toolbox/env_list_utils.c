@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:42:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/21 21:38:18 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 03:19:57 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_get_env(t_list *head, char *key)
 	while (current != NULL)
 	{
 		env_vars = (char **)current->content;
-		if (ft_strncmp(env_vars[0], key, ft_strlen(key)) == 0)
+		if (ft_strcmp(env_vars[0], key) == 0)
 			return (env_vars[1]);
 		current = current->next;
 	}
