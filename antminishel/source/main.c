@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 09:29:43 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 15:04:01 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	minishell_init(t_minishell *minishell, char **envp)
 	minishell->token_list = NULL;
 	minishell->f_signal = 0;
 	env_start(minishell, envp);
+	minishell->l_hdr = NULL;
 }
 
 int	main(int argc, char **argv, char **envp)

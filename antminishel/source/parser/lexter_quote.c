@@ -3,40 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   lexter_quote.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:47:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/21 22:33:13 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 15:26:59 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	ft_squote(char *temp_line, t_minishell *minishell)
+int	ft_squote(char *t_line, t_minishell *minishell)
 {
 	int		i;
 	char	*temp;
 
 	i = 1;
-	while (temp_line[i] && temp_line[i] != '\'')
+	while (t_line[i] && t_line[i] != '\'')
 		i++;
-	temp = ft_substr(temp_line, 1, i - 1);
-	minishell->lexter_tab = ft_addline(minishell, temp, SQUOTE);
+	temp = ft_substr(t_line, 1, i - 1);
+	minishell->l_hdr = ft_strjoin(minishell->l_hdr, temp);
+	free(temp);
+	if (ft_strchr(SYMBOLS_C, t_line[i + 1]))
+	{
+		minishell->lexter_tab = ft_addline(minishell, minishell->l_hdr, CMD);
+		minishell->l_hdr = NULL;
+	}
 	return (i + 1);
 }
 
-int	ft_dquote(char *temp_line, t_minishell *minishell)
+int	ft_dquote(char *t_line, t_minishell *minishell)
 {
-	int		i;
-	char	*temp;
-	char	*result;
+	int i;
+	char *temp;
+	char *result;
 
 	i = 1;
-	while (temp_line[i] && temp_line[i] != '\"')
+	while (t_line[i] && t_line[i] != '\"')
 		i++;
-	temp = ft_substr(temp_line, 1, i - 1);
+	temp = ft_substr(t_line, 1, i - 1);
 	result = ft_d_roll(temp, minishell);
 	free(temp);
-	minishell->lexter_tab = ft_addline(minishell, result, DQUOTE);
+	minishell->l_hdr = ft_strjoin(minishell->l_hdr, result);
+	free(result);
+	if (ft_strchr(SYMBOLS_C, t_line[i + 1]))
+	{
+		minishell->lexter_tab = ft_addline(minishell, minishell->l_hdr, CMD);
+        minishell->l_hdr = NULL;
+	}
 	return (i + 1);
 }

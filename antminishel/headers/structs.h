@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/21 23:27:46 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 15:02:58 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,21 @@
 
 /**
  * @brief struct enum for tokens used in parser
- * @param DQUOTE =0
- * @param SQUOTE =1
- * @param DOLAR =2
- * @param PIPE =3
- * @param IREDIR =4
- * @param OREDIR =5
- * @param APPEND =6
- * @param HERDOC =7
- * @param CMD =8
+ * @param CMD =0
+ * @param PIPE =1
+ * @param IREDIR =2
+ * @param OREDIR =3
+ * @param APPEND =4
+ * @param HERDOC =5
  */
 typedef enum e_token
 {
-	DQUOTE,
-	SQUOTE,
-	DOLAR,
+	CMD,
 	PIPE,
 	IREDIR,
 	OREDIR,
 	APPEND,
-	HERDOC,
-	CMD
+	HERDOC
 }					t_token;
 
 /**
@@ -55,6 +49,7 @@ typedef struct s_minishell
 	t_list			*token_list;
 	t_list			*m_env;
 	int				f_signal;
+	char			*l_hdr;
 
 }					t_minishell;
 
@@ -74,7 +69,7 @@ typedef struct s_node
 
 }					t_node;
 
-//steuct for dolar rollup
+// steuct for dolar rollup
 typedef struct s_t
 {
 	char			*result;
