@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rollup_dolar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 10:04:18 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 11:01:19 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,31 +48,30 @@ static void	ft_q(t_t *t, t_minishell *minishell)
 
 static void	ft_if(t_t *t, char *line, t_minishell *minishell)
 {
+	if (line[t->start + 1] == '\0')
+		ft_d(t);
+	if (line[t->start + 1] == '?')
+		ft_q(t, minishell);
+	else if (line[t->start + 1] == '$')
+		t->start += 2;
+	else
+		t->start++;
+	t->end = t->start;
+	while (line[t->end] && !ft_strchr("'$'' ''\t'", line[t->end]))
+		t->end++;
+	t->var_name = ft_substr(line, t->start, t->end - t->start);
+	t->temp_env = ft_get_env(minishell->m_env, t->var_name);
+	free(t->var_name);
+	t->var_value = ft_strdup(t->temp_env);
+	if (t->var_value)
 	{
-		if (line[t->start + 1] == '\0')
-			ft_d(t);
-		if (line[t->start + 1] == '?')
-			ft_q(t, minishell);
-		else if (line[t->start + 1] == '$')
-			t->start += 2;
-		else
-			t->start++;
-		t->end = t->start;
-		while (line[t->end] && !ft_strchr("'$'' ''\t'", line[t->end]))
-			t->end++;
-		t->var_name = ft_substr(line, t->start, t->end - t->start);
-		t->temp_env = ft_get_env(minishell->m_env, t->var_name);
-		free(t->var_name);
-		t->var_value = ft_strdup(t->temp_env);
-		if (t->var_value)
-		{
-			t->temp = ft_strjoin(t->result, t->var_value);
-			if (t->result)
-				free(t->result);
-			t->result = t->temp;
-		}
-		t->start = t->end;
+		t->temp = ft_strjoin(t->result, t->var_value);
+		if (t->result)
+			free(t->result);
+		t->result = t->temp;
+		free(t->var_value);
 	}
+	t->start = t->end;
 }
 
 char	*ft_d_roll(char *line, t_minishell *minishell)
