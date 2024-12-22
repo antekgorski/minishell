@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/21 23:26:14 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 01:34:22 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ void	ft_get_token(t_token token, t_minishell *minishell)
 	ft_lstadd_back(&minishell->token_list, new_node);
 }
 
+static void ft_get_signal(int signal)
+{
+	(void)signal;
+}
+
 // check if the quote is closed
 // if not it will print the error message
 // run lexical analysis
@@ -46,6 +51,7 @@ void	parse(t_minishell *minishell)
 	if (minishell->lexter_tab)
 	{
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		ft_get_signal(minishell->f_signal);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);

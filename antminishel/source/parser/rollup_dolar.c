@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/21 23:27:06 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 02:38:31 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,33 @@ static void	ft_else(t_t *t, char *line)
 	t->start = t->end;
 }
 
+static void	ft_d(t_t *t)
+{
+	t->temp = ft_strjoin(t->result, "$");
+	if (t->result)
+		free(t->result);
+	t->result = t->temp;
+	t->start++;
+}
+
+static void	ft_q(t_t *t, t_minishell *minishell)
+{
+	t->temp_env = ft_itoa(minishell->f_signal);
+	t->temp = ft_strjoin(t->result, t->temp_env);
+	if (t->result)
+		free(t->result);
+	t->result = t->temp;
+	t->start += 2;
+}
+
 static void	ft_if(t_t *t, char *line, t_minishell *minishell)
 {
 	{
-		if (line[t->start + 1] == '$')
+		if (line[t->start + 1] == '\0')
+			ft_d(t);
+		if (line[t->start + 1] == '?')
+			ft_q(t, minishell);
+		else if (line[t->start + 1] == '$')
 			t->start += 2;
 		else
 			t->start++;

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:04:22 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/21 23:34:24 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 02:50:41 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
-	substr = (char *)malloc(len + 1);
+	substr = (char *)ft_calloc(len + 1, sizeof(char));
 	if (substr == NULL)
 		return (NULL);
 	ft_strlcpy(substr, (char *)s + start, len + 1);

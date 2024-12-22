@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:46 by agorski           #+#    #+#             */
-/*   Updated: 2024/11/07 13:46:23 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 02:54:05 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,10 @@ char	*gnl_strjoin(char *buf, char *temp)
 		return (0);
 	if (!buf)
 	{
-		buf = (char *)malloc(sizeof(char));
+		buf = (char *)ft_calloc(sizeof(char), 1);
 		buf[0] = '\0';
 	}
-	str = (char *)malloc(sizeof(char) * (gnl_strlen(buf) + gnl_strlen(temp)
-				+ 1));
+	str = (char *)ft_calloc(1 * (gnl_strlen(buf) + gnl_strlen(temp)+ 1), 1);
 	if (!str)
 		return (0);
 	i = -1;

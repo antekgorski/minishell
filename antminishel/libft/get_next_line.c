@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:18:55 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 16:36:22 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 02:55:22 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	*read_to_buffer(char *buffer, int fd)
 	char	*temp;
 	int		bytes;
 
-	temp = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	temp = (char *)ft_calloc(sizeof(char) * (BUFFER_SIZE + 1), 1);
 	if (!temp)
 		return (0);
 	bytes = 1;
@@ -69,7 +69,7 @@ static char	*load_to_line(char *buffer)
 		i++;
 	if (buffer[i] == '\n')
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 1));
+	str = (char *)ft_calloc(sizeof(char) * (i + 1), 1);
 	if (!str)
 		return (0);
 	str[i] = '\0';
@@ -97,7 +97,7 @@ char	*update_buffer(char *buffer)
 		free(buffer);
 		return (0);
 	}
-	str = (char *)malloc(sizeof(char) * (gnl_strlen(buffer) - i + 1));
+	str = (char *)ft_calloc(sizeof(char) * (gnl_strlen(buffer) - i + 1), 1);
 	if (!str)
 		return (0);
 	while (buffer[i])

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 23:58:14 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 22:47:28 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 02:50:03 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s)
 		return (NULL);
-	str = malloc((ft_strlen(s) + 1) * sizeof(char));
+	str = ft_calloc((ft_strlen(s) + 1) * sizeof(char), sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	while (i < ft_strlen(s))

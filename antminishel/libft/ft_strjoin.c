@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 12:39:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/21 23:51:26 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 02:22:53 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	costr = NULL;
 	if (!s1 && !s2)
 		return (NULL);
-	costr = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	costr = (char *)ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
 	if (costr == NULL)
 		return (NULL);
 	ft_strlcpy(costr, (char *)s1, (ft_strlen(s1) + 1));
