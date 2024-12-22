@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 03:16:15 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 03:36:40 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,6 @@ static void	ft_init_t(t_t *t)
 	t->literal = NULL;
 	t->start = 0;
 	t->end = 0;
-}
-
-static void	ft_else(t_t *t, char *line)
-{
-	t->end = t->start;
-	while (line[t->end] && line[t->end] != '$')
-		t->end++;
-	t->literal = ft_substr(line, t->start, t->end - t->start);
-	t->temp = ft_strjoin(t->result, t->literal);
-	free(t->result);
-	free(t->literal);
-	t->result = t->temp;
-	t->start = t->end;
 }
 
 static void	ft_d(t_t *t)
@@ -56,12 +43,6 @@ static void	ft_q(t_t *t, t_minishell *minishell)
 	t->start += 2;
 }
 
-
-void	ft_rolling(t_t *t, t_minishell *minishell)
-{
-	t->temp_env = ft_get_env(minishell->m_env, t->var_name);
-}
-
 static void	ft_if(t_t *t, char *line, t_minishell *minishell)
 {
 	{
@@ -77,7 +58,7 @@ static void	ft_if(t_t *t, char *line, t_minishell *minishell)
 		while (line[t->end] && !ft_strchr("'$'' ''\t'", line[t->end]))
 			t->end++;
 		t->var_name = ft_substr(line, t->start, t->end - t->start);
-		ft_rolling(t, minishell);
+		t->temp_env = ft_get_env(minishell->m_env, t->var_name);
 		free(t->var_name);
 		t->var_value = ft_strdup(t->temp_env);
 		if (t->var_value)
@@ -101,7 +82,17 @@ char	*ft_d_roll(char *line, t_minishell *minishell)
 		if (line[t.start] == '$')
 			ft_if(&t, line, minishell);
 		else
-			ft_else(&t, line);
+		{
+			t.end = t.start;
+			while (line[t.end] && line[t.end] != '$')
+				t.end++;
+			t.literal = ft_substr(line, t.start, t.end - t.start);
+			t.temp = ft_strjoin(t.result, t.literal);
+			free(t.result);
+			free(t.literal);
+			t.result = t.temp;
+			t.start = t.end;
+		}
 	}
 	return (t.result);
 }

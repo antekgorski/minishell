@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 00:09:13 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 03:32:46 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,22 +78,22 @@ void	handle_input(char *input, t_minishell *minishell);
 
 // Builtins
 
-int					ft_strcmp(const char *s1, const char *s2);
-int					e_bild(char **args, t_minishell *minishell);
-int					ft_pwd(void);
-int					ft_cd(char **args);
-int					ft_echo(char **args);
-int					ft_env(t_minishell *minishell);
-int					ft_exit(t_minishell *minishell);
-int					ft_unset(t_minishell *minishell, const char *name);
-int					ft_export(t_minishell *minishell, char **args);
-int					ft_print_env(t_minishell *minishell);
+int		ft_strcmp(const char *s1, const char *s2);
+int		e_bild(char **args, t_minishell *minishell);
+int		ft_pwd(void);
+int		ft_cd(char **args);
+int		ft_echo(char **args);
+int		ft_env(t_minishell *minishell);
+int		ft_exit(t_minishell *minishell);
+int		ft_unset(t_minishell *minishell, const char *name);
+int		ft_export(t_minishell *minishell, char **args);
+int		ft_print_env(t_minishell *minishell);
 
 // env
 
-char				**ft_split_env(char *env);
-void				env_start(t_minishell *minishell, char **envp);
-char				*ft_get_env(t_list *head, char *key);
-t_list				*ft_find_env(t_list *head, char *key);
+char	**ft_split_env(char *env);
+void	env_start(t_minishell *minishell, char **envp);
+char	*ft_get_env(t_list *head, char *key);
+t_list	*ft_find_env(t_list *head, char *key);
 
 #endif

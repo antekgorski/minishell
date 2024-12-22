@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 01:34:22 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 03:33:12 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_get_token(t_token token, t_minishell *minishell)
 	ft_lstadd_back(&minishell->token_list, new_node);
 }
 
-static void ft_get_signal(int signal)
+static void	ft_get_signal(int signal)
 {
 	(void)signal;
 }
