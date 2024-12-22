@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 16:40:16 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 09:29:43 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	main_loop(t_minishell *minishell)
 	signal_initialization();
 	while (1)
 	{
-		minishell->line = readline(PROMPT);
+		minishell->line = readline("\033[36m""@nt->""\033[92m""p@w>""\033[0m");
 		handle_input(minishell->line, minishell);
 		if (minishell->line)
 		{

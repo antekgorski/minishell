@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 03:32:46 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 09:18:47 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # include <stdlib.h>
 # include <termios.h>
 
-# define PROMPT "@nt->p@w>"
 # define SYMBOLS "'|''<''>''\"''\'''''$'' ''\t'"
 # define SYMBOLS_D "'|''<''>''\"''\''''' ''\t'"
 
