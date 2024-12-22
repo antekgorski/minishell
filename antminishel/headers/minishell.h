@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 09:18:47 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 18:40:25 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@
 # include <stdlib.h>
 # include <termios.h>
 
-# define SYMBOLS "'|''<''>''\"''\'''''$'' ''\t'"
-# define SYMBOLS_D "'|''<''>''\"''\''''' ''\t'"
+# define SYMBOLS "|<>\"\'$ \t"
+# define SYMBOLS_D "|<>\"\' \t"
+# define SYMBOLS_C "|<> \t\0"
 
 // main functions
 

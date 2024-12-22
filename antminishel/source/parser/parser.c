@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 03:33:12 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 19:00:48 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,21 @@ void	ft_get_token(t_token token, t_minishell *minishell)
 	ft_lstadd_back(&minishell->token_list, new_node);
 }
 
-static void	ft_get_signal(int signal)
+void	ft_parser_test(t_minishell *minishell)
 {
-	(void)signal;
-}
+	int	i;
+	t_list	*temp;
+	temp = minishell->token_list;
 
+	i = 0;
+	while (minishell->lexter_tab[i])
+	{
+		printf("%s\t%i\n", minishell->lexter_tab[i],
+			*(int *)temp->content);
+		i++;
+		temp = temp->next;
+	}
+}
 // check if the quote is closed
 // if not it will print the error message
 // run lexical analysis
@@ -50,8 +60,8 @@ void	parse(t_minishell *minishell)
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
 	{
+		//ft_parser_test(minishell);
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
-		ft_get_signal(minishell->f_signal);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);

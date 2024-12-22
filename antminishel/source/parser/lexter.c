@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/21 22:21:35 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/22 18:44:11 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * and return the new one
  * they also get the token from the lexter and add it to the token_list
  * @return ** to new tab
-*/
+ */
 char	**ft_addline(t_minishell *minishell, char *line, t_token token)
 {
 	char	**new_argv;
