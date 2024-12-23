@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexter_quote.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:47:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 15:26:59 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/23 23:04:48 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_squote(char *t_line, t_minishell *minishell)
 
 int	ft_dquote(char *t_line, t_minishell *minishell)
 {
-	int i;
-	char *temp;
-	char *result;
+	int		i;
+	char	*temp;
+	char	*result;
 
 	i = 1;
 	while (t_line[i] && t_line[i] != '\"')
@@ -48,7 +48,7 @@ int	ft_dquote(char *t_line, t_minishell *minishell)
 	if (ft_strchr(SYMBOLS_C, t_line[i + 1]))
 	{
 		minishell->lexter_tab = ft_addline(minishell, minishell->l_hdr, CMD);
-        minishell->l_hdr = NULL;
+		minishell->l_hdr = NULL;
 	}
 	return (i + 1);
 }

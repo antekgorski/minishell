@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 21:00:04 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/23 23:04:01 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,51 +28,19 @@ char	*ft_d_roll(char *line, t_minishell *minishell)
 	ft_init_dolar(&t);
 	while (line[t.end])
 	{
-		if (line[t.end] == '$' && line[t.end + 1] == '\0')
-		{
-			t.end++;
-			t.temp = ft_strdup("$");
-			t.result = ft_strjoin(t.result, t.temp);
-			free(t.temp);
-			t.start = t.end;
-		}
 		if (line[t.end] == '$' && line[t.end + 1] == '?')
-		{
-			t.temp = ft_itoa(minishell->f_signal);
-			t.result = ft_strjoin(t.result, t.temp);
-			free(t.temp);
-			t.end += 2;
-			t.start = t.end;
-		}
+			ft_case1(&t, minishell);
 		if (line[t.end] == '$' && line[t.end + 1] == '$')
+			ft_case2(&t);
+		if (line[t.end] == '$' && line[t.end + 1] == '\0')
+			ft_case3(&t);
+		else if (line[t.end] == '$' && !strchr(SYMBOLS_S, line[t.end + 1]))
+			ft_case4(&t, line, minishell);
+		if (line[t.end] != '$' && line[t.end])
 		{
-			t.end += 2;
-			t.temp = ft_strdup("$$");
-			t.result = ft_strjoin(t.result, t.temp);
-			free(t.temp);
-			t.start = t.end;
-		}
-		if (line[t.end] == '$' && !strchr(SYMBOLS_S, line[t.end + 1]))
-		{
-			t.end++;
-			t.start = t.end;
-			while (line[t.end] && !strchr(SYMBOLS_R, line[t.end]))
-				t.end++;
-			t.temp = ft_substr(line, t.start, (t.end - t.start));
-			t.env = ft_get_env(minishell->m_env, t.temp);
-			free(t.temp);
-			t.result = ft_strjoin(t.result, t.env);
-			free(t.env);
-			t.start = t.end;
-		}
-		if (line[t.end] != '$' && line[t.end] != '\0')
-		{
-			t.start = t.end;
-			while (line[t.end] && !strchr(SYMBOLS_R, line[t.end]))
-				t.end++;
-			t.temp = ft_substr(line, t.start, t.end);
-			t.result = ft_strjoin(t.result, t.temp);
-			free(t.temp);
+			ft_case5(&t, line);
+			if (line[t.end + 1] == '\0')
+				break ;
 		}
 	}
 	return (t.result);

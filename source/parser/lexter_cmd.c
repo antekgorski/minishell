@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexter_cmd_dolar.c                                 :+:      :+:    :+:   */
+/*   lexter_cmd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:05:29 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 18:44:59 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/23 23:19:50 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_comend(char *t_line, t_minishell *minishell)
 	temp_arg = ft_substr(t_line, 0, i);
 	result = ft_d_roll(temp_arg, minishell);
 	free(temp_arg);
-		minishell->l_hdr = ft_strjoin(minishell->l_hdr, result);
+	minishell->l_hdr = ft_strjoin(minishell->l_hdr, result);
 	free(result);
 	if (ft_strchr(SYMBOLS_C, t_line[i]))
 	{

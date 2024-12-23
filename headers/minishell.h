@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 20:40:58 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/23 23:07:45 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # include <stdlib.h>
 # include <termios.h>
 
-# define SYMBOLS "|<>\"\'$ \t"
 # define SYMBOLS_D "|<>\"\' \t"
 # define SYMBOLS_C "|<> \t\0"
 # define SYMBOLS_R "$ \t\0"
@@ -39,6 +38,12 @@ void	env_start(t_minishell *minishell, char **envp);
 
 // lexer functions
 
+void	ft_case1(t_t *t, t_minishell *minishell);
+void	ft_case2(t_t *t);
+void	ft_case3(t_t *t);
+void	ft_case4(t_t *t, char *line, t_minishell *minishell);
+void	ft_case5(t_t *t, char *line);
+void	ft_init_dolar(t_t *dolar);
 char	*ft_d_roll(char *line, t_minishell *minishell);
 int		ft_squote(char *temp_line, t_minishell *minishell);
 int		ft_dquote(char *temp_line, t_minishell *minishell);
@@ -49,10 +54,10 @@ int		ft_oredir(char *temp_line, t_minishell *minishell);
 int		ft_iredir(char *temp_line, t_minishell *minishell);
 int		ft_append(char *temp_line, t_minishell *minishell);
 int		ft_heredoc(char *temp_line, t_minishell *minishell);
-char	**ft_addline(t_minishell *minishell, char *line, t_token token);
 
 // parser functions
 
+char	**ft_addline(t_minishell *minishell, char *line, t_token token);
 void	parse(t_minishell *minishell);
 int		check_quote(t_minishell *minishell);
 void	ft_lexter(t_minishell *minishell);
