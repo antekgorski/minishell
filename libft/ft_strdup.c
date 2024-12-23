@@ -6,13 +6,14 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:22:14 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 02:49:19 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/23 15:22:41 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
+ * @attention <<MALLOC>>
  * @brief Duplicates a string by allocating memory for a new copy.
  *
  * The function allocates sufficient memory to hold a copy of the
