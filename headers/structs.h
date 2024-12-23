@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 15:02:58 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/23 20:31:02 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,10 @@ typedef struct s_node
 // steuct for dolar rollup
 typedef struct s_t
 {
-	char			*result;
-	char			*temp;
-	char			*temp_env;
-	char			*var_name;
-	char			*var_value;
-	char			*literal;
 	int				start;
 	int				end;
+	char			*result;
+	char			*temp;
+	char			*env;
 }					t_t;
 #endif
