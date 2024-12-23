@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 10:37:45 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/23 17:02:36 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,11 @@ static void	ft_if(t_t *t, char *line, t_minishell *minishell)
 	while (line[t->end] && !ft_strchr("'$'' ''\t'", line[t->end]))
 		t->end++;
 	t->var_name = ft_substr(line, t->start, t->end - t->start);
-	t->temp_env = ft_get_env(minishell->m_env, t->var_name);
-	free(t->var_name);
+	if (line[t->start - 1] != '?')
+	{
+		t->temp_env = ft_get_env(minishell->m_env, t->var_name);
+		free(t->var_name);
+	}
 	t->var_value = ft_strdup(t->temp_env);
 	if (t->var_value)
 	{

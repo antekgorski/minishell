@@ -1,11 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/12/23 16:10:34 by agorski           #+#    #+#              #
+#    Updated: 2024/12/23 16:41:58 by agorski          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 .PHONY: all clean fclean re test bonus
 CC= cc
 CFLAGS= -Wextra -Werror -Wall -fPIC
 TESTFLAGS= -fsanitize=address -g			
 NAME= libft.a
+O_DIR= obj
 # OBJ= $(patsubst %.c,%.o,$(SRC))
-OBJ= $(SRC:%.c=%.o)
-B_OBJ= $(SRC_BONUS:%.c=%.o)
+OBJ= $(SRC:%.c=$(O_DIR)/%.o)
+B_OBJ= $(SRC_BONUS:%.c=$(O_DIR)/%.o)
 # SRC= $(wildcard *.c)
 SRC= ft_isalnum.c ft_isascii.c ft_isprint.c ft_memmove.c ft_strlcat.c ft_strlen.c \
 ft_bzero.c ft_isalpha.c ft_isdigit.c ft_memcpy.c ft_memset.c ft_strlcpy.c  ft_toupper.c \
@@ -19,14 +32,18 @@ ft_lstdelone.c \
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $^		# archive *.o file to NAME.a \n
+$(O_DIR):
+	mkdir -p $(O_DIR)
 
-%.o: %.c
+$(NAME): $(O_DIR) $(OBJ)
+	ar rcs $(NAME) $(OBJ)		# archive *.o file to NAME.a \n
+
+$(O_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@		# *.o files create from *.c \n
 
 clean:
-	rm -f *.o	    # remove .o files
+	rm -f $(O_DIR)/*.o	    # remove .o files
+	rm -rf $(O_DIR)			# remove obj directory
 
 fclean: clean
 	rm -f $(NAME)    # remove .o files and libft.a
