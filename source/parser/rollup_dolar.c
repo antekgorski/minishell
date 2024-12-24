@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 23:04:01 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/24 14:42:48 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,21 @@ char	*ft_d_roll(char *line, t_minishell *minishell)
 	while (line[t.end])
 	{
 		if (line[t.end] == '$' && line[t.end + 1] == '?')
-			ft_case1(&t, minishell);
+			ft_dolar_case1(&t, minishell);
 		if (line[t.end] == '$' && line[t.end + 1] == '$')
-			ft_case2(&t);
+			ft_dolar_case2(&t);
 		if (line[t.end] == '$' && line[t.end + 1] == '\0')
-			ft_case3(&t);
+			ft_dolar_case3(&t);
 		else if (line[t.end] == '$' && !strchr(SYMBOLS_S, line[t.end + 1]))
-			ft_case4(&t, line, minishell);
+			ft_dolar_case4(&t, line, minishell);
 		if (line[t.end] != '$' && line[t.end])
 		{
-			ft_case5(&t, line);
+			ft_dolar_case5(&t, line);
 			if (line[t.end + 1] == '\0')
 				break ;
 		}
+		if (line[t.end] == ' ' || line[t.end] == '\t')
+			t.end++;
 	}
 	return (t.result);
 }

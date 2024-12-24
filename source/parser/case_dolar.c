@@ -6,13 +6,13 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 22:53:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 23:23:23 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/24 14:09:38 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	ft_case1(t_t *t, t_minishell *minishell)
+void	ft_dolar_case1(t_t *t, t_minishell *minishell)
 {
 	t->temp = ft_itoa(minishell->f_signal);
 	t->result = ft_strjoin(t->result, t->temp);
@@ -21,7 +21,7 @@ void	ft_case1(t_t *t, t_minishell *minishell)
 	t->start = t->end;
 }
 
-void	ft_case2(t_t *t)
+void	ft_dolar_case2(t_t *t)
 {
 	t->end += 2;
 	t->temp = ft_strdup("$$");
@@ -30,7 +30,7 @@ void	ft_case2(t_t *t)
 	t->start = t->end;
 }
 
-void	ft_case3(t_t *t)
+void	ft_dolar_case3(t_t *t)
 {
 	t->end++;
 	t->temp = ft_strdup("$");
@@ -39,7 +39,7 @@ void	ft_case3(t_t *t)
 	t->start = t->end;
 }
 
-void	ft_case4(t_t *t, char *line, t_minishell *minishell)
+void	ft_dolar_case4(t_t *t, char *line, t_minishell *minishell)
 {
 	t->end++;
 	t->start = t->end;
@@ -53,7 +53,7 @@ void	ft_case4(t_t *t, char *line, t_minishell *minishell)
 	t->start = t->end;
 }
 
-void	ft_case5(t_t *t, char *line)
+void	ft_dolar_case5(t_t *t, char *line)
 {
 	t->start = t->end;
 	while (line[t->end] && !strchr(SYMBOLS_R, line[t->end]))

@@ -6,74 +6,44 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:43:39 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/16 19:08:04 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/24 14:08:44 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	quote_dcheck(char *line)
+static void	ft_case_start(char *line, t_q *q)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (line[i])
+	if (line[q->i] == '\"')
 	{
-		if (line[i] == '\"')
-		{
-			j = i + 1;
-			while (line[j] != '\"')
-			{
-				if (line[j] == '\0')
-					return (1);
-				j++;
-			}
-			i = j + 1;
-		}
-		else
-			i++;
+		q->d += 1;
+		q->result *= -1;
 	}
-	return (0);
+	if (line[q->i] == '\'')
+	{
+		q->s += 1;
+		q->result *= -1;
+	}
 }
 
-static int	quote_scheck(char *line)
+static void	init(t_q *q)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (line[i])
-	{
-		if (line[i] == '\'')
-		{
-			j = i + 1;
-			while (line[j] != '\'')
-			{
-				if (line[j] == '\0')
-					return (1);
-				j++;
-			}
-			i = j + 1;
-		}
-		else
-			i++;
-	}
-	return (0);
+	q->result = 1;
+	q->i = 0;
+	q->d = 0;
+	q->s = 0;
 }
 
-int	check_quote(t_minishell *minishell)
+int	check_quote(char *line)
 {
-	if (quote_scheck(minishell->line) == 1)
+	t_q	q;
+
+	init(&q);
+	ft_case_start(line, &q);
+	ft_quote_loop(line, &q);
+	if (q.result == -1)
 	{
-		printf("Unmatched single quote. Please check your input.\n");
-		return (1);
-	}
-	if (quote_dcheck(minishell->line) == 1)
-	{
-		printf("Unmatched duble quote. Please check your input.\n");
+		printf("Unmatched quote. Please check your input.\n");
 		return (1);
 	}
 	else

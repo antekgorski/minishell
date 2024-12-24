@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 20:31:02 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/24 14:01:56 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,14 @@ typedef struct s_t
 	char			*temp;
 	char			*env;
 }					t_t;
+
+// struct for quote_check
+typedef struct s_q
+{
+	int				result;
+	int				i;
+	int				d;
+	int				s;
+}					t_q;
+
 #endif

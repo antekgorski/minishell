@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 23:07:45 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/24 14:12:41 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	env_start(t_minishell *minishell, char **envp);
 
 // lexer functions
 
-void	ft_case1(t_t *t, t_minishell *minishell);
-void	ft_case2(t_t *t);
-void	ft_case3(t_t *t);
-void	ft_case4(t_t *t, char *line, t_minishell *minishell);
-void	ft_case5(t_t *t, char *line);
-void	ft_init_dolar(t_t *dolar);
 char	*ft_d_roll(char *line, t_minishell *minishell);
+void	ft_dolar_case1(t_t *t, t_minishell *minishell);
+void	ft_dolar_case2(t_t *t);
+void	ft_dolar_case3(t_t *t);
+void	ft_dolar_case4(t_t *t, char *line, t_minishell *minishell);
+void	ft_dolar_case5(t_t *t, char *line);
+void	ft_init_dolar(t_t *dolar);
 int		ft_squote(char *temp_line, t_minishell *minishell);
 int		ft_dquote(char *temp_line, t_minishell *minishell);
 int		ft_dolar(char *temp_line, t_minishell *minishell);
@@ -53,13 +53,13 @@ int		ft_comend(char *temp_line, t_minishell *minishell);
 int		ft_oredir(char *temp_line, t_minishell *minishell);
 int		ft_iredir(char *temp_line, t_minishell *minishell);
 int		ft_append(char *temp_line, t_minishell *minishell);
-int		ft_heredoc(char *temp_line, t_minishell *minishell);
+int		check_quote(char *line);
+void	ft_quote_loop(char *line, t_q *q);
 
 // parser functions
 
 char	**ft_addline(t_minishell *minishell, char *line, t_token token);
 void	parse(t_minishell *minishell);
-int		check_quote(t_minishell *minishell);
 void	ft_lexter(t_minishell *minishell);
 char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);

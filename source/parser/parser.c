@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 23:05:39 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/24 14:12:13 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_parser_test(t_minishell *minishell)
 // run lexical analysis
 void	parse(t_minishell *minishell)
 {
-	if (check_quote(minishell) == 1)
+	if (check_quote(minishell->line) == 1)
 		return ;
 	minishell->lexter_tab = NULL;
 	ft_lexter(minishell);
