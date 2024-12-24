@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 15:04:01 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/25 00:35:09 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ and the loop continues
 */
 void	main_loop(t_minishell *minishell)
 {
-	signal_initialization();
 	while (1)
 	{
 		minishell->line = readline("\033[36m""@nt->""\033[92m""p@w>""\033[0m");
@@ -45,8 +44,9 @@ void	minishell_init(t_minishell *minishell, char **envp)
 	minishell->m_env = NULL;
 	minishell->token_list = NULL;
 	minishell->f_signal = 0;
-	env_start(minishell, envp);
 	minishell->l_hdr = NULL;
+	env_start(minishell, envp);
+	signal_initialization();
 }
 
 int	main(int argc, char **argv, char **envp)

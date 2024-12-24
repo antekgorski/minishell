@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/24 14:42:48 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/25 00:22:39 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_d_roll(char *line, t_minishell *minishell)
 		if (line[t.end] != '$' && line[t.end])
 		{
 			ft_dolar_case5(&t, line);
-			if (line[t.end + 1] == '\0')
+			if (line[t.end] == '\0')
 				break ;
 		}
 		if (line[t.end] == ' ' || line[t.end] == '\t')
