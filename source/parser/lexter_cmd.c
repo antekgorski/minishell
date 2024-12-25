@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:05:29 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 23:19:50 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/25 13:02:45 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_comend(char *t_line, t_minishell *minishell)
 	int		i;
 	char	*temp_arg;
 	char	*result;
+	char	*temp_hdr;
 
 	i = 0;
 	while (t_line[i] && !ft_strchr(SYMBOLS_D, t_line[i]))
@@ -24,8 +25,12 @@ int	ft_comend(char *t_line, t_minishell *minishell)
 	temp_arg = ft_substr(t_line, 0, i);
 	result = ft_d_roll(temp_arg, minishell);
 	free(temp_arg);
-	minishell->l_hdr = ft_strjoin(minishell->l_hdr, result);
+	temp_hdr = ft_strjoin(minishell->l_hdr, result);
+	free(minishell->l_hdr);
+	minishell->l_hdr = NULL;
 	free(result);
+	result = NULL;
+	minishell->l_hdr = temp_hdr;
 	if (ft_strchr(SYMBOLS_C, t_line[i]))
 	{
 		minishell->lexter_tab = ft_addline(minishell, minishell->l_hdr, CMD);

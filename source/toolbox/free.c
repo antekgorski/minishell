@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 13:10:58 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/25 13:17:02 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,20 @@ void	env_free(t_list *env)
 	{
 		tmp = env;
 		env_vars = (char **)env->content;
-		if (env_vars)
+		if (env_vars != NULL)
 		{
 			free(env_vars[0]);
+			env_vars[0] = NULL;
 			free(env_vars[1]);
+			env_vars[1] = NULL;
 			free(env_vars);
+			env_vars = NULL;
 		}
 		env = env->next;
 		free(tmp);
+		tmp = NULL;
 	}
+	env = NULL;
 }
 
 void	ft_token_free(t_list **token_list)

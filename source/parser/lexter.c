@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/23 21:18:09 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/25 13:05:53 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ char	**ft_addline(t_minishell *minishell, char *line, t_token token)
 	ft_get_token(token, minishell);
 	new_argv[i + 1] = NULL;
 	if (minishell->lexter_tab)
+	{
 		free(minishell->lexter_tab);
+		minishell->lexter_tab = NULL;
+	}
 	return (new_argv);
 }
 

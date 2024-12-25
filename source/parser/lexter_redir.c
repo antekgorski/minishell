@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexter_redir.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:59:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/20 14:10:11 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/25 13:05:21 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_pipe(t_minishell *minishell)
 
 	temp_arg = ft_strdup("|");
 	minishell->lexter_tab = ft_addline(minishell, temp_arg, PIPE);
+	temp_arg = NULL;
 	return (1);
 }
 
@@ -29,11 +30,13 @@ int	ft_oredir(char *temp_line, t_minishell *minishell)
 	{
 		temp_arg = ft_strdup(">>");
 		minishell->lexter_tab = ft_addline(minishell, temp_arg, APPEND);
+		temp_arg = NULL;
 		return (2);
 	}
 	else
 		temp_arg = ft_strdup(">");
 	minishell->lexter_tab = ft_addline(minishell, temp_arg, OREDIR);
+	temp_arg = NULL;
 	return (1);
 }
 
@@ -45,10 +48,12 @@ int	ft_iredir(char *temp_line, t_minishell *minishell)
 	{
 		temp_arg = ft_strdup("<<");
 		minishell->lexter_tab = ft_addline(minishell, temp_arg, HERDOC);
+		temp_arg = NULL;
 		return (2);
 	}
 	else
 		temp_arg = ft_strdup("<");
 	minishell->lexter_tab = ft_addline(minishell, temp_arg, IREDIR);
+	temp_arg = NULL;
 	return (1);
 }
