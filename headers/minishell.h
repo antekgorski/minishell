@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/24 14:12:41 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/27 13:43:43 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define SYMBOLS_C "|<> \t\0"
 # define SYMBOLS_R "$ \t\0"
 # define SYMBOLS_S "$?\0"
+# define SYM_E " \t"
 
 // main functions
 
@@ -55,6 +56,7 @@ int		ft_iredir(char *temp_line, t_minishell *minishell);
 int		ft_append(char *temp_line, t_minishell *minishell);
 int		check_quote(char *line);
 void	ft_quote_loop(char *line, t_q *q);
+void	ft_init_dolar(t_t *dolar);
 
 // parser functions
 
