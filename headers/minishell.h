@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/27 13:43:43 by agorski          ###   ########.fr       */
+/*   Updated: 2024/12/28 16:12:24 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <termios.h>
+#include  <sys/wait.h>
+
 
 # define SYMBOLS_D "|<>\"\' \t"
 # define SYMBOLS_C "|<> \t\0"
@@ -104,5 +106,10 @@ char	**ft_split_env(char *env);
 void	env_start(t_minishell *minishell, char **envp);
 char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);
+
+//execve
+int	execute_external(char **args, t_minishell *minishell);
+int	execute_tokens(char **args, t_minishell *minishell);
+
 
 #endif
