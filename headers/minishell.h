@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/28 16:12:24 by prutkows         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:33:09 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@
 # include <signal.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <sys/wait.h>
 # include <termios.h>
-#include  <sys/wait.h>
-
 
 # define SYMBOLS_D "|<>\"\' \t"
 # define SYMBOLS_C "|<> \t\0"
@@ -92,7 +91,7 @@ void	handle_input(char *input, t_minishell *minishell);
 int		ft_strcmp(const char *s1, const char *s2);
 int		e_bild(char **args, t_minishell *minishell);
 int		ft_pwd(void);
-int		ft_cd(char **args);
+int		ft_cd(char **args, t_minishell *minishell);
 int		ft_echo(char **args);
 int		ft_env(t_minishell *minishell);
 int		ft_exit(t_minishell *minishell);
@@ -107,9 +106,12 @@ void	env_start(t_minishell *minishell, char **envp);
 char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);
 
-//execve
-int	execute_external(char **args, t_minishell *minishell);
-int	execute_tokens(char **args, t_minishell *minishell);
-
+// execve
+int		execute_external(char **args, t_minishell *minishell);
+void	execute_child_process(char **args, t_minishell *minishell);
+int		wait_for_child_process(pid_t pid);
+void	ft_free_split2(char ***split);
+char	*ft_strjoin_free(char *s1, char *s2);
+char	*find_executable(char *command, char **envp);
 
 #endif
