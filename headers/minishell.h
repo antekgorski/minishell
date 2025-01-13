@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/10 17:34:20 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:24:48 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,9 @@ int		wait_for_child_process(pid_t pid);
 void	ft_free_split2(char ***split);
 char	*ft_strjoin_free(char *s1, char *s2);
 char	*find_executable(char *command, char **envp);
+
+// redirections and pipes
+t_cmd	*parse_tokens(t_minishell *minishell);
+void	execute_commands(t_cmd *cmd_list, t_minishell *minishell);
 
 #endif
