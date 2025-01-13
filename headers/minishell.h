@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 09:54:11 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/23 13:08:33 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ int		ft_cd(char **args, t_minishell *minishell);
 int		ft_echo(char **args);
 int		ft_env(t_minishell *minishell);
 int		ft_exit(t_minishell *minishell);
-int		ft_unset(t_minishell *minishell, const char *name);
+// int		ft_unset(t_minishell *minishell, const char *name);
+int		ft_unset(t_minishell *minishell, char **name);
 int		ft_export(t_minishell *minishell, char **args);
 int		ft_print_env(t_minishell *minishell);
 
@@ -114,7 +115,7 @@ int		ft_print_env(t_minishell *minishell);
 char	**ft_split_env(char *env);
 void	env_start(t_minishell *minishell, char **envp);
 char	*ft_get_env(t_list *head, char *key);
-t_list	*ft_find_env(t_list *head, char *key);
+t_list	*ft_find__env(t_list *head, char *key);
 
 // execve
 int		execute_external(char **args, t_minishell *minishell);
