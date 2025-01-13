@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/22 15:10:06 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/23 13:23:19 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,19 @@ void	main_loop(t_minishell *minishell)
 {
 	while (1)
 	{
-		minishell->line = readline("\033[36m""@nt->""\033[92m""p@w>""\033[0m");
+		minishell->line = readline("\033[36m"
+									"@nt->"
+									"\033[92m"
+									"p@w>"
+									"\033[0m");
 		handle_input(minishell->line, minishell);
 		if (minishell->line)
 		{
 			if (minishell->line[0] != '\0')
 				add_history(minishell->line);
 			parse(minishell);
+			// if (minishell->cmd_list)
+			// 	execute_commands(minishell->cmd_list, minishell);
 		}
 		free(minishell->line);
 	}

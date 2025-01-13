@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/10 17:36:08 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/13 12:40:11 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	e_bild(char **args, t_minishell *minishell)
 	else if (ft_strcmp(args[0], "export") == 0)
 		minishell->f_signal = ft_export(minishell, args);
 	else
+	{
 		minishell->f_signal = execute_external(args, minishell);
+		// return (0);
+	}
 	return (minishell->f_signal);
 }

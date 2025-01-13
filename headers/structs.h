@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 13:10:43 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:22:44 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,6 @@ typedef struct s_minishell
 	t_cmd			*cmd_list;
 
 }					t_minishell;
-
-/**
- * @param t_token token
- * @param char **command
- * @param struct s_node *prev
- * @param struct s_node *next
- * @brief struct for linked list duble or single?
- */
-typedef struct s_cmd
-{
-	// t_token			token;
-	char			**command;
-	char			*infile;
-	char			*outfile;
-	int				append;
-	struct s_cmd	*next;
-
-}					t_cmd;
 
 // steuct for dolar rollup
 typedef struct s_t
