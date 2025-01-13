@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/24 14:01:56 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/10 18:36:27 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,16 @@ typedef struct s_minishell
  * @param struct s_node *next
  * @brief struct for linked list duble or single?
  */
-typedef struct s_node
+typedef struct s_cmd
 {
-	t_token			token;
+	// t_token			token;
 	char			**command;
-	struct s_node	*prev;
-	struct s_node	*next;
+	char			*infile;
+	char			*outfile;
+	int				append;
+	struct s_cmd	*next;
 
-}					t_node;
+}					t_cmd;
 
 // steuct for dolar rollup
 typedef struct s_t
