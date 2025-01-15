@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/13 12:41:48 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/15 08:09:53 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	parse(t_minishell *minishell)
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
 	{
-		// dodałem
-		// minishell->cmd_list = parse_tokens(minishell);
 		// ft_parser_test(minishell);
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
 	}

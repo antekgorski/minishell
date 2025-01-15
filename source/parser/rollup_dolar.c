@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rollup_dolar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/27 13:53:04 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/14 17:57:03 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ char	*ft_d_roll(char *line, t_minishell *minishell)
 			ft_dolar_case2(&t);
 		if (line[t.end] == '$' && line[t.end + 1] == '\0')
 			ft_dolar_case3(&t);
-		else if (line[t.end] == '$' && !strchr(SYMBOLS_S, line[t.end + 1]))
+		else if (line[t.end] == '$' && !ft_strchr(SYMBOLS_S, line[t.end + 1]))
 			ft_dolar_case4(&t, line, minishell);
-		if (line[t.end] != '$' && line[t.end] && !strchr(SYM_E, line[t.end]))
+		if (line[t.end] != '$' && line[t.end] && !ft_strchr(SYM_E, line[t.end]))
 		{
 			ft_dolar_case5(&t, line);
 			if (line[t.end] == '\0')

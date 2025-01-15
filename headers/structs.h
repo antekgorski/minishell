@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/13 14:26:18 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/15 08:40:03 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,34 @@ typedef enum e_token
 	APPEND,
 	HERDOC
 }					t_token;
-/**
- * @param t_token token
- * @param char **command
- * @param struct s_node *prev
- * @param struct s_node *next
- * @brief struct for linked list duble or single?
- */
+// typedef struct s_token_struct
+// {
+// 	t_token	type;
+// 	char	*value;
+// 	struct s_token_struct	*prev;
+// 	struct s_token_struct	*next;
+// 	char	*value;
+// }					t_token_struct;
+// // for in_type:
+// #define IN_NONE  0
+// #define IN_FILE  1  // "<"
+// #define IN_HEREDOC 2 // "<<"
+
+// // for out_type:
+// #define OUT_NONE   0
+// #define OUT_FILE   1 // ">"
+// #define OUT_APPEND 2 // ">>"
 typedef struct s_cmd
 {
-	// t_token			token;
 	char			**cmd;
 	char			*infile;
 	char			*outfile;
-	int				append;
+	int				infile_fd;
+	int				outfile_fd;
+	// int				in_type;
+	// int				out_type;
+	char			*heredoc_limiter;
+	int				is_builtin;
 	struct s_cmd	*next;
 
 }					t_cmd;
@@ -61,7 +75,6 @@ typedef struct s_minishell
 {
 	char			*line;
 	char			**lexter_tab;
-	t_token			*token;
 	t_list			*token_list;
 	t_list			*m_env;
 	int				f_signal;

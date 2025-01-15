@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/13 12:40:37 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/14 19:38:04 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	main_loop(t_minishell *minishell)
 			if (minishell->line[0] != '\0')
 				add_history(minishell->line);
 			parse(minishell);
-			// if (minishell->cmd_list)
-			// 	execute_commands(minishell->cmd_list, minishell);
 		}
 		free(minishell->line);
 	}
