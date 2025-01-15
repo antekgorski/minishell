@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/15 08:40:03 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/15 13:02:54 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,7 @@ typedef enum e_token
 // 	struct s_token_struct	*next;
 // 	char	*value;
 // }					t_token_struct;
-// // for in_type:
-// #define IN_NONE  0
-// #define IN_FILE  1  // "<"
-// #define IN_HEREDOC 2 // "<<"
 
-// // for out_type:
-// #define OUT_NONE   0
-// #define OUT_FILE   1 // ">"
-// #define OUT_APPEND 2 // ">>"
 typedef struct s_cmd
 {
 	char			**cmd;
@@ -55,8 +47,6 @@ typedef struct s_cmd
 	char			*outfile;
 	int				infile_fd;
 	int				outfile_fd;
-	// int				in_type;
-	// int				out_type;
 	char			*heredoc_limiter;
 	int				is_builtin;
 	struct s_cmd	*next;
