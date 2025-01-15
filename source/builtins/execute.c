@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/13 12:40:11 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:14:32 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,11 @@ int	e_bild(char **args, t_minishell *minishell)
 	}
 	return (minishell->f_signal);
 }
+
+// cat <"./test_files/infile" | grep hello
+
+// 1- funkcja literujaca przez lexter_tab (arg_tab)
+// 2 if token == << < > >>
+// 3 to handle_redirectionsi dalej szuka nastepnych tokenow powiazanych z < << > >>
+
+// < file1.txt cmd1 | cmd2 > file2.txt

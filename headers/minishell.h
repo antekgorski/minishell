@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 13:25:20 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:03:11 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,7 @@ t_cmd	*parse_tokens(t_minishell *minishell);
 void	execute_commands(t_cmd *cmd_list, t_minishell *minishell);
 // t_cmd	*parse_tokens(t_minishell *minishell);
 // void	execute_commands(t_cmd *cmd_list, t_minishell *minishell);
+void	handle_redirections(t_minishell *minishell);
+
 
 #endif
