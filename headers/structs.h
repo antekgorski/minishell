@@ -6,9 +6,10 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 13:22:44 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:28:19 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
@@ -55,8 +56,15 @@ typedef struct s_redir
  */
 typedef struct s_cmd
 {
-	char			**argv;
-	t_redir			*redirs;
+	char			**cmd;
+	char			*infile;
+	char			*outfile;
+	int				infile_fd;
+	int				outfile_fd;
+	// int				in_type;
+	// int				out_type;
+	char			*heredoc_limiter;
+	int				is_builtin;
 	struct s_cmd	*next;
 }					t_cmd;
 
