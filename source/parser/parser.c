@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 14:04:21 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:10:25 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,23 @@ void	ft_get_token(t_token token, t_minishell *minishell)
 	ft_lstadd_back(&minishell->token_list, new_node);
 }
 
+// void	ft_parser_test(t_minishell *minishell)
+// {
+// 	int		i;
+// 	t_list	*temp;
+
+// 	temp = minishell->token_list;
+// 	i = 0;
+// 	while (minishell->lexter_tab[i])
+// 	{
+// 		printf("%s\t%i\n", minishell->lexter_tab[i], *(int *)temp->content);
+// 		i++;
+// 		temp = temp->next;
+// 	}
+// }
 void	ft_parser_test(t_minishell *minishell)
 {
+	t_cmd	*current_cmd;
 	int		i;
 	t_list	*temp;
 
@@ -84,6 +99,9 @@ void	parse(t_minishell *minishell)
 {
 	if (check_quote(minishell->line) == 1)
 		return ;
+	//Dodałem
+	if (minishell->cmd_list == NULL)
+		minishell->cmd_list = ft_lstnew_cmd();
 	minishell->lexter_tab = NULL;
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
