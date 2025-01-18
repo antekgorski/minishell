@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/15 13:02:54 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:52:38 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_cmd
 	int				outfile_fd;
 	char			*heredoc_limiter;
 	int				is_builtin;
+	char			*append;
 	struct s_cmd	*next;
 
 }					t_cmd;

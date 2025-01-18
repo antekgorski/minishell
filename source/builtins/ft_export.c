@@ -6,13 +6,13 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/10 16:55:49 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:34:27 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-static void	ft_free_split(char **split)
+void	ft_free_split(char **split)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/15 14:17:13 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/18 08:34:08 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,55 @@ void	ft_get_token(t_token token, t_minishell *minishell)
 	ft_lstadd_back(&minishell->token_list, new_node);
 }
 
+// void	ft_parser_test(t_minishell *minishell)
+// {
+// 	int		i;
+// 	t_list	*temp;
+
+// 	temp = minishell->token_list;
+// 	i = 0;
+// 	while (minishell->lexter_tab[i])
+// 	{
+// 		printf("%s\t%i\n", minishell->lexter_tab[i], *(int *)temp->content);
+// 		i++;
+// 		temp = temp->next;
+// 	}
+// }
 void	ft_parser_test(t_minishell *minishell)
 {
+	t_cmd	*current_cmd;
 	int		i;
-	t_list	*temp;
 
-	temp = minishell->token_list;
-	i = 0;
-	while (minishell->lexter_tab[i])
+	current_cmd = minishell->cmd_list;
+	int cmd_num = 1;
+	while (current_cmd)
 	{
-		printf("%s\t%i\n", minishell->lexter_tab[i], *(int *)temp->content);
-		i++;
-		temp = temp->next;
+		printf("Command %d:\n", cmd_num);
+		if (current_cmd->cmd)
+		{
+			printf("  Command: ");
+			i = 0;
+			while (current_cmd->cmd[i])
+			{
+				printf("%s ", current_cmd->cmd[i]);
+				i++;
+			}
+			printf("\n");
+		}
+		else
+		{
+			printf("  Command: (null)\n");
+		}
+		if (current_cmd->infile)
+			printf("  Infile: %s\n", current_cmd->infile);
+		if (current_cmd->outfile)
+			printf("  Outfile: %s\n", current_cmd->outfile);
+		if (current_cmd->append)
+			printf("  Append: %s\n", current_cmd->append);
+		if (current_cmd->heredoc_limiter)
+			printf("  Heredoc Limiter: %s\n", current_cmd->heredoc_limiter);
+		current_cmd = current_cmd->next;
+		cmd_num++;
 	}
 }
 
@@ -56,12 +93,16 @@ void	parse(t_minishell *minishell)
 {
 	if (check_quote(minishell->line) == 1)
 		return ;
+	//Dodałem
+	if (minishell->cmd_list == NULL)
+		minishell->cmd_list = ft_lstnew_cmd();
 	minishell->lexter_tab = NULL;
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
 	{
-		// ft_parser_test(minishell);
-		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		execute_pipeline(minishell);
+		// minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		ft_parser_test(minishell);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);
