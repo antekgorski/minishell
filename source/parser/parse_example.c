@@ -22,7 +22,7 @@
 //             if (minishell->line[i] == ' ' || minishell->line[i] == '\t')
 //             {
 //                 i++;
-//                 continue;
+//                 continue ;
 //             }
 //             else if (minishell->line[i] == '|')
 //             {
@@ -81,12 +81,14 @@
 // {
 //     // Przykład: < input.txt
 //     skip_whitespace(minishell->line, index);
-//     char *filename = ft_lexter_next_token(&minishell->line[*index], minishell, &(minishell->cmd_list->infile));
+//     char *filename = ft_lexter_next_token(&minishell->line[*index],
+// minishell, &(minishell->cmd_list->infile));
 //     if (filename == NULL)
 //     {
 //         ft_panic("Syntax error: expected filename after '<'", 1);
 //     }
-//     *index += ft_strlen(filename); // Zakładamy, że funkcja zwraca długość przetworzonego tokena
+//     *index += ft_strlen(filename); // Zakładamy,
+// że funkcja zwraca długość przetworzonego tokena
 // }
 
 // /**
@@ -99,7 +101,8 @@
 // {
 //     // Przykład: > output.txt
 //     skip_whitespace(minishell->line, index);
-//     char *filename = ft_lexter_next_token(&minishell->line[*index], minishell, &(minishell->cmd_list->outfile));
+//     char *filename = ft_lexter_next_token(&minishell->line[*index],
+// minishell, &(minishell->cmd_list->outfile));
 //     if (filename == NULL)
 //     {
 //         ft_panic("Syntax error: expected filename after '>'", 1);
@@ -117,7 +120,8 @@
 // {
 //     // Przykład: >> output.txt
 //     skip_whitespace(minishell->line, index);
-//     char *filename = ft_lexter_next_token(&minishell->line[*index], minishell, &(minishell->cmd_list->append));
+//     char *filename = ft_lexter_next_token(&minishell->line[*index],
+// minishell, &(minishell->cmd_list->append));
 //     if (filename == NULL)
 //     {
 //         ft_panic("Syntax error: expected filename after '>>'", 1);
@@ -135,7 +139,9 @@
 // {
 //     // Przykład: << EOF
 //     skip_whitespace(minishell->line, index);
-//     char *limiter = ft_lexter_next_token(&minishell->line[*index], minishell, &(minishell->cmd_list->heredoc_limiter));
+//     char *limiter = ft_lexter_next_token(&minishell->line[*index],
+// minishell,
+// &(minishell->cmd_list->heredoc_limiter));
 //     if (limiter == NULL)
 //     {
 //         ft_panic("Syntax error: expected limiter after '<<'", 1);

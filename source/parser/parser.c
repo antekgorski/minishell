@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/19 15:24:48 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:00:46 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,13 @@ void	parse(t_minishell *minishell)
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
 	{
-
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
 		// ft_parser_test(minishell);
+		printf("Contents of lexter_tab:\n");
+		for (int i = 0; minishell->lexter_tab[i] != NULL; i++)
+		{
+			printf("[%d]: %s\n", i, minishell->lexter_tab[i]);
+		}
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);
