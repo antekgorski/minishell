@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/16 16:52:38 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/19 17:19:42 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,20 @@ typedef enum e_token
 // 	char	*value;
 // }					t_token_struct;
 
+typedef struct s_redir
+{
+	t_token	type;
+	char			*filename;
+	struct s_redir	*next;
+}	t_redir;
+
 typedef struct s_cmd
 {
 	char			**cmd;
-	char			*infile;
-	char			*outfile;
+	t_redir			*redirs;
 	int				infile_fd;
 	int				outfile_fd;
-	char			*heredoc_limiter;
 	int				is_builtin;
-	char			*append;
 	struct s_cmd	*next;
 
 }					t_cmd;

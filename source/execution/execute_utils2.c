@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/17 09:54:29 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:24:08 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	execute_child_process(char **args, t_minishell *minishell)
 	char	*exec_path;
 	char	**envp;
 	//Added for concept
-	handle_redirections(minishell);
+	// handle_redirections(minishell);
 	envp = list_to_envp(minishell->m_env);
 	if (!envp)
 	{

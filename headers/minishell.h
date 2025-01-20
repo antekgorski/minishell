@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/17 18:35:17 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:26:32 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,14 +116,10 @@ char	*ft_strjoin_free(char *s1, char *s2);
 char	*find_executable(char *command, char **envp);
 
 // redirections and pipes
-void	handle_redirections(t_minishell *minishell);
+// void	handle_redirections(t_minishell *minishell);
 
 //added concept
-// static int	ft_lexter_next_token(char *line, t_minishell *minishell, char **dest);
-int	execute_pipeline(t_minishell *minishell);
-t_cmd	*ft_lstnew_cmd(void);
-void	ft_lstadd_back_cmd(t_cmd **cmd_list, t_cmd *new_cmd);
-void	ft_parser_test(t_minishell *minishell);
+
 
 
 
