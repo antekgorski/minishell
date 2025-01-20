@@ -12,88 +12,88 @@
 
 #include "../../headers/minishell.h"
 
-void	handle_redirections(t_minishell *minishell)
-{
-	t_cmd	*current_cmd;
-			int pipefd[2];
-			char *line;
+// void	handle_redirections(t_minishell *minishell)
+// {
+// 	t_cmd	*current_cmd;
+// 			int pipefd[2];
+// 			char *line;
 
-	current_cmd = minishell->cmd_list;
-	while (current_cmd)
-	{
-		if (current_cmd->infile)
-		{
-			current_cmd->infile_fd = open(current_cmd->infile, O_RDONLY);
-			if (current_cmd->infile_fd < 0)
-			{
-				perror("open infile");
-				exit(EXIT_FAILURE);
-			}
-			if (dup2(current_cmd->infile_fd, STDIN_FILENO) < 0)
-			{
-				perror("dup2 infile");
-				exit(EXIT_FAILURE);
-			}
-			close(current_cmd->infile_fd);
-		}
-		if (current_cmd->outfile)
-		{
-			current_cmd->outfile_fd = open(current_cmd->outfile,
-					O_WRONLY | O_CREAT | O_TRUNC, 0644);
-			if (current_cmd->outfile_fd < 0)
-			{
-				perror("open outfile");
-				exit(EXIT_FAILURE);
-			}
-			if (dup2(current_cmd->outfile_fd, STDOUT_FILENO) < 0)
-			{
-				perror("dup2 outfile");
-				exit(EXIT_FAILURE);
-			}
-			close(current_cmd->outfile_fd);
-		}
-		if (current_cmd->append)
-		{
-			current_cmd->outfile_fd = open(current_cmd->append,
-					O_WRONLY | O_CREAT | O_APPEND, 0644);
-			if (current_cmd->outfile_fd < 0)
-			{
-				perror("open append outfile");
-				exit(EXIT_FAILURE);
-			}
-			if (dup2(current_cmd->outfile_fd, STDOUT_FILENO) < 0)
-			{
-				perror("dup2 append outfile");
-				exit(EXIT_FAILURE);
-			}
-			close(current_cmd->outfile_fd);
-		}
-		if (current_cmd->heredoc_limiter)
-		{
-			if (pipe(pipefd) < 0)
-			{
-				perror("pipe");
-				exit(EXIT_FAILURE);
-			}
-			while (1)
-			{
-				line = readline("> ");
-				if (!line || ft_strcmp(line, current_cmd->heredoc_limiter) == 0)
-				{
-					free(line);
-					break ;
-				}
-				write(pipefd[1], line, ft_strlen(line));
-				write(pipefd[1], "\n", 1);
-				free(line);
-			}
-			close(pipefd[1]);
-			dup2(pipefd[0], STDIN_FILENO);
-			close(pipefd[0]);
-		}
-		current_cmd = current_cmd->next;
-	}
-}
+// 	current_cmd = minishell->cmd_list;
+// 	while (current_cmd)
+// 	{
+// 		if (current_cmd->infile)
+// 		{
+// 			current_cmd->infile_fd = open(current_cmd->infile, O_RDONLY);
+// 			if (current_cmd->infile_fd < 0)
+// 			{
+// 				perror("open infile");
+// 				exit(EXIT_FAILURE);
+// 			}
+// 			if (dup2(current_cmd->infile_fd, STDIN_FILENO) < 0)
+// 			{
+// 				perror("dup2 infile");
+// 				exit(EXIT_FAILURE);
+// 			}
+// 			close(current_cmd->infile_fd);
+// 		}
+// 		if (current_cmd->outfile)
+// 		{
+// 			current_cmd->outfile_fd = open(current_cmd->outfile,
+// 					O_WRONLY | O_CREAT | O_TRUNC, 0644);
+// 			if (current_cmd->outfile_fd < 0)
+// 			{
+// 				perror("open outfile");
+// 				exit(EXIT_FAILURE);
+// 			}
+// 			if (dup2(current_cmd->outfile_fd, STDOUT_FILENO) < 0)
+// 			{
+// 				perror("dup2 outfile");
+// 				exit(EXIT_FAILURE);
+// 			}
+// 			close(current_cmd->outfile_fd);
+// 		}
+// 		if (current_cmd->append)
+// 		{
+// 			current_cmd->outfile_fd = open(current_cmd->append,
+// 					O_WRONLY | O_CREAT | O_APPEND, 0644);
+// 			if (current_cmd->outfile_fd < 0)
+// 			{
+// 				perror("open append outfile");
+// 				exit(EXIT_FAILURE);
+// 			}
+// 			if (dup2(current_cmd->outfile_fd, STDOUT_FILENO) < 0)
+// 			{
+// 				perror("dup2 append outfile");
+// 				exit(EXIT_FAILURE);
+// 			}
+// 			close(current_cmd->outfile_fd);
+// 		}
+// 		if (current_cmd->heredoc_limiter)
+// 		{
+// 			if (pipe(pipefd) < 0)
+// 			{
+// 				perror("pipe");
+// 				exit(EXIT_FAILURE);
+// 			}
+// 			while (1)
+// 			{
+// 				line = readline("> ");
+// 				if (!line || ft_strcmp(line, current_cmd->heredoc_limiter) == 0)
+// 				{
+// 					free(line);
+// 					break ;
+// 				}
+// 				write(pipefd[1], line, ft_strlen(line));
+// 				write(pipefd[1], "\n", 1);
+// 				free(line);
+// 			}
+// 			close(pipefd[1]);
+// 			dup2(pipefd[0], STDIN_FILENO);
+// 			close(pipefd[0]);
+// 		}
+// 		current_cmd = current_cmd->next;
+// 	}
+// }
 
 /*DRUGA WERSJA*/
 // static int	ft_check_t(t_list *token_list, unsigned int count)

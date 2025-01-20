@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 13:28:38 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:12:14 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,21 @@ void	main_loop(t_minishell *minishell)
 		free(minishell->line);
 	}
 }
+//my version
+// void	minishell_init(t_minishell *minishell, char **envp)
+// {
+// 	minishell->line = NULL;
+// 	minishell->lexter_tab = NULL;
+// 	minishell->m_env = NULL;
+// 	minishell->token_list = NULL;
+// 	minishell->f_signal = 0;
+// 	minishell->l_hdr = NULL;
+// 	env_start(minishell, envp);
+// 	minishell->cmd_list = ft_lstnew_cmd();
+// 	signal_initialization();
+// }
 
+//antek's version
 // function to initialize the minishell struct
 void	minishell_init(t_minishell *minishell, char **envp)
 {

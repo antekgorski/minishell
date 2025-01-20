@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 14:10:25 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:13:25 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,6 @@ void	parse(t_minishell *minishell)
 {
 	if (check_quote(minishell->line) == 1)
 		return ;
-	//Dodałem
-	if (minishell->cmd_list == NULL)
-		minishell->cmd_list = ft_lstnew_cmd();
 	minishell->lexter_tab = NULL;
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
