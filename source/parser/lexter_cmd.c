@@ -3,55 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   lexter_cmd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:05:29 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/20 08:26:44 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:45:29 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// int	ft_comend(char *t_line, t_minishell *minishell)
-// {
-// 	int	i;
-// 	char	*temp_arg;
-// 	char	**split_cmd;
-
-// 	i = 0;
-// 	while (t_line[i] && !ft_strchr(SYMBOLS_D, t_line[i]))
-// 		i++;
-// 	temp_arg = ft_substr(t_line, 0, i);
-// 	if (!temp_arg)
-// 		ft_panic("malloc failed", 1);
-
-// 	split_cmd = ft_split(temp_arg, ' ');
-// 	 // Debugging
-//     printf("ft_comend: Parsed command: ");
-// 	int j = 0;
-//     while (split_cmd[j] )
-// 	{
-// 		printf("%s ", split_cmd[j]);
-// 		j++;
-// 	}
-// 	printf("\n");
-
-// 	if (!split_cmd)
-// 	{
-// 		free(temp_arg);
-// 		ft_panic("malloc failed", 1);
-// 	}
-// 	free(temp_arg);
-// 	minishell->cmd_list->cmd = split_cmd;
-
-// 	// if (ft_strchr(SYMBOLS_C, t_line[i]))
-// 	// {
-// 	// 	minishell->lexter_tab = ft_addline(minishell, minishell->cmd_list->cmd[0], CMD);
-// 	// 	minishell->cmd_list->cmd = NULL;
-// 	// }
-// 	return(i);
-// }
-// antek's version
 int	ft_comend(char *t_line, t_minishell *minishell)
 {
 	int		i;

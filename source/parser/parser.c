@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 14:14:58 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:17:53 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	ft_get_token(t_token token, t_minishell *minishell)
 	ft_lstadd_back(&minishell->token_list, new_node);
 }
 
-// void	ft_parser_test(t_minishell *minishell)
-// {
-// 	int		i;
-// 	t_list	*temp;
+void	ft_parser_test(t_minishell *minishell)
+{
+	int		i;
+	t_list	*temp;
 
 // 	temp = minishell->token_list;
 // 	i = 0;
@@ -105,9 +105,9 @@ void	parse(t_minishell *minishell)
 		ft_cmd_bilder(minishell);
 	if (minishell->lexter_tab)
 	{
-		ft_parser_test(minishell);//frint lextertab and token list
-		print_cmds(minishell->cmd_list);//print linklist of commands and redirections
+		ft_cmd_bilder(minishell);
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		ft_parser_test(minishell);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);
