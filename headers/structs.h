@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/19 17:19:42 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:11:16 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,35 @@ typedef enum e_token
 	APPEND,
 	HERDOC
 }					t_token;
-// typedef struct s_token_struct
-// {
-// 	t_token	type;
-// 	char	*value;
-// 	struct s_token_struct	*prev;
-// 	struct s_token_struct	*next;
-// 	char	*value;
-// }					t_token_struct;
 
+/**
+ * @brief struct for redirection
+ * @param t_token type
+ * @param char *filename
+ */
 typedef struct s_redir
 {
-	t_token	type;
+	t_token			type;
 	char			*filename;
 	struct s_redir	*next;
-}	t_redir;
+}					t_redir;
 
+/**
+ * @brief struct for command
+ * @param char **cmd
+ * @param t_redir *redirs
+ * @param int infile_fd
+ * @param int outfile_fd
+ * @param int is_builtin
+ *
+ */
 typedef struct s_cmd
 {
-	char			**cmd;
+	char			**argv;
 	t_redir			*redirs;
-	int				infile_fd;
-	int				outfile_fd;
-	int				is_builtin;
-	struct s_cmd	*next;
-
+	struct s_cmd	*next;;
 }					t_cmd;
+
 /**
  * @brief main struct for minishell
  * @param char *line
