@@ -6,12 +6,13 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/20 13:46:51 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:56:47 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/*
  * @attention MALOC
  * @brief line to the lexter_tab
  * if the lexter_tab is NULL it will create a new one

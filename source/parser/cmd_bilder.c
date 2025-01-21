@@ -6,11 +6,11 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 14:16:53 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:20:20 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "minishell.h"/*./headers/*/
 
 t_cmd	*ft_new_cmd(void)
 {
@@ -26,6 +26,7 @@ t_cmd	*ft_new_cmd(void)
 }
 
 void	ft_add_redir(t_redir **redirs, t_token type, char *filename)
+static void	ft_add_redir(t_redir **redirs, t_token type, char *filename)
 {
 	t_redir	*new;
 	t_redir	*temp;
@@ -47,6 +48,10 @@ void	ft_add_redir(t_redir **redirs, t_token type, char *filename)
 	}
 }
 
+static char	**ft_add_cmd(char **argv, char *line)
+{
+	char	**new_argv;
+	int		i;
 char	**ft_add_cmd(char **argv, char *line)
 {
 	char	**new_argv;
@@ -54,13 +59,16 @@ char	**ft_add_cmd(char **argv, char *line)
 
 	i = 0;
 	while (argv && argv[i])
+	while (argv && argv[i])
 		i++;
 	new_argv = ft_calloc(sizeof(char *) * (i + 2), 1);
 	if (new_argv == NULL)
 		ft_panic("malloc", 1);
 	i = 0;
 	while (argv && argv[i])
+	while (argv && argv[i])
 	{
+		new_argv[i] = argv[i];
 		new_argv[i] = argv[i];
 		i++;
 	}
