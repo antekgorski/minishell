@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/24 14:01:56 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/21 16:09:00 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,34 @@ typedef enum e_token
 }					t_token;
 
 /**
+ * @brief struct for redirection
+ * @param t_token type
+ * @param char *filename
+ */
+typedef struct s_redir
+{
+	t_token			type;
+	char			*filename;
+	struct s_redir	*next;
+}					t_redir;
+
+/**
+ * @brief struct for command
+ * @param char **cmd
+ * @param t_redir *redirs
+ * @param int infile_fd
+ * @param int outfile_fd
+ * @param int is_builtin
+ *
+ */
+typedef struct s_cmd
+{
+	char			**argv;
+	t_redir			*redirs;
+	struct s_cmd	*next;
+}					t_cmd;
+
+/**
  * @brief main struct for minishell
  * @param char *line
  * @param char **lexter_tab
@@ -45,29 +73,13 @@ typedef struct s_minishell
 {
 	char			*line;
 	char			**lexter_tab;
-	t_token			*token;
 	t_list			*token_list;
 	t_list			*m_env;
 	int				f_signal;
 	char			*l_hdr;
+	t_cmd			*cmd_list;
 
 }					t_minishell;
-
-/**
- * @param t_token token
- * @param char **command
- * @param struct s_node *prev
- * @param struct s_node *next
- * @brief struct for linked list duble or single?
- */
-typedef struct s_node
-{
-	t_token			token;
-	char			**command;
-	struct s_node	*prev;
-	struct s_node	*next;
-
-}					t_node;
 
 // steuct for dolar rollup
 typedef struct s_t

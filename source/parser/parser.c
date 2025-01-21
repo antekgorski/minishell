@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/27 13:52:12 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/21 16:49:22 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	parse(t_minishell *minishell)
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
 	{
-		//ft_parser_test(minishell);
+		ft_cmd_bilder(minishell);
+		ft_parser_test(minishell);
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
