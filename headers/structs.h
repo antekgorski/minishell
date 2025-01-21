@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/20 15:11:16 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/21 16:09:00 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_cmd
 {
 	char			**argv;
 	t_redir			*redirs;
-	struct s_cmd	*next;;
+	struct s_cmd	*next;
 }					t_cmd;
 
 /**
