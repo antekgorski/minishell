@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/19 16:24:08 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:48:58 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static char	**convert_env_to_envp(t_list *env, int count)
 }
 
 // Funkcja konwertująca listę zmiennych środowiskowych na tablicę dla execve
-static char	**list_to_envp(t_list *env)
+char	**list_to_envp(t_list *env)
 {
 	int	count;
 

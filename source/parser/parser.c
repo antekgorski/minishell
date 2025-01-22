@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/22 14:28:58 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:34:56 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,32 @@ void	ft_parser_test(t_minishell *minishell)
 		temp = temp->next;
 	}
 }
-
+static void    print_cmds(t_cmd *cmds)
+{
+    t_redir *redirs;
+    int     i;
+    while (cmds)
+    {
+        printf("Command:\n");
+        if (cmds->argv)
+        {
+            i = 0;
+            while (cmds->argv[i])
+            {
+                printf("  argv[%d]: %s\n", i, cmds->argv[i]);
+                i++;
+            }
+        }
+        redirs = cmds->redirs;
+        while (redirs)
+        {
+            printf("  Redirection: type = %d, file = %s\n",
+                redirs->type, redirs->filename);
+            redirs = redirs->next;
+        }
+        cmds = cmds->next;
+    }
+}
 // check if the quote is closed
 // if not it will print the error message
 // run lexical analysis
@@ -62,9 +87,11 @@ void	parse(t_minishell *minishell)
 	if (minishell->lexter_tab)
 	{
 		ft_cmd_bilder(minishell);
-		ft_parser_test(minishell);
-		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
-		ft_parser_test(minishell);
+		// ft_parser_test(minishell);
+		// minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		// ft_parser_test(minishell);
+		print_cmds(minishell->cmd_list);
+		execute(minishell->cmd_list, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);
