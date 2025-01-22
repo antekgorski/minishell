@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 14:24:30 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:26:41 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,3 +122,50 @@ void	ft_cmd_bilder(t_minishell *minishell)
 	}
 	minishell->cmd_list = cb.cmds;
 }
+
+// void	ft_cmd_bilder(t_minishell *minishell)
+// {
+// 	t_cmd	*cmds;
+// 	t_cmd	*current_cmd;
+// 	int		i;
+// 	t_list	*token;
+
+// 	token = minishell->token_list;
+// 	cmds = ft_new_cmd();
+// 	if (!cmds)
+// 		ft_panic("malloc", 1);
+// 	current_cmd = cmds;
+// 	i = 0;
+// 	while (minishell->lexter_tab[i])
+// 	{
+// 		if ((t_token)token->content == PIPE)
+// 		{
+// 			current_cmd->next = ft_new_cmd();
+// 			if (!current_cmd->next)
+// 				ft_panic("malloc", 1);
+// 			current_cmd = current_cmd->next;
+// 		}
+// 		else if (*(int *)token->content == IREDIR
+// 			|| *(int *)token->content == OREDIR
+// 			|| *(int *)token->content == APPEND
+// 			|| *(int *)token->content == HERDOC)
+// 		{
+// 			token = token->next;
+// 			i++;
+// 			if (minishell->lexter_tab[i] && *(int *)token->content == CMD)
+// 				ft_add_redir(&current_cmd->redirs, (t_token)token->content,
+// 					minishell->lexter_tab[i]);
+// 			else
+// 			{
+// 				printf("syntax error near unexpected token\n");
+// 				return ;
+// 			}
+// 		}
+// 		else if (*(int *)token->content == CMD)
+// 			current_cmd->argv = ft_add_cmd(current_cmd->argv,
+// 					minishell->lexter_tab[i]);
+// 		token = token->next;
+// 		i++;
+// 	}
+// 	minishell->cmd_list = cmds;
+// }

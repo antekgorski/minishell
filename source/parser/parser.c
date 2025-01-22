@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 14:24:49 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:27:30 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,11 @@ void	parse(t_minishell *minishell)
 	if (minishell->lexter_tab)
 	{
 		ft_cmd_bilder(minishell);
-		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
-		ft_parser_test(minishell);
+		// ft_parser_test(minishell);
+		// minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		// ft_parser_test(minishell);
+		print_cmds(minishell->cmd_list);
+		execute(minishell->cmd_list, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);
