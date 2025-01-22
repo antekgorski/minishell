@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/22 14:40:36 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/22 20:03:22 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 # include <readline/history.h>
 # include <readline/readline.h>
 # include <signal.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/wait.h>
 # include <termios.h>
-# include <stdbool.h>
 
 # define SYMBOLS_D "|<>\"\' \t"
 # define SYMBOLS_C "|<> \t\0"
@@ -69,13 +69,14 @@ char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);
 void	ft_get_token(t_token token, t_minishell *minishell);
 void	ft_cmd_bilder(t_minishell *minishell);
-bool    ft_check_redir(t_list *token);
+bool	ft_check_redir(t_list *token);
 void	ft_t_cmd_init(t_cmd *cmd);
 void	ft_cb_init(t_cb *cb, t_minishell *minishell);
-t_cmd    *ft_new_cmd(void);
+t_cmd	*ft_new_cmd(void);
 void	ft_add_redir(t_redir **redirs, t_token token, char *file);
-char    **ft_add_cmd(char **argv, char *line);
-bool	ft_cmd_redir(t_list *token, t_minishell *minishell, t_cmd *c_cmd, int *i);
+char	**ft_add_cmd(char **argv, char *line);
+bool	ft_cmd_redir(t_list *token, t_minishell *minishell, t_cmd *c_cmd,
+			int *i);
 
 // error handler
 
