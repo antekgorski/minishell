@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/22 16:23:18 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/22 19:44:01 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_cmd	*ft_new_cmd(void)
 		ft_panic("malloc", 1);
 	cmd->argv = NULL;
 	cmd->redirs = NULL;
+	cmd->next = NULL;
 	return (cmd);
 }
 
@@ -72,13 +73,13 @@ bool	ft_cmd_redir(t_list *token, t_minishell *minishell, t_cmd *c_cmd,
 		int *i)
 {
 	t_token	temp;
+
 	temp = *(t_token *)token->content;
 	token = token->next;
 	(*i)++;
-	if (minishell->lexter_tab[*i] && *(int *)token->content == CMD)
+	if (minishell->lexter_tab[*i] && *(t_token *)token->content == CMD)
 	{
-		ft_add_redir(&c_cmd->redirs, temp,
-			minishell->lexter_tab[*i]);
+		ft_add_redir(&c_cmd->redirs, temp, minishell->lexter_tab[*i]);
 	}
 	else
 	{

@@ -1,4 +1,5 @@
 #include "../../include/minishell.h"
+
 static t_cmd    *new_cmd(void)
 {
     t_cmd   *cmd;
