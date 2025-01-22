@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/22 17:33:04 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:59:31 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	ft_add_redir(t_redir **redirs, t_token type, char *filename)
 		return ;
 	new->type = type;
 	new->filename = ft_strdup(filename);
+	new->stdin_fd = 0;
+	new->stdout_fd = 1;
 	new->next = NULL;
 	if (!*redirs)
 		*redirs = new;

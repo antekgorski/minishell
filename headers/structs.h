@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/21 16:09:00 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/22 19:11:21 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_redir
 {
 	t_token			type;
 	char			*filename;
+	int				stdin_fd;
+	int				stdout_fd;
 	struct s_redir	*next;
 }					t_redir;
 
