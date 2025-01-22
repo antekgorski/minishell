@@ -6,7 +6,11 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/01/21 16:49:09 by agorski          ###   ########.fr       */
+=======
+/*   Updated: 2025/01/20 13:39:17 by agorski          ###   ########.fr       */
+>>>>>>> builtins
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +72,10 @@ char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);
 void	ft_get_token(t_token token, t_minishell *minishell);
 void    ft_cmd_bilder(t_minishell *minishell);
+<<<<<<< HEAD
+=======
+
+>>>>>>> builtins
 
 // error handler
 
@@ -96,9 +104,10 @@ int		ft_cd(char **args, t_minishell *minishell);
 int		ft_echo(char **args);
 int		ft_env(t_minishell *minishell);
 int		ft_exit(t_minishell *minishell);
-int		ft_unset(t_minishell *minishell, const char *name);
+int		ft_unset(t_minishell *minishell, char **name);
 int		ft_export(t_minishell *minishell, char **args);
 int		ft_print_env(t_minishell *minishell);
+void	ft_free_split(char **split);
 
 // env
 
@@ -114,5 +123,14 @@ int		wait_for_child_process(pid_t pid);
 void	ft_free_split2(char ***split);
 char	*ft_strjoin_free(char *s1, char *s2);
 char	*find_executable(char *command, char **envp);
+
+// redirections and pipes
+// void	handle_redirections(t_minishell *minishell);
+
+//added concept
+
+
+
+
 
 #endif

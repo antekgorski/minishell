@@ -3,15 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/25 13:17:02 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/19 15:15:29 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+//dodałem
+// static void free_cmd_list(t_cmd *cmd_list)
+// {
+// 	t_cmd	*current;
+// 	t_cmd	*next;
 
+// 	current = cmd_list;
+// 	while (current)
+// 	{
+// 		next = current->next;
+// 		if (current->cmd)
+// 			ft_free_split(current->cmd);
+// 		if (current->infile)
+// 			free(current->infile);
+// 		if (current->outfile)
+// 			free(current->outfile);
+// 		if (current->append)
+// 			free(current->append);
+// 		if (current->heredoc_limiter)
+// 			free(current->heredoc_limiter);
+// 		free(current);
+// 		current = next;
+// 	}
+// }
 void	ft_shell_free(t_minishell *minishell)
 {
 	tab_free(&minishell->lexter_tab);
@@ -19,6 +42,7 @@ void	ft_shell_free(t_minishell *minishell)
 	env_free(minishell->m_env);
 	ft_token_free(&minishell->token_list);
 	free(minishell->l_hdr);
+	// free_cmd_list(minishell->cmd_list);
 }
 
 /**

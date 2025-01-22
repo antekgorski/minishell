@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   case_dolar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 22:53:41 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/25 13:21:58 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/13 14:36:11 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_dolar_case4(t_t *t, char *line, t_minishell *minishell)
 
 	t->end++;
 	t->start = t->end;
-	while (line[t->end] && !strchr(SYMBOLS_R, line[t->end]))
+	while (line[t->end] && !ft_strchr(SYMBOLS_R, line[t->end]))
 		t->end++;
 	t->temp = ft_substr(line, t->start, (t->end - t->start));
 	t->env = ft_get_env(minishell->m_env, t->temp);
@@ -81,7 +81,7 @@ void	ft_dolar_case5(t_t *t, char *line)
 	char	*temp;
 
 	t->start = t->end;
-	while (line[t->end] && !strchr(SYMBOLS_R, line[t->end]))
+	while (line[t->end] && !ft_strchr(SYMBOLS_R, line[t->end]))
 		t->end++;
 	t->temp = ft_substr(line, t->start, t->end - t->start);
 	temp = ft_strjoin(t->result, t->temp);
