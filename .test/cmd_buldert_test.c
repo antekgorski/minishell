@@ -134,3 +134,62 @@ void    ft_cmd_bilder(t_minishell *minishell)
 //     }
 //     return (cmds);
 // }
+
+t_cmd   *parse_tokens(t_token *tokens)
+{
+    t_cmd   *cmds;
+    t_cmd   *current_cmd;
+    t_token_type    redir_type;
+    cmds = new_cmd();
+    if (!cmds)
+        return (NULL);
+    current_cmd = cmds;
+    while (tokens)
+    {
+        if (tokens->type == PIPE) // Nowa komenda
+        {
+            current_cmd->next = new_cmd();
+            current_cmd = current_cmd->next;
+        }
+        else if (tokens->type == REDIR_IN || tokens->type == REDIR_OUT
+            || tokens->type == REDIR_APPEND || tokens->type == HEREDOC)
+        {
+            redir_type = tokens->type; // Zapisz typ redirekcji
+            tokens = tokens->next;
+            if (tokens) // Dodaj redirekcję
+                add_redir(&current_cmd->redirs, redir_type, tokens->value);
+        }
+        else if (tokens->type == WORD) // Argument
+            current_cmd->argv = add_to_argv(current_cmd->argv, tokens->value);
+        tokens = tokens->next;
+    }
+    return (cmds);
+}
+
+void	ft_cmd_bilder(t_minishell *minishell)
+{
+	t_cb	cb;
+
+	ft_cb_init(&cb, minishell);
+	while (cb.token)
+	{
+		if (*(t_token *)cb.token->content == PIPE)
+		{
+			cb.c_cmd->next = ft_new_cmd();
+			cb.c_cmd = cb.c_cmd->next;
+		}
+		else if (ft_check_redir(cb.token))
+		{
+			if (!ft_cmd_redir(cb.token, minishell, cb.c_cmd, &cb.i))
+				return ;
+		}
+		else if (*(t_token *)cb.token->content == CMD)
+			cb.c_cmd->argv = ft_add_cmd(cb.c_cmd->argv,
+					minishell->lexter_tab[cb.i]);
+		cb.token = cb.token->next;
+		cb.i++;
+	}
+	minishell->cmd_list = cb.cmds;
+}
+
+//ls -la >> test > test1
