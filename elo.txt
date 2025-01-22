@@ -1,4 +1,0 @@
-/home/prutkows/Projekty/minishell_with_antek_
-[?2004h[36m@nt->[92mp@w>[0melos
-[?2004lCommand:
-  argv[0]: elos

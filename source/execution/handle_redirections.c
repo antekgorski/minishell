@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/22 18:38:13 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:49:36 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	handle_redirections(t_redir *redirs)
 		if (fd < 0)
 		{
 			perror("minishell: open");
-			close(fd);
+			// close(fd);
 			exit(EXIT_FAILURE);
 		}
 		if (redirs->type == IREDIR)
@@ -133,6 +133,9 @@ static void	execute_pipeline(t_cmd *cmds, t_minishell *minishell)
 			perror("minishell: pipe");
 			exit(EXIT_FAILURE);
 		}
+		if (is_builtin(cmds) == 1)
+			e_bild(cmds->argv, minishell,1);
+		else
 		pid = fork();
 		if (pid == 0)
 		{
