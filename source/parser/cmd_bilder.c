@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_bilder.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/01/21 17:35:06 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:28:26 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-=======
-/*   Updated: 2025/01/21 16:20:12 by agorski          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "minishell.h"/*./headers/*/
->>>>>>> builtins
 
 static t_cmd	*ft_new_cmd(void)
 {
@@ -89,15 +81,9 @@ void	ft_cmd_bilder(t_minishell *minishell)
 		ft_panic("malloc", 1);
 	current_cmd = cmds;
 	i = 0;
-<<<<<<< HEAD
 	while (minishell->lexter_tab[i])
 	{
 		if ((t_token)token->content == PIPE)
-=======
-	while (minishell->token_list)
-	{
-		if (*(int *)token->content == PIPE)
->>>>>>> builtins
 		{
 			current_cmd->next = ft_new_cmd();
 			if (!current_cmd->next)
@@ -111,11 +97,7 @@ void	ft_cmd_bilder(t_minishell *minishell)
 		{
 			token = token->next;
 			i++;
-<<<<<<< HEAD
 			if (minishell->lexter_tab[i] && *(int *)token->content == CMD)
-=======
-			if (minishell->lexter_tab[i] && token->content == CMD)
->>>>>>> builtins
 				ft_add_redir(&current_cmd->redirs, (t_token)token->content,
 					minishell->lexter_tab[i]);
 			else
@@ -125,12 +107,8 @@ void	ft_cmd_bilder(t_minishell *minishell)
 			}
 		}
 		else if (*(int *)token->content == CMD)
-<<<<<<< HEAD
 			current_cmd->argv = ft_add_cmd(current_cmd->argv,
 					minishell->lexter_tab[i]);
-=======
-			current_cmd->argv = ft_add_cmd(current_cmd->argv, minishell->lexter_tab[i]);
->>>>>>> builtins
 		token = token->next;
 		i++;
 	}

@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/01/21 16:49:22 by agorski          ###   ########.fr       */
-=======
-/*   Updated: 2025/01/20 13:38:36 by agorski          ###   ########.fr       */
->>>>>>> builtins
+/*   Updated: 2025/01/22 14:28:58 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +62,7 @@ void	parse(t_minishell *minishell)
 	if (minishell->lexter_tab)
 	{
 		ft_cmd_bilder(minishell);
-<<<<<<< HEAD
 		ft_parser_test(minishell);
-=======
->>>>>>> builtins
 		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
 		ft_parser_test(minishell);
 	}
