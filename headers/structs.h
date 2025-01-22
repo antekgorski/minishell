@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/21 16:09:00 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:36:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,16 @@ typedef struct s_q
 	int				d;
 	int				s;
 }					t_q;
+
+/**
+ * @brief struct for command bilder
+ */
+typedef struct s_cb
+{
+	t_cmd			*cmds;
+	t_cmd			*c_cmd;
+	int				i;
+	t_list			*token;
+}					t_cb;
 
 #endif
