@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/01/21 16:49:09 by agorski          ###   ########.fr       */
-=======
-/*   Updated: 2025/01/20 13:39:17 by agorski          ###   ########.fr       */
->>>>>>> builtins
+/*   Updated: 2025/01/22 14:22:16 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +68,6 @@ char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);
 void	ft_get_token(t_token token, t_minishell *minishell);
 void    ft_cmd_bilder(t_minishell *minishell);
-<<<<<<< HEAD
-=======
-
->>>>>>> builtins
 
 // error handler
 
