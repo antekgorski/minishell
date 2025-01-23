@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   execve.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/28 17:07:25 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 12:51:03 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-// Funkcja wykonująca polecenie zewnętrzne w nowym procesie
+/**
+ * @brief Function that finds the executable path of a command
+ */
 int	execute_external(char **args, t_minishell *minishell)
 {
 	pid_t	pid;

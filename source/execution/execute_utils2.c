@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/28 16:53:55 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 12:50:57 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-// Funkcja licząca liczbę zmiennych środowiskowych w liście
+/**
+ * @brief Function that finds the executable path of a command
+ */
 static int	count_env_variables(t_list *env)
 {
 	t_list	*current;
@@ -28,8 +30,9 @@ static int	count_env_variables(t_list *env)
 	return (count);
 }
 
-// Funkcja konwertująca listę zmiennych środowiskowych
-// na tablicę odpowiednią dla execve
+/**
+ * @brief Function that finds the executable path of a command
+ */
 static char	**convert_env_to_envp(t_list *env, int count)
 {
 	t_list	*current;
@@ -59,7 +62,9 @@ static char	**convert_env_to_envp(t_list *env, int count)
 	return (envp);
 }
 
-// Funkcja konwertująca listę zmiennych środowiskowych na tablicę dla execve
+/**
+ * @brief Function that finds the executable path of a command
+ */
 static char	**list_to_envp(t_list *env)
 {
 	int	count;
@@ -68,7 +73,9 @@ static char	**list_to_envp(t_list *env)
 	return (convert_env_to_envp(env, count));
 }
 
-// Funkcja wykonująca proces potomny, uruchamiająca polecenie zewnętrzne
+/**
+ * @brief Function that finds the executable path of a command
+ */
 void	execute_child_process(char **args, t_minishell *minishell)
 {
 	char	*exec_path;
@@ -97,7 +104,9 @@ void	execute_child_process(char **args, t_minishell *minishell)
 	}
 }
 
-// Funkcja oczekująca na zakończenie procesu potomnego i zwracająca jego status
+/**
+ * @brief Function that finds the executable path of a command
+ */
 int	wait_for_child_process(pid_t pid)
 {
 	int	status;

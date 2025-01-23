@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/28 16:54:48 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/23 12:47:56 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-// Funkcja łącząca dwa stringi i zwalniająca pamięć pierwszego
+/**
+ * @brief function to join two strings and free the first one
+ */
 char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*joined_str;
@@ -26,7 +28,9 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	return (joined_str);
 }
 
-// Funkcja wyszukująca zmienną PATH w środowisku i zwracająca jej wartość
+/**
+ * @brief function to get the PATH variable from the environment
+ */
 static char	*get_path_variable(char **envp)
 {
 	while (*envp)
@@ -38,8 +42,9 @@ static char	*get_path_variable(char **envp)
 	return (NULL);
 }
 
-// Funkcja konstruująca pełną ścieżkę do pliku
-// na podstawie katalogu (token) i nazwy polecenia
+/**
+ * @brief function to construct the full path to the executable
+ */
 static char	*construct_full_path(const char *token, const char *command)
 {
 	char	*full_path;
@@ -55,7 +60,9 @@ static char	*construct_full_path(const char *token, const char *command)
 	return (full_path);
 }
 
-// Funkcja wyszukująca wykonywalny plik w katalogach podanych w zmiennej PATH
+/**
+ * @brief function to find the executable in the PATH
+ */
 char	*find_executable(char *command, char **envp)
 {
 	char	*path;
@@ -84,7 +91,9 @@ char	*find_executable(char *command, char **envp)
 	return (NULL);
 }
 
-// Funkcja zwalniająca pamięć zaalokowaną dla tablicy dwuwymiarowej
+/**
+ * @brief function to free a split string
+ */
 void	ft_free_split2(char ***split)
 {
 	int	i;
