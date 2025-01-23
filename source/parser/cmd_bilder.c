@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_bilder.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/22 22:50:25 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/23 10:03:29 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ char	**ft_add_cmd(char **argv, char *line)
 	}
 	new_argv[i] = ft_strdup(line);
 	new_argv[i + 1] = NULL;
+	if (argv)
+		free(argv);
+	argv = NULL;
 	return (new_argv);
 }
 

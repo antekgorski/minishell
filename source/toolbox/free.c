@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/25 13:17:02 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/23 09:52:53 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_shell_free(t_minishell *minishell)
 	free(minishell->line);
 	env_free(minishell->m_env);
 	ft_token_free(&minishell->token_list);
+	ft_free_cmd_list(minishell->cmd_list);
 	free(minishell->l_hdr);
 }
 
@@ -96,4 +97,35 @@ void	ft_token_free(t_list **token_list)
 		}
 	}
 	*token_list = NULL;
+}
+/**
+ * @brief 	Frees a linked list of commands.
+ * 			Each command in the list is freed, then the list itself is freed.
+ * @param cmd The linked list of commands to be freed.
+ * @note	The list itself is also freed,
+ * 			so the pointer to it will be set to NULL.
+ */
+void	ft_free_cmd_list(t_cmd *cmd)
+{
+	t_cmd	*temp;
+	t_redir	*temp_redir;
+
+	while (cmd)
+	{
+		temp = cmd;
+		cmd = cmd->next;
+		if (temp->argv)
+			tab_free(&temp->argv);
+		while (temp->redirs)
+		{
+			temp_redir = temp->redirs;
+			temp->redirs = temp->redirs->next;
+			free(temp_redir->filename);
+			temp_redir->filename = NULL;
+			free(temp_redir);
+			temp_redir = NULL;
+		}
+		free(temp);
+		temp = NULL;
+	}
 }
