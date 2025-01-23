@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 09:54:11 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/22 18:17:30 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <readline/history.h>
 # include <readline/readline.h>
 # include <signal.h>
-# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/wait.h>
@@ -68,14 +67,7 @@ void	ft_lexter(t_minishell *minishell);
 char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);
 void	ft_get_token(t_token token, t_minishell *minishell);
-void	ft_cmd_bilder(t_minishell *minishell);
-bool	ft_check_redir(t_list *token);
-void	ft_t_cmd_init(t_cmd *cmd);
-void	ft_cb_init(t_cb *cb, t_minishell *minishell);
-t_cmd	*ft_new_cmd(void);
-void	ft_add_redir(t_redir **redirs, t_token token, char *file);
-char	**ft_add_cmd(char **argv, char *line);
-bool	ft_cmd_redir(t_minishell *minishell, t_cb *cb, t_token *redir_type);
+void    ft_cmd_bilder(t_minishell *minishell);
 
 // error handler
 
@@ -89,7 +81,6 @@ void	ft_shell_free(t_minishell *minishell);
 void	tab_free(char ***lexter_tab);
 void	env_free(t_list *env);
 void	ft_token_free(t_list **token_list);
-void	ft_free_cmd_list(t_cmd *cmd_list);
 
 // Signals
 
@@ -99,15 +90,16 @@ void	handle_input(char *input, t_minishell *minishell);
 // Builtins
 
 int		ft_strcmp(const char *s1, const char *s2);
-int		e_bild(char **args, t_minishell *minishell);
+int		e_bild(char **args, t_minishell *minishell, int parentProcess);
 int		ft_pwd(void);
 int		ft_cd(char **args, t_minishell *minishell);
 int		ft_echo(char **args);
 int		ft_env(t_minishell *minishell);
 int		ft_exit(t_minishell *minishell);
-int		ft_unset(t_minishell *minishell, const char *name);
+int		ft_unset(t_minishell *minishell, char **name);
 int		ft_export(t_minishell *minishell, char **args);
 int		ft_print_env(t_minishell *minishell);
+void	ft_free_split(char **split);
 
 // env
 
@@ -123,5 +115,15 @@ int		wait_for_child_process(pid_t pid);
 void	ft_free_split2(char ***split);
 char	*ft_strjoin_free(char *s1, char *s2);
 char	*find_executable(char *command, char **envp);
+
+// redirections and pipes
+// void	handle_redirections(t_minishell *minishell);
+void	execute(t_cmd *cmds, t_minishell *minishell);
+char	**list_to_envp(t_list *env);
+
+
+
+
+
 
 #endif

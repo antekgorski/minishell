@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_list_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:42:53 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/22 03:19:57 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/10 11:56:15 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_list	*ft_find_env(t_list *head, char *key)
 	while (current != NULL)
 	{
 		env_vars = (char **)current->content;
-		if (ft_strncmp(env_vars[0], key, ft_strlen(key)) == 0)
+		if (ft_strcmp(env_vars[0], key) == 0)
 			return (current);
 		current = current->next;
 	}

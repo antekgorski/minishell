@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 09:57:28 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/22 19:39:44 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,42 +41,40 @@ void	ft_parser_test(t_minishell *minishell)
 
 	temp = minishell->token_list;
 	i = 0;
+	printf("\nTexterTab:\tToken list:\n");
 	while (minishell->lexter_tab[i])
 	{
-		printf("%s\t%i\n", minishell->lexter_tab[i], *(int *)temp->content);
+		printf("%s\t\t%i\n", minishell->lexter_tab[i], *(int *)temp->content);
 		i++;
 		temp = temp->next;
 	}
 }
-
-void	print_cmds(t_cmd *cmds)
+static void    print_cmds(t_cmd *cmds)
 {
-	t_redir	*redirs;
-	int		i;
-
-	while (cmds)
-	{
-		printf("Command:\n");
-		if (cmds->argv)
-		{
-			i = 0;
-			while (cmds->argv[i])
-			{
-				printf("  argv[%d]: %s\n", i, cmds->argv[i]);
-				i++;
-			}
-		}
-		redirs = cmds->redirs;
-		while (redirs)
-		{
-			printf("  Redirection: type = %d, file = %s\n", redirs->type,
-				redirs->filename);
-			redirs = redirs->next;
-		}
-		cmds = cmds->next;
-	}
+    t_redir *redirs;
+    int     i;
+    while (cmds)
+    {
+        printf("Command:\n");
+        if (cmds->argv)
+        {
+            i = 0;
+            while (cmds->argv[i])
+            {
+                printf("  argv[%d]: %s\n", i, cmds->argv[i]);
+                i++;
+            }
+        }
+        redirs = cmds->redirs;
+        while (redirs)
+        {
+            printf("  Redirection: type = %d, file = %s\n",
+                redirs->type, redirs->filename);
+            redirs = redirs->next;
+        }
+        cmds = cmds->next;
+    }
 }
-
 // check if the quote is closed
 // if not it will print the error message
 // run lexical analysis
@@ -87,18 +85,17 @@ void	parse(t_minishell *minishell)
 	minishell->lexter_tab = NULL;
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
-		ft_cmd_bilder(minishell);
-	if (minishell->lexter_tab)
 	{
-		ft_parser_test(minishell);//frint lextertab and token list
-		print_cmds(minishell->cmd_list);//print linklist of commands and redirections
-		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		ft_cmd_bilder(minishell);
+		// ft_parser_test(minishell);
+		// minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		// ft_parser_test(minishell);
+		print_cmds(minishell->cmd_list);
+		execute(minishell->cmd_list, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);
 	if (minishell->token_list != NULL)
 		ft_token_free(&minishell->token_list);
-	if (minishell->cmd_list != NULL)
-		ft_free_cmd_list(minishell->cmd_list);
 	free(minishell->l_hdr);
 }

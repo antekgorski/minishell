@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/23 12:50:57 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/22 16:48:58 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-/**
- * @brief Function that finds the executable path of a command
- */
+// Funkcja licząca liczbę zmiennych środowiskowych w liście
 static int	count_env_variables(t_list *env)
 {
 	t_list	*current;
@@ -30,9 +28,8 @@ static int	count_env_variables(t_list *env)
 	return (count);
 }
 
-/**
- * @brief Function that finds the executable path of a command
- */
+// Funkcja konwertująca listę zmiennych środowiskowych
+// na tablicę odpowiednią dla execve
 static char	**convert_env_to_envp(t_list *env, int count)
 {
 	t_list	*current;
@@ -62,10 +59,8 @@ static char	**convert_env_to_envp(t_list *env, int count)
 	return (envp);
 }
 
-/**
- * @brief Function that finds the executable path of a command
- */
-static char	**list_to_envp(t_list *env)
+// Funkcja konwertująca listę zmiennych środowiskowych na tablicę dla execve
+char	**list_to_envp(t_list *env)
 {
 	int	count;
 
@@ -73,14 +68,13 @@ static char	**list_to_envp(t_list *env)
 	return (convert_env_to_envp(env, count));
 }
 
-/**
- * @brief Function that finds the executable path of a command
- */
+// Funkcja wykonująca proces potomny, uruchamiająca polecenie zewnętrzne
 void	execute_child_process(char **args, t_minishell *minishell)
 {
 	char	*exec_path;
 	char	**envp;
-
+	//Added for concept
+	// handle_redirections(minishell);
 	envp = list_to_envp(minishell->m_env);
 	if (!envp)
 	{
@@ -90,6 +84,7 @@ void	execute_child_process(char **args, t_minishell *minishell)
 	exec_path = find_executable(args[0], envp);
 	if (!exec_path)
 	{
+		ft_putstr_fd("minishell: ", 2);
 		ft_putstr_fd(args[0], 2);
 		ft_putstr_fd(": command not found\n", 2);
 		ft_free_split2(&envp);
@@ -104,9 +99,7 @@ void	execute_child_process(char **args, t_minishell *minishell)
 	}
 }
 
-/**
- * @brief Function that finds the executable path of a command
- */
+// Funkcja oczekująca na zakończenie procesu potomnego i zwracająca jego status
 int	wait_for_child_process(pid_t pid)
 {
 	int	status;

@@ -3,23 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 10:12:49 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/19 15:15:29 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+//dodałem
+// static void free_cmd_list(t_cmd *cmd_list)
+// {
+// 	t_cmd	*current;
+// 	t_cmd	*next;
 
+// 	current = cmd_list;
+// 	while (current)
+// 	{
+// 		next = current->next;
+// 		if (current->cmd)
+// 			ft_free_split(current->cmd);
+// 		if (current->infile)
+// 			free(current->infile);
+// 		if (current->outfile)
+// 			free(current->outfile);
+// 		if (current->append)
+// 			free(current->append);
+// 		if (current->heredoc_limiter)
+// 			free(current->heredoc_limiter);
+// 		free(current);
+// 		current = next;
+// 	}
+// }
 void	ft_shell_free(t_minishell *minishell)
 {
 	tab_free(&minishell->lexter_tab);
 	free(minishell->line);
 	env_free(minishell->m_env);
 	ft_token_free(&minishell->token_list);
-	ft_free_cmd_list(minishell->cmd_list);
 	free(minishell->l_hdr);
+	// free_cmd_list(minishell->cmd_list);
 }
 
 /**
@@ -97,36 +120,4 @@ void	ft_token_free(t_list **token_list)
 		}
 	}
 	*token_list = NULL;
-}
-
-/**
- * @brief 	Frees a linked list of commands.
- * 			Each command in the list is freed, then the list itself is freed.
- * @param cmd The linked list of commands to be freed.
- * @note	The list itself is also freed,
- * 			so the pointer to it will be set to NULL.
- */
-void	ft_free_cmd_list(t_cmd *cmd)
-{
-	t_cmd	*temp;
-	t_redir	*temp_redir;
-
-	while (cmd)
-	{
-		temp = cmd;
-		cmd = cmd->next;
-		if (temp->argv)
-			tab_free(&temp->argv);
-		while (temp->redirs)
-		{
-			temp_redir = temp->redirs;
-			temp->redirs = temp->redirs->next;
-			free(temp_redir->filename);
-			temp_redir->filename = NULL;
-			free(temp_redir);
-			temp_redir = NULL;
-		}
-		free(temp);
-		temp = NULL;
-	}
 }

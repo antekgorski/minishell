@@ -6,34 +6,41 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/28 17:33:58 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:27:22 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
+// first version
 // builtins functions
-int	e_bild(char **args, t_minishell *minishell)
+int	e_bild(char **args, t_minishell *minishell, int parentProcess)
 {
 	if (!args || !args[0])
 		return (1);
-	if (args[0] && ft_strcmp(args[0], "pwd") == 0)
-		return (ft_pwd());
-	else if (args[0] && ft_strcmp(args[0], "echo") == 0)
-		return (ft_echo(args));
+	if (args[0] && ft_strcmp(args[0], "pwd") == 0 && !parentProcess)
+		minishell->f_signal = ft_pwd();
+	else if (args[0] && ft_strcmp(args[0], "echo") == 0 && !parentProcess)
+		minishell->f_signal = ft_echo(args);
 	else if (args[0] && ft_strcmp(args[0], "cd") == 0)
-		return (ft_cd(args, minishell));
+		minishell->f_signal = ft_cd(args, minishell);
 	else if (args[0] && ft_strcmp(args[0], "exit") == 0)
-		return (ft_exit(minishell));
-	else if (args[0] && ft_strcmp(args[0], "env") == 0)
-		return (ft_env(minishell));
-	else if (args[1] && ft_strcmp(args[0], "unset") == 0)
-		return (ft_unset(minishell, args[1]));
+		minishell->f_signal = ft_exit(minishell);
+	else if (args[0] && ft_strcmp(args[0], "env") == 0 && !parentProcess)
+		minishell->f_signal = ft_env(minishell);
+	else if (args[1] && ft_strcmp(args[0], "unset") == 0 && !parentProcess)
+		minishell->f_signal = ft_unset(minishell, &args[1]);
 	else if (ft_strcmp(args[0], "export") == 0)
-		return (ft_export(minishell, args));
-	else
-	{
-		return (execute_external(args, minishell));
-	}
-	return (0);
+		minishell->f_signal = ft_export(minishell, args);
+	// else
+	// 	minishell->f_signal = execute_external(args, minishell);
+	return (minishell->f_signal);
 }
+
+// cat <"./test_files/infile" | grep hello
+
+// 1- funkcja literujaca przez lexter_tab (arg_tab)
+// 2 if token == << < > >>
+// 3 to handle_redirectionsi dalej szuka nastepnych tokenow powiazanych z < << > >>
+
+// < file1.txt cmd1 | cmd2 > file2.txt
