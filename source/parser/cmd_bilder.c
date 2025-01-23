@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_bilder.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 10:03:29 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/23 14:28:23 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "minishell.h"/*./headers/*/
 
 t_cmd	*ft_new_cmd(void)
 {
@@ -26,6 +26,7 @@ t_cmd	*ft_new_cmd(void)
 }
 
 void	ft_add_redir(t_redir **redirs, t_token type, char *filename)
+static void	ft_add_redir(t_redir **redirs, t_token type, char *filename)
 {
 	t_redir	*new;
 	t_redir	*temp;
@@ -35,6 +36,8 @@ void	ft_add_redir(t_redir **redirs, t_token type, char *filename)
 		return ;
 	new->type = type;
 	new->filename = ft_strdup(filename);
+	new->stdin_fd = 0;
+	new->stdout_fd = 1;
 	new->next = NULL;
 	if (!*redirs)
 		*redirs = new;
@@ -47,6 +50,10 @@ void	ft_add_redir(t_redir **redirs, t_token type, char *filename)
 	}
 }
 
+static char	**ft_add_cmd(char **argv, char *line)
+{
+	char	**new_argv;
+	int		i;
 char	**ft_add_cmd(char **argv, char *line)
 {
 	char	**new_argv;
@@ -54,13 +61,16 @@ char	**ft_add_cmd(char **argv, char *line)
 
 	i = 0;
 	while (argv && argv[i])
+	while (argv && argv[i])
 		i++;
 	new_argv = ft_calloc(sizeof(char *) * (i + 2), 1);
 	if (new_argv == NULL)
 		ft_panic("malloc", 1);
 	i = 0;
 	while (argv && argv[i])
+	while (argv && argv[i])
 	{
+		new_argv[i] = argv[i];
 		new_argv[i] = argv[i];
 		i++;
 	}
@@ -114,3 +124,50 @@ void	ft_cmd_bilder(t_minishell *minishell)
 	}
 	minishell->cmd_list = cb.cmds;
 }
+
+// void	ft_cmd_bilder(t_minishell *minishell)
+// {
+// 	t_cmd	*cmds;
+// 	t_cmd	*current_cmd;
+// 	int		i;
+// 	t_list	*token;
+
+// 	token = minishell->token_list;
+// 	cmds = ft_new_cmd();
+// 	if (!cmds)
+// 		ft_panic("malloc", 1);
+// 	current_cmd = cmds;
+// 	i = 0;
+// 	while (minishell->lexter_tab[i])
+// 	{
+// 		if ((t_token)token->content == PIPE)
+// 		{
+// 			current_cmd->next = ft_new_cmd();
+// 			if (!current_cmd->next)
+// 				ft_panic("malloc", 1);
+// 			current_cmd = current_cmd->next;
+// 		}
+// 		else if (*(int *)token->content == IREDIR
+// 			|| *(int *)token->content == OREDIR
+// 			|| *(int *)token->content == APPEND
+// 			|| *(int *)token->content == HERDOC)
+// 		{
+// 			token = token->next;
+// 			i++;
+// 			if (minishell->lexter_tab[i] && *(int *)token->content == CMD)
+// 				ft_add_redir(&current_cmd->redirs, (t_token)token->content,
+// 					minishell->lexter_tab[i]);
+// 			else
+// 			{
+// 				printf("syntax error near unexpected token\n");
+// 				return ;
+// 			}
+// 		}
+// 		else if (*(int *)token->content == CMD)
+// 			current_cmd->argv = ft_add_cmd(current_cmd->argv,
+// 					minishell->lexter_tab[i]);
+// 		token = token->next;
+// 		i++;
+// 	}
+// 	minishell->cmd_list = cmds;
+// }

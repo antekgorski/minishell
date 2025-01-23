@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 09:54:11 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/23 14:25:48 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,15 +99,16 @@ void	handle_input(char *input, t_minishell *minishell);
 // Builtins
 
 int		ft_strcmp(const char *s1, const char *s2);
-int		e_bild(char **args, t_minishell *minishell);
+int		e_bild(char **args, t_minishell *minishell, int parentProcess);
 int		ft_pwd(void);
 int		ft_cd(char **args, t_minishell *minishell);
 int		ft_echo(char **args);
 int		ft_env(t_minishell *minishell);
 int		ft_exit(t_minishell *minishell);
-int		ft_unset(t_minishell *minishell, const char *name);
+int		ft_unset(t_minishell *minishell, char **name);
 int		ft_export(t_minishell *minishell, char **args);
 int		ft_print_env(t_minishell *minishell);
+void	ft_free_split(char **split);
 
 // env
 
@@ -123,5 +124,15 @@ int		wait_for_child_process(pid_t pid);
 void	ft_free_split2(char ***split);
 char	*ft_strjoin_free(char *s1, char *s2);
 char	*find_executable(char *command, char **envp);
+
+// redirections and pipes
+// void	handle_redirections(t_minishell *minishell);
+void	execute(t_cmd *cmds, t_minishell *minishell);
+char	**list_to_envp(t_list *env);
+
+
+
+
+
 
 #endif
