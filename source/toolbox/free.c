@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 09:52:53 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/23 10:12:49 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	ft_token_free(t_list **token_list)
 	}
 	*token_list = NULL;
 }
+
 /**
  * @brief 	Frees a linked list of commands.
  * 			Each command in the list is freed, then the list itself is freed.
