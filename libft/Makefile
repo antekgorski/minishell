@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+         #
+#    By: agorski <agorski@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/23 16:10:34 by agorski           #+#    #+#              #
-#    Updated: 2024/12/23 16:41:58 by agorski          ###   ########.fr        #
+#    Updated: 2025/01/23 18:37:30 by agorski          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re test bonus
 CC= cc
 CFLAGS= -Wextra -Werror -Wall -fPIC
-TESTFLAGS= -fsanitize=address -g			
+TESTFLAGS= -fsanitize=address -g
 NAME= libft.a
 O_DIR= obj
 # OBJ= $(patsubst %.c,%.o,$(SRC))
