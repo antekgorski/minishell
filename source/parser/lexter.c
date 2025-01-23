@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   lexter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:30:40 by agorski           #+#    #+#             */
-/*   Updated: 2024/12/25 13:05:53 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:56:47 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/**
+/*
  * @attention MALOC
  * @brief line to the lexter_tab
  * if the lexter_tab is NULL it will create a new one

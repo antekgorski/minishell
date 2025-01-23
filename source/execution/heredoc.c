@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop.c                                             :+:      :+:    :+:   */
+/*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalex-ku <lalex-ku@42sp.org.br>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 17:32:45 by lalex-ku          #+#    #+#             */
-/*   Updated: 2022/06/22 17:32:50 by lalex-ku         ###   ########.fr       */
+/*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
+/*   Updated: 2025/01/22 21:02:08 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "../../headers/minishell.h"
 
-int	main(int argc, char const *argv[])
-{
-	int	pid;
+// static int	handle_heredoc(const char *delimiter)
+// {
 
-	pid = fork();
-	open("infile", O_RDONLY);
-	while (1)
-	{
-		printf("Helloo miniHELL %i\n", pid);
-		sleep(1);
-	}
-	return (0);
-}
+// }
