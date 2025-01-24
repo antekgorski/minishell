@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 09:54:11 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/24 16:24:26 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_shell_free(t_minishell *minishell);
 void	tab_free(char ***lexter_tab);
 void	env_free(t_list *env);
 void	ft_token_free(t_list **token_list);
-void	ft_free_cmd_list(t_cmd *cmd_list);
+void	ft_free_cmd_list(t_cmd **cmd_ptr);
 
 // Signals
 
@@ -105,7 +105,7 @@ int		ft_cd(char **args, t_minishell *minishell);
 int		ft_echo(char **args);
 int		ft_env(t_minishell *minishell);
 int		ft_exit(t_minishell *minishell);
-int		ft_unset(t_minishell *minishell, const char *name);
+int		ft_unset(t_minishell *minishell, char **name);
 int		ft_export(t_minishell *minishell, char **args);
 int		ft_print_env(t_minishell *minishell);
 
@@ -117,11 +117,21 @@ char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);
 
 // execve
-int		execute_external(char **args, t_minishell *minishell);
+int		execute_external(char **args, t_minishell *minishell,t_cmd *cmd);
 void	execute_child_process(char **args, t_minishell *minishell);
 int		wait_for_child_process(pid_t pid);
 void	ft_free_split2(char ***split);
 char	*ft_strjoin_free(char *s1, char *s2);
 char	*find_executable(char *command, char **envp);
+void	execute(t_cmd *cmds, t_minishell *minishell);
+char	**list_to_envp(t_list *env);
+int		handle_heredoc(const char *delimiter);
+void	handle_redirections(t_redir *redirs);
+int		is_builtin(t_cmd *cmd);
+pid_t launch_process(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell);
+void 	setup_pipes(t_cmd *cmds, int *in_fd, int fd[2]);
+
+
+
 
 #endif

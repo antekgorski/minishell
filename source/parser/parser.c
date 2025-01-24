@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 09:57:28 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:21:20 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,17 @@ void	parse(t_minishell *minishell)
 	minishell->lexter_tab = NULL;
 	ft_lexter(minishell);
 	if (minishell->lexter_tab)
-		ft_cmd_bilder(minishell);
-	if (minishell->lexter_tab)
 	{
-		ft_parser_test(minishell);//frint lextertab and token list
-		print_cmds(minishell->cmd_list);//print linklist of commands and redirections
-		minishell->f_signal = e_bild(minishell->lexter_tab, minishell);
+		ft_cmd_bilder(minishell);
+		// ft_parser_test(minishell);//frint lextertab and token list
+		// print_cmds(minishell->cmd_list);//print linklist of commands and redirections
+		execute(minishell->cmd_list, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
 		tab_free(&minishell->lexter_tab);
 	if (minishell->token_list != NULL)
 		ft_token_free(&minishell->token_list);
 	if (minishell->cmd_list != NULL)
-		ft_free_cmd_list(minishell->cmd_list);
+		ft_free_cmd_list(&minishell->cmd_list);
 	free(minishell->l_hdr);
 }

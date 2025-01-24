@@ -6,13 +6,13 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2024/12/28 16:48:02 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 10:41:36 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-static void	ft_free_split(char **split)
+void	ft_free_split(char **split)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ static int	is_valid_key(char *key)
 {
 	int	i;
 
-	if (!key || !ft_isalpha(key[0]) || key[0] == '_')
+	if (!key || (!ft_isalpha(key[0]) && key[0] != '_'))
 		return (0);
 	i = 1;
 	while (key[i])
@@ -87,7 +87,8 @@ int	ft_export(t_minishell *minishell, char **args)
 	i = 1;
 	while (args[i])
 	{
-		status = add_or_update_env(minishell, args[i]);
+		if (add_or_update_env(minishell, args[i]) != 0)
+			status = 1;
 		i++;
 	}
 	return (status);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 10:12:49 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:44:19 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_shell_free(t_minishell *minishell)
 	free(minishell->line);
 	env_free(minishell->m_env);
 	ft_token_free(&minishell->token_list);
-	ft_free_cmd_list(minishell->cmd_list);
+	ft_free_cmd_list(&minishell->cmd_list);
 	free(minishell->l_hdr);
 }
 
@@ -106,27 +106,29 @@ void	ft_token_free(t_list **token_list)
  * @note	The list itself is also freed,
  * 			so the pointer to it will be set to NULL.
  */
-void	ft_free_cmd_list(t_cmd *cmd)
+void	ft_free_cmd_list(t_cmd **cmd_ptr)
 {
 	t_cmd	*temp;
-	t_redir	*temp_redir;
+	t_cmd	*next_cmd;
+	t_redir	*current_redir;
 
-	while (cmd)
+	if (!cmd_ptr || !*cmd_ptr)
+		return;
+	temp = *cmd_ptr;
+	while (temp)
 	{
-		temp = cmd;
-		cmd = cmd->next;
+		next_cmd = temp->next;
 		if (temp->argv)
 			tab_free(&temp->argv);
 		while (temp->redirs)
 		{
-			temp_redir = temp->redirs;
+			current_redir = temp->redirs;
 			temp->redirs = temp->redirs->next;
-			free(temp_redir->filename);
-			temp_redir->filename = NULL;
-			free(temp_redir);
-			temp_redir = NULL;
+			free(current_redir->filename);
+			free(current_redir);
 		}
 		free(temp);
-		temp = NULL;
+		temp = next_cmd;
 	}
+	*cmd_ptr = NULL;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/23 12:50:57 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/24 13:01:09 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char	**convert_env_to_envp(t_list *env, int count)
 /**
  * @brief Function that finds the executable path of a command
  */
-static char	**list_to_envp(t_list *env)
+char	**list_to_envp(t_list *env)
 {
 	int	count;
 
@@ -90,6 +90,7 @@ void	execute_child_process(char **args, t_minishell *minishell)
 	exec_path = find_executable(args[0], envp);
 	if (!exec_path)
 	{
+		ft_putstr_fd("minishell: ", 2);
 		ft_putstr_fd(args[0], 2);
 		ft_putstr_fd(": command not found\n", 2);
 		ft_free_split2(&envp);
@@ -102,6 +103,7 @@ void	execute_child_process(char **args, t_minishell *minishell)
 		ft_free_split2(&envp);
 		exit(EXIT_FAILURE);
 	}
+	exit(EXIT_SUCCESS);
 }
 
 /**

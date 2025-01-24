@@ -11,7 +11,9 @@
         "string_view": "c",
         "initializer_list": "c",
         "functional": "c",
-        "utility": "c"
+        "utility": "c",
+        "structs.h": "c",
+        "cerrno": "c"
     },
     "makefile.configureOnOpen": false
 }
