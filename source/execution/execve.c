@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 16:26:25 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 21:08:47 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int	execute_external(char **args, t_minishell *minishell, t_cmd *cmd)
 	}
 	if (pid == 0)
 	{
+		if (!cmd->argv || !cmd->argv[0])
+		{
+			handle_redirections(cmd->redirs);
+			exit(0);
+		}
 		handle_redirections(cmd->redirs);
 		execute_child_process(args, minishell);
 	}
@@ -53,6 +58,11 @@ pid_t	launch_process(t_cmd *cmd, int in_fd, int out_fd,
 	}
 	if (pid == 0)
 	{
+		if (!cmd->argv || !cmd->argv[0])
+		{
+			handle_redirections(cmd->redirs);
+			exit(0);
+		}
 		if (in_fd != 0)
 		{
 			dup2(in_fd, STDIN_FILENO);
@@ -67,7 +77,7 @@ pid_t	launch_process(t_cmd *cmd, int in_fd, int out_fd,
 		if (is_builtin(cmd))
 			e_bild(cmd->argv, minishell);
 		else
-			execute_child_process(cmd->argv, minishell);
+		minishell->f_signal = execute_child_process(cmd->argv, minishell);
 		exit(minishell->f_signal);
 	}
 	return (pid);

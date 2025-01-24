@@ -1,0 +1,4 @@
+<<l | pwd
+<<l
+cat << l| ls
+

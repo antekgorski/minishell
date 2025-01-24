@@ -13,7 +13,8 @@
         "functional": "c",
         "utility": "c",
         "structs.h": "c",
-        "cerrno": "c"
+        "cerrno": "c",
+        "random": "c"
     },
     "makefile.configureOnOpen": false
 }

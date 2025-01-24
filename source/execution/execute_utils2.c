@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 13:01:09 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:32:41 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**list_to_envp(t_list *env)
 /**
  * @brief Function that finds the executable path of a command
  */
-void	execute_child_process(char **args, t_minishell *minishell)
+int	execute_child_process(char **args, t_minishell *minishell)
 {
 	char	*exec_path;
 	char	**envp;

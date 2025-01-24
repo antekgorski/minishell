@@ -6,16 +6,16 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 16:27:12 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:09:05 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-// if builtin run in parent process return 1
-// if builtin run in child process return 2
 int	is_builtin(t_cmd *cmd)
 {
+	if(!cmd->argv || !cmd->argv[0])
+		return (0);
 	if (!ft_strcmp(cmd->argv[0], "echo"))
 		return (1);
 	if (!ft_strcmp(cmd->argv[0], "cd"))

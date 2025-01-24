@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/24 16:24:26 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:34:51 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ t_list	*ft_find_env(t_list *head, char *key);
 
 // execve
 int		execute_external(char **args, t_minishell *minishell,t_cmd *cmd);
-void	execute_child_process(char **args, t_minishell *minishell);
+int		execute_child_process(char **args, t_minishell *minishell);
 int		wait_for_child_process(pid_t pid);
 void	ft_free_split2(char ***split);
 char	*ft_strjoin_free(char *s1, char *s2);
