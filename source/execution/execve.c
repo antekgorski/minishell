@@ -6,9 +6,10 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 21:32:00 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 21:40:07 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../../headers/minishell.h"
 
@@ -45,8 +46,28 @@ int	execute_external(char **args, t_minishell *minishell, t_cmd *cmd)
 	return (0);
 }
 
-pid_t	launch_process(t_cmd *cmd, int in_fd, int out_fd,
+static void	ft_child_process(t_cmd *cmd, int in_fd, int out_fd,
 		t_minishell *minishell)
+{
+	handle_redirections(cmd->redirs);
+	if (in_fd != 0)
+	{
+		dup2(in_fd, STDIN_FILENO);
+		close(in_fd);
+	}
+	if (out_fd != 1)
+	{
+		dup2(out_fd, STDOUT_FILENO);
+		close(out_fd);
+	}
+	if (is_builtin(cmd))
+		e_bild(cmd->argv, minishell);
+	else
+		execute_child_process(cmd->argv, minishell);
+	exit(minishell->f_signal);
+}
+
+pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell)
 {
 	pid_t	pid;
 
@@ -57,23 +78,6 @@ pid_t	launch_process(t_cmd *cmd, int in_fd, int out_fd,
 		return (-1);
 	}
 	if (pid == 0)
-	{
-		handle_redirections(cmd->redirs);
-		if (in_fd != 0)
-		{
-			dup2(in_fd, STDIN_FILENO);
-			close(in_fd);
-		}
-		if (out_fd != 1)
-		{
-			dup2(out_fd, STDOUT_FILENO);
-			close(out_fd);
-		}
-		if (is_builtin(cmd))
-			e_bild(cmd->argv, minishell);
-		else
-			minishell->f_signal = execute_child_process(cmd->argv, minishell);
-		exit(minishell->f_signal);
-	}
+		ft_child_process(cmd, in_fd, out_fd, minishell);
 	return (pid);
 }

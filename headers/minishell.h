@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/24 20:34:51 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 21:37:19 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,8 @@ char	**list_to_envp(t_list *env);
 int		handle_heredoc(const char *delimiter);
 void	handle_redirections(t_redir *redirs);
 int		is_builtin(t_cmd *cmd);
-pid_t launch_process(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell);
-void 	setup_pipes(t_cmd *cmds, int *in_fd, int fd[2]);
-
-
-
+pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd,
+			t_minishell *minishell);
+void	setup_pipes(t_cmd *cmds, int *in_fd, int fd[2]);
 
 #endif
