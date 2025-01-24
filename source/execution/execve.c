@@ -3,15 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   execve.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 21:42:51 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 21:58:52 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../../headers/minishell.h"
+
+static void	ft_child_exec_external(t_cmd *cmd, t_minishell *minishell,
+		char **args)
+{
+	if (!cmd->argv || !cmd->argv[0])
+	{
+		handle_redirections(cmd->redirs);
+		exit(0);
+	}
+	handle_redirections(cmd->redirs);
+	execute_child_process(args, minishell);
+}
 
 /**
  * @brief Function that finds the executable path of a command
@@ -28,15 +39,7 @@ int	execute_external(char **args, t_minishell *minishell, t_cmd *cmd)
 		return (1);
 	}
 	if (pid == 0)
-	{
-		if (!cmd->argv || !cmd->argv[0])
-		{
-			handle_redirections(cmd->redirs);
-			exit(0);
-		}
-		handle_redirections(cmd->redirs);
-		execute_child_process(args, minishell);
-	}
+		ft_child_exec_external(cmd, minishell, args);
 	else
 		status = wait_for_child_process(pid);
 	if (WIFEXITED(status))
