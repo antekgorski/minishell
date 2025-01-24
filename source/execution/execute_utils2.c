@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 13:01:09 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:15:39 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,7 @@ void	execute_child_process(char **args, t_minishell *minishell)
 
 	envp = list_to_envp(minishell->m_env);
 	if (!envp)
-	{
-		perror("envp");
-		exit(EXIT_FAILURE);
-	}
+		ft_panic("envp", EXIT_FAILURE);
 	exec_path = find_executable(args[0], envp);
 	if (!exec_path)
 	{

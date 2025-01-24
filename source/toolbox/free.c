@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/24 12:44:19 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:13:59 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	ft_free_cmd_list(t_cmd **cmd_ptr)
 	t_redir	*current_redir;
 
 	if (!cmd_ptr || !*cmd_ptr)
-		return;
+		return ;
 	temp = *cmd_ptr;
 	while (temp)
 	{

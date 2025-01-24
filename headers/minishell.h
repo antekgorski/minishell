@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/24 16:24:26 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:17:21 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ char	*ft_get_env(t_list *head, char *key);
 t_list	*ft_find_env(t_list *head, char *key);
 
 // execve
-int		execute_external(char **args, t_minishell *minishell,t_cmd *cmd);
+int		execute_external(char **args, t_minishell *minishell, t_cmd *cmd);
 void	execute_child_process(char **args, t_minishell *minishell);
 int		wait_for_child_process(pid_t pid);
 void	ft_free_split2(char ***split);
@@ -128,10 +128,8 @@ char	**list_to_envp(t_list *env);
 int		handle_heredoc(const char *delimiter);
 void	handle_redirections(t_redir *redirs);
 int		is_builtin(t_cmd *cmd);
-pid_t launch_process(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell);
-void 	setup_pipes(t_cmd *cmds, int *in_fd, int fd[2]);
-
-
-
+pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd,
+			t_minishell *minishell);
+void	setup_pipes(t_cmd *cmds, int *in_fd, int fd[2]);
 
 #endif
