@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:23:41 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/24 19:49:05 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/24 22:44:12 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ void	parse(t_minishell *minishell)
 	if (minishell->lexter_tab)
 	{
 		ft_cmd_bilder(minishell);
-		// ft_parser_test(minishell);//frint lextertab and token list
-		// print_cmds(minishell->cmd_list);//print linklist of commands and redirections
 		execute(minishell->cmd_list, minishell);
 	}
 	if (minishell->lexter_tab != NULL)
@@ -101,3 +99,5 @@ void	parse(t_minishell *minishell)
 		ft_free_cmd_list(&minishell->cmd_list);
 	free(minishell->l_hdr);
 }
+// ft_parser_test(minishell);//frint lextertab and token list
+// print_cmds(minishell->cmd_list);//print linklist of commands and redirections

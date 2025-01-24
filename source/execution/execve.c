@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execve.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 21:58:52 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/24 22:41:36 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ static void	ft_child_process(t_cmd *cmd, int in_fd, int out_fd,
 		dup2(out_fd, STDOUT_FILENO);
 		close(out_fd);
 	}
+	if (!cmd->argv || !cmd->argv[0])
+		exit(0);
 	if (is_builtin(cmd))
 		e_bild(cmd->argv, minishell);
 	else
