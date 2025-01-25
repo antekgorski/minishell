@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/25 18:42:17 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 20:10:42 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,19 @@ int	ft_exit(t_minishell *minishell)
 		ft_shell_free(minishell);
 		exit(0);
 	}
-	if (minishell->cmd_list->argv[1]
-		&& !is_number(minishell->cmd_list->argv[1]))
-		handle_exit_error(minishell);
-	else if (minishell->cmd_list->argv[2])
+	if (minishell->cmd_list->argv[1])
 	{
-		ft_putstr_fd("minishell: exit: too many arguments\n", 2);
-		ft_shell_free(minishell);
-		exit(1);
+		if (!is_number(minishell->cmd_list->argv[1]))
+			handle_exit_error(minishell);
+		else if (minishell->cmd_list->argv[2])
+		{
+			ft_putstr_fd("minishell: exit: too many arguments\n", 2);
+			return (1);
+		}
+		exit_code = parse_exit_code(minishell->cmd_list->argv[1], minishell);
 	}
-	exit_code = parse_exit_code(minishell->cmd_list->argv[1], minishell);
+	else
+		exit_code = 0;
 	ft_shell_free(minishell);
 	exit(exit_code % 256);
 }
