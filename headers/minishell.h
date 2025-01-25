@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/25 11:58:38 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 17:51:29 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <stdlib.h>
 # include <sys/wait.h>
 # include <termios.h>
+# include <limits.h>
 
 # define SYMBOLS_D "|<>\"\' \t"
 # define SYMBOLS_C "|<> \t\0"
