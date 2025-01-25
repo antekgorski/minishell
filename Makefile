@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+         #
+#    By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:45:11 by agorski           #+#    #+#              #
-#    Updated: 2025/01/25 11:56:43 by prutkows         ###   ########.fr        #
+#    Updated: 2025/01/25 17:56:57 by agorski          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,10 @@ SRCS = source/main.c source/builtins/builtins_utils.c source/builtins/execute.c 
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -pthread
-TEST_CFLAGS = -Wall -Wextra -Werror -g -pthread #-fdiagnostics-color=always #-fsanitize=address
+TEST_CFLAGS = -Wall -Wextra -Werror -g -pthread #-fdiagnostics-color=always #-fsanitize=address -pthread
 INCLUDE = -I./headers
 REDLINE = -lreadline
 
