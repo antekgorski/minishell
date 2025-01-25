@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/23 12:51:24 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/25 17:50:07 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,29 @@ static char	*ft_get_cwd(void)
 	return (dup);
 }
 
+static int	to_many_args(char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args[i])
+		i++;
+	if (i > 2)
+	{
+		write(2, "cd: too many arguments\n", 23);
+		return (1);
+	}
+	return (0);
+}
+
 int	ft_cd(char **args, t_minishell *minishell)
 {
 	char	*old_pwd;
 	char	*new_pwd;
 	char	*home;
 
+	if (to_many_args(args))
+		return (1);
 	old_pwd = ft_get_env(minishell->m_env, "PWD");
 	if (!args[1])
 	{
