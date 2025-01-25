@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:23:56 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/25 11:26:13 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 20:06:16 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	execute_single_command(t_cmd *cmd, t_minishell *minishell)
 		close(saved_stdout);
 		return ;
 	}
-	execute_external(cmd->argv, minishell, cmd);
+	minishell->f_signal = execute_external(cmd->argv, minishell, cmd);
 }
 
 static void	launch_pipeline(t_cmd *cmds, t_minishell *minishell, pid_t pids[],
