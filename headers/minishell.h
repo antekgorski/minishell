@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/25 17:51:29 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 19:16:22 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "structs.h"
 
 // system includes
+# include <limits.h>
 # include <readline/history.h>
 # include <readline/readline.h>
 # include <signal.h>
@@ -26,7 +27,6 @@
 # include <stdlib.h>
 # include <sys/wait.h>
 # include <termios.h>
-# include <limits.h>
 
 # define SYMBOLS_D "|<>\"\' \t"
 # define SYMBOLS_C "|<> \t\0"
@@ -95,6 +95,7 @@ void	ft_free_cmd_list(t_cmd **cmd_ptr);
 // Signals
 
 void	signal_initialization(void);
+void	signal_initialization_child(void);
 void	handle_input(char *input, t_minishell *minishell);
 
 // Builtins
@@ -135,5 +136,6 @@ int		is_builtin(t_cmd *cmd);
 pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell);
 void	handle_heredocs(t_redir *redirs);
 void	handle_other_redirections(t_redir *redirs);
+char	*handle_full_path(char *command, char *exec_path);
 
 #endif
