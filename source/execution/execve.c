@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/25 19:16:16 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 21:48:28 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_child_exec_external(t_cmd *cmd, t_minishell *minishell,
 		exit(0);
 	}
 	handle_redirections(cmd->redirs);
-	execute_child_process(args, minishell);
+	minishell->f_signal = execute_child_process(args, minishell);
 }
 
 /**
@@ -74,7 +74,7 @@ static void	ft_child_process(t_cmd *cmd, int in_fd, int out_fd,
 	if (is_builtin(cmd))
 		e_bild(cmd->argv, minishell);
 	else
-		execute_child_process(cmd->argv, minishell);
+		minishell->f_signal = execute_child_process(cmd->argv, minishell);
 	exit(minishell->f_signal);
 }
 
