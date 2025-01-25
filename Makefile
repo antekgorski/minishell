@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+         #
+#    By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:45:11 by agorski           #+#    #+#              #
-#    Updated: 2025/01/24 20:22:09 by agorski          ###   ########.fr        #
+#    Updated: 2025/01/25 11:56:43 by prutkows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 SRCS_DIR = source
 SRCS = source/main.c source/builtins/builtins_utils.c source/builtins/execute.c source/builtins/ft_cd.c \
-	source/builtins/ft_echo.c source/builtins/ft_env.c source/builtins/ft_exit.c source/builtins/ft_export.c \
+	source/builtins/ft_echo.c source/builtins/ft_env.c source/builtins/ft_export_utils.c source/builtins/ft_exit.c source/builtins/ft_export.c \
 	source/builtins/ft_pwd.c source/builtins/ft_unset.c source/execution/execute_utils1.c source/execution/execute_utils2.c \
 	source/execution/execve.c source/execution/handle_redirections.c source/execution/heredoc.c source/execution/handle_pipe.c\
 	source/parser/case_dolar.c source/parser/cmd_bilder_tool.c source/parser/cmd_bilder.c \

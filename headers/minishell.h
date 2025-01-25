@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/25 10:43:13 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:58:38 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,9 @@ int		ft_env(t_minishell *minishell);
 int		ft_exit(t_minishell *minishell);
 int		ft_unset(t_minishell *minishell, char **name);
 int		ft_export(t_minishell *minishell, char **args);
+int		prepare_env_split(t_minishell *minishell, char *arg, char ***split);
+void	ft_free_split(char **split);
+int		is_valid_key(char *key);
 int		ft_print_env(t_minishell *minishell);
 
 // env
