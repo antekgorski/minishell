@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 22:41:36 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 19:16:16 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	ft_child_exec_external(t_cmd *cmd, t_minishell *minishell,
 		char **args)
 {
+	signal_initialization_child();
 	if (!cmd->argv || !cmd->argv[0])
 	{
 		handle_redirections(cmd->redirs);
@@ -41,7 +42,11 @@ int	execute_external(char **args, t_minishell *minishell, t_cmd *cmd)
 	if (pid == 0)
 		ft_child_exec_external(cmd, minishell, args);
 	else
+	{
+		signal(SIGINT, SIG_IGN);
 		status = wait_for_child_process(pid);
+		signal_initialization();
+	}
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
 	else if (WIFSIGNALED(status))
@@ -52,6 +57,7 @@ int	execute_external(char **args, t_minishell *minishell, t_cmd *cmd)
 static void	ft_child_process(t_cmd *cmd, int in_fd, int out_fd,
 		t_minishell *minishell)
 {
+	signal_initialization_child();
 	handle_redirections(cmd->redirs);
 	if (in_fd != 0)
 	{

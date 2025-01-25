@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/25 17:58:10 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 18:42:17 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_exit(t_minishell *minishell)
 	long long	exit_code;
 
 	printf("exit\n");
-	if (!minishell->cmd_list->argv[1])
+	if (!minishell->cmd_list || !minishell->cmd_list->argv)
 	{
 		ft_shell_free(minishell);
 		exit(0);

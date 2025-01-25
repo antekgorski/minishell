@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/25 11:26:32 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 19:20:56 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int	execute_child_process(char **args, t_minishell *minishell)
 	if (!envp)
 		ft_panic("envp", EXIT_FAILURE);
 	exec_path = find_executable(args[0], envp);
+	if (!exec_path)
+		exec_path = handle_full_path(args[0], exec_path);
 	if (!exec_path)
 	{
 		ft_putstr_fd("minishell: ", 2);
