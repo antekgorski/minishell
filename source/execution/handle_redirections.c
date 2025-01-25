@@ -6,51 +6,54 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/25 10:43:02 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 23:01:55 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
 
-int	is_builtin(t_cmd *cmd)
+static void	handle_final_heredoc(int last_fd)
 {
-	if (!cmd->argv || !cmd->argv[0])
-		return (0);
-	if (!ft_strcmp(cmd->argv[0], "echo"))
-		return (1);
-	if (!ft_strcmp(cmd->argv[0], "cd"))
-		return (1);
-	if (!ft_strcmp(cmd->argv[0], "pwd"))
-		return (1);
-	if (!ft_strcmp(cmd->argv[0], "export"))
-		return (1);
-	if (!ft_strcmp(cmd->argv[0], "unset"))
-		return (1);
-	if (!ft_strcmp(cmd->argv[0], "env"))
-		return (1);
-	if (!ft_strcmp(cmd->argv[0], "exit"))
-		return (1);
+	if (last_fd != -1)
+	{
+		dup2(last_fd, STDIN_FILENO);
+		close(last_fd);
+	}
+}
+
+static int	process_heredoc(t_redir *temp, int *last_fd)
+{
+	int	fd;
+
+	if (*last_fd != -1)
+		close(*last_fd);
+	fd = handle_heredoc(temp->filename);
+	if (fd < 0)
+		return (-1);
+	*last_fd = fd;
 	return (0);
 }
 
 void	handle_heredocs(t_redir *redirs)
 {
 	t_redir	*temp;
-	int		fd;
+	int		last_heredoc_fd;
 
 	temp = redirs;
+	last_heredoc_fd = -1;
 	while (temp)
 	{
 		if (temp->type == HERDOC)
 		{
-			fd = handle_heredoc(temp->filename);
-			if (fd < 0)
-				ft_panic("minishell: ", EXIT_FAILURE);
-			dup2(fd, STDIN_FILENO);
-			close(fd);
+			if (process_heredoc(temp, &last_heredoc_fd) < 0)
+			{
+				ft_putstr_fd("minishell: heredoc error\n", 2);
+				exit(EXIT_FAILURE);
+			}
 		}
 		temp = temp->next;
 	}
+	handle_final_heredoc(last_heredoc_fd);
 }
 
 void	handle_other_redirections(t_redir *redirs)

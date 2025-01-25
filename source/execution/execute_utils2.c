@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/25 19:20:56 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:58:34 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	execute_child_process(char **args, t_minishell *minishell)
 		ft_putstr_fd(args[0], 2);
 		ft_putstr_fd(": command not found\n", 2);
 		ft_free_split2(&envp);
-		exit(EXIT_FAILURE);
+		exit(127);
 	}
 	if (execve(exec_path, args, envp) == -1)
 	{
