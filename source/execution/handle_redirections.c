@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_redirections.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 21:50:12 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/25 10:43:02 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,53 @@ int	is_builtin(t_cmd *cmd)
 	return (0);
 }
 
-void	handle_redirections(t_redir *redirs)
+void	handle_heredocs(t_redir *redirs)
 {
-	int	fd;
+	t_redir	*temp;
+	int		fd;
 
-	while (redirs)
+	temp = redirs;
+	while (temp)
 	{
-		if (redirs->type == IREDIR)
-			fd = open(redirs->filename, O_RDONLY);
-		else if (redirs->type == OREDIR)
-			fd = open(redirs->filename, O_CREAT | O_WRONLY | O_TRUNC, 0644);
-		else if (redirs->type == APPEND)
-			fd = open(redirs->filename, O_CREAT | O_WRONLY | O_APPEND, 0644);
-		else if (redirs->type == HERDOC)
-			fd = handle_heredoc(redirs->filename);
+		if (temp->type == HERDOC)
+		{
+			fd = handle_heredoc(temp->filename);
+			if (fd < 0)
+				ft_panic("minishell: ", EXIT_FAILURE);
+			dup2(fd, STDIN_FILENO);
+			close(fd);
+		}
+		temp = temp->next;
+	}
+}
+
+void	handle_other_redirections(t_redir *redirs)
+{
+	t_redir	*temp;
+	int		fd;
+
+	temp = redirs;
+	while (temp)
+	{
+		if (temp->type == IREDIR)
+			fd = open(temp->filename, O_RDONLY);
+		else if (temp->type == OREDIR)
+			fd = open(temp->filename, O_CREAT | O_WRONLY | O_TRUNC, 0644);
+		else if (temp->type == APPEND)
+			fd = open(temp->filename, O_CREAT | O_WRONLY | O_APPEND, 0644);
 		if (fd < 0)
 			ft_panic("minishell: ", EXIT_FAILURE);
-		if (redirs->type == IREDIR || redirs->type == HERDOC)
+		if (temp->type == IREDIR)
 			dup2(fd, STDIN_FILENO);
 		else
 			dup2(fd, STDOUT_FILENO);
 		close(fd);
-		redirs = redirs->next;
+		temp = temp->next;
 	}
+}
+
+void	handle_redirections(t_redir *redirs)
+{
+	handle_heredocs(redirs);
+	handle_other_redirections(redirs);
 }

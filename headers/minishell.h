@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/24 21:49:22 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/25 10:43:13 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ int		handle_heredoc(const char *delimiter);
 void	handle_redirections(t_redir *redirs);
 int		is_builtin(t_cmd *cmd);
 pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell);
-void	setup_pipes(t_cmd *cmds, int *in_fd, int fd[2]);
+void	handle_heredocs(t_redir *redirs);
+void	handle_other_redirections(t_redir *redirs);
 
 #endif
