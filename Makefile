@@ -6,7 +6,7 @@
 #    By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:45:11 by agorski           #+#    #+#              #
-#    Updated: 2025/01/26 13:32:28 by prutkows         ###   ########.fr        #
+#    Updated: 2025/01/26 20:23:23 by prutkows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = source/main.c source/builtins/builtins_utils.c source/builtins/execute.c 
 	source/parser/lexter_cmd.c source/parser/lexter_quote.c source/parser/lexter_redir.c source/parser/lexter.c \
 	source/parser/parse_quote_loop.c source/parser/parse_quote.c source/parser/parser.c source/parser/rollup_dolar.c \
 	source/toolbox/env_list_utils.c source/toolbox/env.c source/toolbox/error_handler.c source/toolbox/free.c \
-	source/toolbox/signals.c source/toolbox/signals_utils.c\
+	source/toolbox/signals.c source/toolbox/signals_utils.c source/toolbox/welcome.c\
 
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = libft

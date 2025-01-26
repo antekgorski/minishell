@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:23:56 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 13:57:33 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/26 19:54:05 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	execute(t_cmd *cmds, t_minishell *minishell)
 
 	if (!cmds)
 		return ;
-	if (!validate_pipeline(cmds, minishell))
+	if (!validate_pipeline(cmds,minishell))
 	{
 		minishell->f_signal = 2;
 		return ;

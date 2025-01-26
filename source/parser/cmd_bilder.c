@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_bilder.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/23 10:03:29 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/26 19:51:55 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ bool	ft_cmd_redir(t_minishell *minishell, t_cb *cb, t_token *redir_type)
 	else
 	{
 		printf("syntax error near unexpected token\n");
+		minishell->f_signal = 2;
 		return (false);
 	}
 	return (true);
