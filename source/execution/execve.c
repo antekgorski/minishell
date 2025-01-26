@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/25 21:48:28 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/26 12:51:29 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,14 @@ static void	ft_child_process(t_cmd *cmd, int in_fd, int out_fd,
 		t_minishell *minishell)
 {
 	signal_initialization_child();
-	handle_redirections(cmd->redirs);
-	if (in_fd != 0)
+	if (cmd->redirs)
+		handle_redirections(cmd->redirs);
+	if (in_fd != 0 && !has_input_redirection(cmd->redirs))
 	{
 		dup2(in_fd, STDIN_FILENO);
 		close(in_fd);
 	}
-	if (out_fd != 1)
+	if (out_fd != 1 && !has_output_redirection(cmd->redirs))
 	{
 		dup2(out_fd, STDOUT_FILENO);
 		close(out_fd);
