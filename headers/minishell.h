@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 21:21:48 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/26 21:33:52 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	main_loop(t_minishell *minishell);
 void	minishell_init(t_minishell *minishell, char **envp);
 void	env_start(t_minishell *minishell, char **envp);
 void	welcome(void);
-
 
 // lexer functions
 

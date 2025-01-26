@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_pipe.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:23:56 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 19:54:05 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/26 21:34:43 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	execute(t_cmd *cmds, t_minishell *minishell)
 
 	if (!cmds)
 		return ;
-	if (!validate_pipeline(cmds,minishell))
+	if (!validate_pipeline(cmds, minishell))
 	{
 		minishell->f_signal = 2;
 		return ;

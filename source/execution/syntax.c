@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:23:56 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 20:00:03 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/26 21:34:56 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ int	validate_pipeline(t_cmd *cmds, t_minishell *minishell)
 	{
 		if (!temp->argv && !temp->redirs && temp->next)
 		{
-			print_syntax_error("|",minishell);
+			print_syntax_error("|", minishell);
 			return (0);
 		}
 		temp = temp->next;
 	}
-
 	return (1);
 }
