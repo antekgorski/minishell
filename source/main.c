@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/25 19:16:27 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/26 21:11:58 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/**
+ * @brief Function to handle the input from the user
+ */
+static char	*s_input(char *line)
+{
+	char	*temp;
+	int		i;
+
+	i = 0;
+	temp = line;
+	while (line[i])
+	{
+		if (line[i] == '\n')
+		{
+			temp[i] = '\0';
+			break ;
+		}
+		i++;
+	}
+	return (temp);
+}
 
 /*
 main_loop function
@@ -29,7 +51,7 @@ void	main_loop(t_minishell *minishell)
 		if (minishell->line)
 		{
 			if (minishell->line[0] != '\0')
-				add_history(minishell->line);
+				add_history(s_input(minishell->line));
 			parse(minishell);
 		}
 		free(minishell->line);
