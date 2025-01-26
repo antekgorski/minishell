@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/25 23:00:16 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/26 12:30:22 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,5 +137,7 @@ pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell);
 void	handle_heredocs(t_redir *redirs);
 void	handle_other_redirections(t_redir *redirs);
 char	*handle_full_path(char *command, char *exec_path);
+int		has_input_redirection(t_redir *redirs);
+int		has_output_redirection(t_redir *redirs);
 
 #endif
