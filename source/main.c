@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 21:11:58 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/26 21:23:58 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ and the loop continues
 */
 void	main_loop(t_minishell *minishell)
 {
+	welcome();
 	while (1)
 	{
 		minishell->line = readline("\033[36m""@nt->""\033[92m""p@w>""\033[0m");

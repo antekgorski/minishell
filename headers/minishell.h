@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 19:17:23 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/26 21:21:48 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 void	main_loop(t_minishell *minishell);
 void	minishell_init(t_minishell *minishell, char **envp);
 void	env_start(t_minishell *minishell, char **envp);
+void	welcome(void);
+
 
 // lexer functions
 
@@ -139,7 +141,7 @@ void	handle_other_redirections(t_redir *redirs);
 char	*handle_full_path(char *command, char *exec_path);
 int		has_input_redirection(t_redir *redirs);
 int		has_output_redirection(t_redir *redirs);
-int		validate_redirections(t_redir *redirs);
+int		validate_redirections(t_redir *redirs, t_minishell *minishell);
 int		validate_pipeline(t_cmd *cmds, t_minishell *minishell);
 
 #endif
