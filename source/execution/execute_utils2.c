@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 16:00:26 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/27 18:53:04 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,9 @@ char	**list_to_envp(t_list *env)
  */
 int	execute_child_process(char **args, t_minishell *minishell)
 {
-	char	*exec_path;
-	char	**envp;
+	char		*exec_path;
+	char		**envp;
+	struct stat	buf;
 
 	envp = list_to_envp(minishell->m_env);
 	if (!envp)
@@ -95,6 +96,19 @@ int	execute_child_process(char **args, t_minishell *minishell)
 		ft_free_split2(&envp);
 		ft_shell_free(minishell);
 		exit(127);
+	}
+	if (stat(exec_path, &buf) == 0)
+	{
+		if (S_ISDIR(buf.st_mode))
+		{
+			ft_putstr_fd("bash: ", 2);
+			ft_putstr_fd(exec_path, 2);
+			ft_putstr_fd(": Is a directory\n", 2);
+			free(exec_path);
+			ft_free_split2(&envp);
+			ft_shell_free(minishell);
+			exit(126);
+		}
 	}
 	if (execve(exec_path, args, envp) == -1)
 	{
