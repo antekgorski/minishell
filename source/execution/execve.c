@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/26 12:51:29 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:24:19 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	execute_external(char **args, t_minishell *minishell, t_cmd *cmd)
 	pid_t	pid;
 	int		status;
 
+	status = 0;
 	pid = fork();
 	if (pid < 0)
 	{
