@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 15:19:42 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:05:33 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ft_child_exec_external(t_cmd *cmd, t_minishell *minishell,
 	if (!cmd->argv || !cmd->argv[0])
 	{
 		handle_redirections(cmd->redirs);
+		ft_shell_free(minishell);
 		exit(0);
 	}
 	handle_redirections(cmd->redirs);

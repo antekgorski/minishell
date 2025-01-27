@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 12:30:33 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:00:26 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,14 @@ int	execute_child_process(char **args, t_minishell *minishell)
 		ft_putstr_fd(args[0], 2);
 		ft_putstr_fd(": command not found\n", 2);
 		ft_free_split2(&envp);
+		ft_shell_free(minishell);
 		exit(127);
 	}
 	if (execve(exec_path, args, envp) == -1)
 	{
-		perror("execve");
 		free(exec_path);
 		ft_free_split2(&envp);
-		exit(EXIT_FAILURE);
+		ft_panic("execve", EXIT_FAILURE);
 	}
 	exit(EXIT_SUCCESS);
 }
