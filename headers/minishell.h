@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 21:33:52 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/27 11:41:43 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	syntax_error(char *message, t_minishell *minishell);
 
 void	ft_shell_free(t_minishell *minishell);
 void	tab_free(char ***lexter_tab);
-void	env_free(t_list *env);
+void	env_free(t_list **env);
 void	ft_token_free(t_list **token_list);
 void	ft_free_cmd_list(t_cmd **cmd_ptr);
 
