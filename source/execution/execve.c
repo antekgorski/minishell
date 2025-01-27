@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execve.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 16:05:33 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/27 20:38:11 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	ft_child_exec_external(t_cmd *cmd, t_minishell *minishell,
 	}
 	handle_redirections(cmd->redirs);
 	minishell->f_signal = execute_child_process(args, minishell);
+	ft_shell_free(minishell);
 }
 
 /**

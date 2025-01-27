@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 18:53:04 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:45:59 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,13 @@ char	**list_to_envp(t_list *env)
  */
 int	execute_child_process(char **args, t_minishell *minishell)
 {
-	char		*exec_path;
-	char		**envp;
-	struct stat	buf;
+	char	*exec_path;
+	char	**envp;
 
 	envp = list_to_envp(minishell->m_env);
 	if (!envp)
 		ft_panic("envp", EXIT_FAILURE);
-	exec_path = find_executable(args[0], envp);
-	if (!exec_path)
-		exec_path = handle_full_path(args[0], exec_path);
+	exec_path = get_executable_path(args[0], envp);
 	if (!exec_path)
 	{
 		ft_putstr_fd("minishell: ", 2);
@@ -97,25 +94,9 @@ int	execute_child_process(char **args, t_minishell *minishell)
 		ft_shell_free(minishell);
 		exit(127);
 	}
-	if (stat(exec_path, &buf) == 0)
-	{
-		if (S_ISDIR(buf.st_mode))
-		{
-			ft_putstr_fd("bash: ", 2);
-			ft_putstr_fd(exec_path, 2);
-			ft_putstr_fd(": Is a directory\n", 2);
-			free(exec_path);
-			ft_free_split2(&envp);
-			ft_shell_free(minishell);
-			exit(126);
-		}
-	}
+	check_path_is_dir(exec_path, envp, minishell);
 	if (execve(exec_path, args, envp) == -1)
-	{
-		free(exec_path);
-		ft_free_split2(&envp);
-		ft_panic("execve", EXIT_FAILURE);
-	}
+		handle_execve_error(exec_path, envp);
 	exit(EXIT_SUCCESS);
 }
 

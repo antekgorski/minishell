@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/27 18:51:26 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:14:34 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,11 @@ int		has_input_redirection(t_redir *redirs);
 int		has_output_redirection(t_redir *redirs);
 int		validate_redirections(t_redir *redirs, t_minishell *minishell);
 int		validate_pipeline(t_cmd *cmds, t_minishell *minishell);
+char	*get_executable_path(char *arg, char **envp);
+void	check_path_is_dir(char *exec_path, char **envp, t_minishell *minishell);
+void	handle_execve_error(char *exec_path, char **envp);
+
+
+
 
 #endif

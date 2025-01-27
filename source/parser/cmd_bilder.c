@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:39:36 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 19:51:55 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:41:34 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ bool	ft_cmd_redir(t_minishell *minishell, t_cb *cb, t_token *redir_type)
 	{
 		printf("syntax error near unexpected token\n");
 		minishell->f_signal = 2;
+		ft_free_cmd_list(&cb->cmds);
 		return (false);
 	}
 	return (true);
