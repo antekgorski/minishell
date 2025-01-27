@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 12:57:53 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/27 13:16:25 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	ft_child_process(t_cmd *cmd, int in_fd, int out_fd,
 	if (is_builtin(cmd))
 	{
 		e_bild(cmd->argv, minishell);
-		//ft_shell_free(minishell);
+		ft_shell_free(minishell);
 	}
 	else
 		minishell->f_signal = execute_child_process(cmd->argv, minishell);
