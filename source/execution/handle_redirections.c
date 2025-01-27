@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/26 12:40:42 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:46:34 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	handle_other_redirections(t_redir *redirs)
 	t_redir	*temp;
 	int		fd;
 
+	fd = -1;
 	temp = redirs;
 	while (temp)
 	{
