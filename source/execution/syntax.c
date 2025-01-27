@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:23:56 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/26 21:34:56 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/27 14:03:35 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ int	validate_pipeline(t_cmd *cmds, t_minishell *minishell)
 	temp = cmds;
 	while (temp)
 	{
-		if (!temp->argv && !temp->redirs && temp->next)
+		if (!temp->argv && !temp->redirs && !temp->next)
+		{
+			print_syntax_error("|", minishell);
+			return (0);
+		}
+		if (temp->next && !temp->next->argv && !temp->next->redirs)
 		{
 			print_syntax_error("|", minishell);
 			return (0);
