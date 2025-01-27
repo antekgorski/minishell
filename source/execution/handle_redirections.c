@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 12:32:51 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:42:36 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	handle_other_redirections(t_redir *redirs)
 		else if (temp->type == APPEND)
 			fd = open(temp->filename, O_CREAT | O_WRONLY | O_APPEND, 0644);
 		if (fd < 0)
-			ft_panic("minishell: ", EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		if (temp->type == IREDIR)
 			dup2(fd, STDIN_FILENO);
 		else
