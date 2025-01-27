@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:23:49 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/27 11:41:52 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:03:20 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_shell_free(t_minishell *minishell)
 {
 	tab_free(&minishell->lexter_tab);
 	free(minishell->line);
-	env_free(&minishell->m_env);
+	env_free(minishell->m_env);
 	ft_token_free(&minishell->token_list);
 	ft_free_cmd_list(&minishell->cmd_list);
 	free(minishell->l_hdr);
@@ -46,19 +46,17 @@ void	tab_free(char ***lexter_tab)
 	*lexter_tab = NULL;
 }
 
-void	env_free(t_list **env)
+void	env_free(t_list *env)
 {
 	t_list	*tmp;
-	t_list	*list;
 	char	**env_vars;
 
-	list = *env;
 	if (env == NULL)
 		return ;
 	while (env)
 	{
-		tmp = list;
-		env_vars = (char **)list->content;
+		tmp = env;
+		env_vars = (char **)env->content;
 		if (env_vars != NULL)
 		{
 			free(env_vars[0]);
@@ -68,11 +66,11 @@ void	env_free(t_list **env)
 			free(env_vars);
 			env_vars = NULL;
 		}
-		list = list->next;
+		env = env->next;
 		free(tmp);
-		// tmp = NULL;
+		tmp = NULL;
 	}
-	*env = NULL;
+	env = NULL;
 }
 
 void	ft_token_free(t_list **token_list)
