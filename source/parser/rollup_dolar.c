@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rollup_dolar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 17:51:04 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/25 14:55:24 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/27 15:35:04 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_case_space(t_t *t, char *line)
 	char	*temp;
 
 	t->start = t->end;
-	while (ft_strchr(SYM_E, line[t->end]))
+	while (line[t->end] && ft_strchr(SYM_E, line[t->end]))
 		t->end++;
 	t->temp = ft_substr(line, t->start, (t->end - t->start));
 	temp = ft_strjoin(t->result, t->temp);
@@ -50,7 +50,7 @@ char	*ft_d_roll(char *line, t_minishell *minishell)
 		if (line[t.end] == '$' && line[t.end + 1] == '$')
 			ft_dolar_case2(&t);
 		if (line[t.end] == '$' && (line[t.end + 1] == '\0' || line[t.end
-					+ 1] == ' '))
+				+ 1] == ' '))
 			ft_dolar_case3(&t);
 		else if (line[t.end] == '$' && !strchr(SYMBOLS_S, line[t.end + 1]))
 			ft_dolar_case4(&t, line, minishell);

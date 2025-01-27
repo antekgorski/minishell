@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:57:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/25 19:16:32 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:19:29 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,9 @@ typedef struct s_redir
 
 /**
  * @brief struct for command
- * @param char **cmd
+ * @param char **argv
  * @param t_redir *redirs
- * @param int infile_fd
- * @param int outfile_fd
- * @param int is_builtin
- *
+ * @param struct s_cmd *next
  */
 typedef struct s_cmd
 {
