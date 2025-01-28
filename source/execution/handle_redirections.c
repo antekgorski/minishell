@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_redirections.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/28 15:24:24 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/28 22:14:18 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	handle_final_heredoc(int last_fd)
 static int	process_heredoc(t_redir *temp, int *last_fd)
 {
 	int	fd;
-	
+
 	if (temp->type != HERDOC)
 		return (0);
 	if (*last_fd != -1)
