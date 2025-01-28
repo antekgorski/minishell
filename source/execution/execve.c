@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execve.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 20:38:11 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:02:29 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void	ft_child_exec_external(t_cmd *cmd, t_minishell *minishell,
  */
 int	execute_external(char **args, t_minishell *minishell, t_cmd *cmd)
 {
-	pid_t	pid;
-	int		status;
+	int	pid;
+	int	status;
 
 	status = 0;
 	pid = fork();

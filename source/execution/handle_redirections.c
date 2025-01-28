@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_redirections.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 15:42:36 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:24:24 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static void	handle_final_heredoc(int last_fd)
 static int	process_heredoc(t_redir *temp, int *last_fd)
 {
 	int	fd;
-
+	
+	if (temp->type != HERDOC)
+		return (0);
 	if (*last_fd != -1)
 		close(*last_fd);
 	fd = handle_heredoc(temp->filename);
@@ -71,7 +73,7 @@ void	handle_other_redirections(t_redir *redirs)
 			fd = open(temp->filename, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 		else if (temp->type == APPEND)
 			fd = open(temp->filename, O_CREAT | O_WRONLY | O_APPEND, 0644);
-		if (fd < 0)
+		if (fd < 0 && temp->type != HERDOC)
 			exit(EXIT_FAILURE);
 		if (temp->type == IREDIR)
 			dup2(fd, STDIN_FILENO);

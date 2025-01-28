@@ -1,18 +1,5 @@
 {
-    "files.associations": {
-        "stdlib.h": "c",
-        "fcntl.h": "c",
-        "minishell.h": "c",
-        "array": "c",
-        "deque": "c",
-        "string": "c",
-        "unordered_map": "c",
-        "vector": "c",
-        "string_view": "c",
-        "initializer_list": "c",
-        "functional": "c",
-        "utility": "c",
-        "structs.h": "c"
-    },
-    "makefile.configureOnOpen": false
+	"files.associations": {
+		"minishell.h": "c"
+	}
 }
