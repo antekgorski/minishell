@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/29 16:08:31 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/29 22:05:28 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ static void	ft_child_process(t_cmd *cmd, int in_fd, int out_fd,
 		dup2(out_fd, STDOUT_FILENO);
 		close(out_fd);
 	}
+	close(3);
+	close(4);
 	if (!cmd->argv || !cmd->argv[0])
 		ft_shell_free(minishell);
 	else if (is_builtin(cmd))
