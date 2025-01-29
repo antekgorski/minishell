@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/29 14:09:34 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:43:06 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define SYMBOLS_D "|<>\"\' \t"
 # define SYMBOLS_C "|<> \t\0"
 # define SYMBOLS_R "$ \t\0"
+# define SYMBOLS_RR "$ \'\t\0"
 # define SYMBOLS_S "$?\0"
 # define SYM_E " \t"
 
