@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/24 10:38:57 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:24:12 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	ft_echo(char **args)
 {
 	int	i;
 	int	new_line;
+	int	len;
 
 	i = 1;
 	new_line = 1;
@@ -42,12 +43,13 @@ int	ft_echo(char **args)
 	}
 	while (args[i])
 	{
-		printf("%s", args[i]);
+		len = ft_strlen(args[i]);
+		write(STDOUT_FILENO, args[i], len);
 		if (args[i + 1])
-			printf(" ");
+			write(STDOUT_FILENO, " ", 1);
 		i++;
 	}
 	if (new_line)
-		printf("\n");
+		write(STDOUT_FILENO, "\n", 1);
 	return (0);
 }

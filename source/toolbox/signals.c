@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 20:08:43 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:20:50 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	sigint_handler_child(int sig)
 {
 	(void)sig;
 	write(STDOUT_FILENO, "\n", 1);
+	exit(130);
 }
 
 static void	sigquit_handler_main(int sig)
