@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/28 13:37:23 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/29 14:09:34 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,5 +146,6 @@ int		validate_pipeline(t_cmd *cmds, t_minishell *minishell);
 char	*get_executable_path(char *arg, char **envp);
 void	check_path_is_dir(char *exec_path, char **envp, t_minishell *minishell);
 void	handle_execve_error(char *exec_path, char **envp);
+char	*ft_strtok(char *str, const char *delim);
 
 #endif

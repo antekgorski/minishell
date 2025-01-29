@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_redirections.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/28 22:14:18 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/29 14:52:58 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static void	handle_final_heredoc(int last_fd)
 {
 	if (last_fd != -1)
 	{
-		dup2(last_fd, STDIN_FILENO);
+		if (dup2(last_fd, STDIN_FILENO) == -1)
+			ft_panic("minishell: dup2 failed\n", EXIT_FAILURE);
 		close(last_fd);
 	}
 }
@@ -25,14 +26,17 @@ static int	process_heredoc(t_redir *temp, int *last_fd)
 {
 	int	fd;
 
-	if (temp->type != HERDOC)
-		return (0);
 	if (*last_fd != -1)
 		close(*last_fd);
 	fd = handle_heredoc(temp->filename);
 	if (fd < 0)
 		return (-1);
 	*last_fd = fd;
+	if (*last_fd < 0)
+	{
+		ft_putstr_fd("minishell: open failed\n", 2);
+		return (-1);
+	}
 	return (0);
 }
 

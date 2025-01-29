@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/28 13:37:51 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/29 15:23:46 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,28 @@ void	handle_execve_error(char *exec_path, char **envp)
 	free(exec_path);
 	ft_free_split2(&envp);
 	ft_panic("execve", EXIT_FAILURE);
+}
+
+char	*ft_strtok(char *str, const char *delim)
+{
+	static char	*static_str;
+	char		*token;
+
+	if (str)
+		static_str = str;
+	if (!static_str)
+		return (NULL);
+	while (*static_str && ft_strchr(delim, *static_str))
+		static_str++;
+	if (!*static_str)
+		return (NULL);
+	token = static_str;
+	while (*static_str && !ft_strchr(delim, *static_str))
+		static_str++;
+	if (*static_str)
+	{
+		*static_str = '\0';
+		static_str++;
+	}
+	return (token);
 }

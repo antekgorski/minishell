@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/25 19:20:53 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:19:47 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*find_executable(char *command, char **envp)
 	char	*full_path;
 
 	path = get_path_variable(envp);
-	token = strtok(path, ":");
+	token = ft_strtok(path, ":");
 	while (token)
 	{
 		full_path = construct_full_path(token, command);
@@ -85,7 +85,7 @@ char	*find_executable(char *command, char **envp)
 			return (full_path);
 		}
 		free(full_path);
-		token = strtok(NULL, ":");
+		token = ft_strtok(NULL, ":");
 	}
 	free(path);
 	return (NULL);
