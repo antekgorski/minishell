@@ -6,24 +6,11 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/27 12:11:38 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:02:09 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minishell.h"
-
-static void	free_env_var(char **env_var)
-{
-	int	i;
-
-	i = 0;
-	if (env_var[i])
-	{
-		free(env_var[i]);
-		env_var[i] = NULL;
-		i++;
-	}
-}
 
 static int	ft_update_env(char *key, char *value, t_list **env)
 {
@@ -50,7 +37,6 @@ static int	ft_update_env(char *key, char *value, t_list **env)
 	new_env[1] = ft_strdup(value);
 	new_env[2] = NULL;
 	ft_lstadd_back(env, ft_lstnew(new_env));
-	free_env_var(new_env);
 	return (0);
 }
 

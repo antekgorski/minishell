@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/29 15:23:46 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:07:35 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	check_path_is_dir(char *exec_path, char **envp, t_minishell *minishell)
 	{
 		if (S_ISDIR(buf.st_mode))
 		{
-			ft_putstr_fd("bash: ", 2);
+			ft_putstr_fd("minishell: ", 2);
 			ft_putstr_fd(exec_path, 2);
 			ft_putstr_fd(": Is a directory\n", 2);
 			free(exec_path);
