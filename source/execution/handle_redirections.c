@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/29 14:52:58 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:36:16 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ void	handle_other_redirections(t_redir *redirs)
 			dup2(fd, STDIN_FILENO);
 		else
 			dup2(fd, STDOUT_FILENO);
-		close(fd);
+		if (fd != -1)
+			close(fd);
 		temp = temp->next;
 	}
 }
