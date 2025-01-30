@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/29 23:43:06 by agorski          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:55:34 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "structs.h"
 
 // system includes
+# include <errno.h>
 # include <limits.h>
 # include <readline/history.h>
 # include <readline/readline.h>
@@ -148,5 +149,12 @@ char	*get_executable_path(char *arg, char **envp);
 void	check_path_is_dir(char *exec_path, char **envp, t_minishell *minishell);
 void	handle_execve_error(char *exec_path, char **envp);
 char	*ft_strtok(char *str, const char *delim);
+void	handle_command_not_found(char **args, char **envp,
+			t_minishell *minishell);
+void	clean_and_free(char *exec_path, char **envp, t_minishell *minishell,
+			int exit_code);
+void	print_error_message(char *arg, char *error_message);
+int		check_redirection_access(t_cmd *cmd, t_minishell *minishell);
+int		check_pipeline_redirections(t_cmd *cmds, t_minishell *minishell);
 
 #endif

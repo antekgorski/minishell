@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agorski <agorski@student.42.fr>            +#+  +:+       +#+         #
+#    By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 14:45:11 by agorski           #+#    #+#              #
-#    Updated: 2025/01/27 11:24:06 by agorski          ###   ########.fr        #
+#    Updated: 2025/01/30 16:31:23 by prutkows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS = source/main.c source/builtins/builtins_utils.c source/builtins/execute.c 
 	source/parser/parser.c source/parser/rollup_dolar.c source/toolbox/env_list_utils.c \
 	source/toolbox/env.c source/toolbox/error_handler.c source/toolbox/free.c \
 	source/toolbox/signals.c source/toolbox/signals_utils.c source/toolbox/welcome.c \
+	source/execution/execute_utils4.c \
 
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = libft

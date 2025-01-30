@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/30 12:36:11 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:46:06 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,15 +90,10 @@ int	execute_child_process(char **args, t_minishell *minishell)
 	if (!envp)
 		ft_panic("envp", EXIT_FAILURE);
 	exec_path = get_executable_path(args[0], envp);
-	if (!exec_path)
-	{
-		ft_putstr_fd("minishell: ", 2);
-		ft_putstr_fd(args[0], 2);
-		ft_putstr_fd(": command not found\n", 2);
-		ft_free_split2(&envp);
-		ft_shell_free(minishell);
-		exit(127);
-	}
+	if (!exec_path && (args[0][0] != '/' && args[0][0] != '.'))
+		handle_command_not_found(args, envp, minishell);
+	if (args[0][0] == '/' || args[0][0] == '.')
+		exec_path = ft_strdup(args[0]);
 	check_path_is_dir(exec_path, envp, minishell);
 	if (execve(exec_path, args, envp) == -1)
 		handle_execve_error(exec_path, envp);

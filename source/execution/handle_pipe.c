@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:23:56 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/27 20:14:20 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:55:48 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ static void	execute_pipeline(t_cmd *cmds, t_minishell *minishell)
 	int		count;
 	pid_t	pids[1024];
 
+	if (check_pipeline_redirections(cmds, minishell))
+		return ;
 	count = 0;
 	launch_pipeline(cmds, minishell, pids, &count);
 	wait_for_pipeline(pids, count, minishell);
@@ -116,11 +118,7 @@ void	execute(t_cmd *cmds, t_minishell *minishell)
 		temp = temp->next;
 	}
 	if (pipeline)
-	{
 		execute_pipeline(cmds, minishell);
-	}
-	else
-	{
+	else if (!check_redirection_access(cmds, minishell))
 		execute_single_command(cmds, minishell);
-	}
 }
