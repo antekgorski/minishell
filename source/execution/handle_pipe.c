@@ -102,7 +102,7 @@ void	execute(t_cmd *cmds, t_minishell *minishell)
 {
 	t_cmd	*temp;
 	int		pipeline;
-	
+
 	if (!cmds)
 		return ;
 	if (!validate_pipeline(cmds, minishell))

@@ -99,7 +99,6 @@ pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell)
 	if (pid == 0)
 		ft_child_process(cmd, in_fd, out_fd, minishell);
 	else
-		signal(SIGINT,SIG_IGN);
-
+		signal(SIGINT, SIG_IGN);
 	return (pid);
 }
