@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:33:16 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/30 18:57:25 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/31 09:00:01 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	main_loop(t_minishell *minishell)
 	welcome();
 	while (1)
 	{
+		signal_initialization();
 		minishell->line = readline("\033[36m""@nt->""\033[92m""p@w>""\033[0m");
 		handle_input(minishell->line, minishell);
 		if (minishell->line)
@@ -70,7 +71,6 @@ void	minishell_init(t_minishell *minishell, char **envp)
 	minishell->l_hdr = NULL;
 	minishell->cmd_list = NULL;
 	env_start(minishell, envp);
-	signal_initialization();
 }
 
 int	main(int argc, char **argv, char **envp)

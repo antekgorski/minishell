@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/31 08:47:07 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/31 09:01:06 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	execute_external(char **args, t_minishell *minishell, t_cmd *cmd)
 	{
 		signal(SIGINT, SIG_IGN);
 		status = wait_for_child_process(pid);
-		signal_initialization();
 	}
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
@@ -101,5 +100,6 @@ pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell)
 		ft_child_process(cmd, in_fd, out_fd, minishell);
 	else
 		signal(SIGINT,SIG_IGN);
+
 	return (pid);
 }
