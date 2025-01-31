@@ -6,7 +6,7 @@
 /*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:54:52 by prutkows          #+#    #+#             */
-/*   Updated: 2025/01/30 17:19:31 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/01/31 08:47:07 by prutkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,7 @@ pid_t	run_proces(t_cmd *cmd, int in_fd, int out_fd, t_minishell *minishell)
 	}
 	if (pid == 0)
 		ft_child_process(cmd, in_fd, out_fd, minishell);
+	else
+		signal(SIGINT,SIG_IGN);
 	return (pid);
 }
