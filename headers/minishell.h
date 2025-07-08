@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prutkows <prutkows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:36:02 by agorski           #+#    #+#             */
-/*   Updated: 2025/01/30 18:55:34 by prutkows         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:30:37 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//Co-authored-by: Pawel Rudkowski <pawa202@wp.pl>"   
+//Co-authored-by: Antek Gorski <antek.gorski@wp.pl>"   
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
