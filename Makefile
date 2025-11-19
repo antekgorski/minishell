@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = minishell
+WEBSERVER = webserver
 SRCS_DIR = source
 SRCS = source/main.c source/builtins/builtins_utils.c source/builtins/execute.c \
 	source/builtins/ft_cd.c source/builtins/ft_echo.c source/builtins/ft_env.c \
@@ -40,7 +41,7 @@ REDLINE = -lreadline
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(LIBFT) $(NAME)
+all: $(LIBFT) $(NAME) $(WEBSERVER)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
@@ -49,8 +50,11 @@ $(NAME):
 	make all -C libft
 	$(CC) $(CFLAGS) $(SRCS) -o $(NAME) $(LIBFT) $(INCLUDE) $(REDLINE)
 
+$(WEBSERVER):
+	$(CC) $(CFLAGS) source/webserver.c -o $(WEBSERVER) $(INCLUDE)
+
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(WEBSERVER)
 	make fclean -C libft
 
 clean:
@@ -69,4 +73,6 @@ retest:
 	make fclean
 	make test
 
-.PHONY: all clean fclean re test retest test_libft
+webserver: $(WEBSERVER)
+
+.PHONY: all clean fclean re test retest test_libft webserver
