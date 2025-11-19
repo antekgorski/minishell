@@ -1,0 +1,24 @@
+# Compiled binaries
+minishell
+webserver
+
+# Object files
+*.o
+*.a
+
+# Build directories
+libft/obj/
+libft/libft.a
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# System files
+.DS_Store
+
+# Test files
+test_output/
